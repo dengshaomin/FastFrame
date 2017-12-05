@@ -215,7 +215,9 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
             this.datas.addAll(datas);
         }
         mCListCallBackLister = cListCallBackInterface;
-        mAdapter.notifyDataSetChanged();
+        if (datas != null && datas.size() > 0) {
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
     public void updateData(List<T> datas) {
@@ -241,9 +243,17 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
                 }
 
                 @Override
-                public void onBindViewHolder(ViewHolder holder, int position) {
+                public void onBindViewHolder(final ViewHolder holder, final int position) {
                     if (mCListCallBackLister != null) {
                         mCListCallBackLister.onBindViewHolder(holder, position);
+                        if (holder != null && holder.itemView != null && datas != null && 0 <= position && position < datas.size()) {
+                            holder.itemView.setOnClickListener(new OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    mCListCallBackLister.onItemClickLister(holder.itemView, datas.get(position), position);
+                                }
+                            });
+                        }
                     }
                 }
 
@@ -346,6 +356,7 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
         }
         return mAdapter.getItemCount() == 0 || mAdapter.getItemCount() % pageSize != 0 ? false : true;
     }
+
     public void refreshComplete(int state) {
         if (refreshState == START) {
             mXrefreshview.stopRefresh();
@@ -365,6 +376,7 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
                 break;
         }
     }
+
     @Override
     public void initBundleData() {
         datas = new ArrayList<>();

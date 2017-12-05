@@ -4,8 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:background="@android:color/white"
-    android:padding="10dp"
     >
 
     <ProgressBar
@@ -13,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_centerHorizontal="true"
+        android:visibility="gone"
         />
 
 

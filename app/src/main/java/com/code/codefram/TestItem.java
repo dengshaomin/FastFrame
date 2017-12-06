@@ -5,10 +5,9 @@ import java.util.List;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
 
-import com.code.codeframlibrary.commons.BaseLayout;
+import com.code.codeframlibrary.commons.baseview.BaseLayout;
 import com.code.codeframlibrary.commons.GlobalMsg;
 
 import butterknife.BindView;

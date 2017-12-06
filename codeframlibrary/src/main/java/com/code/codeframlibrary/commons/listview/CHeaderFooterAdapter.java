@@ -26,6 +26,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.code.codeframlibrary.R;
+import com.code.codeframlibrary.commons.ciface.CHeadClickInterface;
 import com.h6ah4i.android.widget.advrecyclerview.headerfooter.AbstractHeaderFooterWrapperAdapter;
 import com.h6ah4i.android.widget.advrecyclerview.utils.RecyclerViewAdapterUtils;
 import com.h6ah4i.android.widget.advrecyclerview.utils.WrapperAdapterUtils;
@@ -116,7 +117,7 @@ public class CHeaderFooterAdapter
     }
 
     public void addFooterItem(View view) {
-        mFooterItems.add(view);
+        mFooterItems.add(mFooterItems.size() > 0 ? mFooterItems.size() - 1 : 0, view);
         getFooterAdapter().notifyItemInserted(mFooterItems.size() - 1);
     }
 
@@ -124,8 +125,10 @@ public class CHeaderFooterAdapter
         if (mFooterItems.isEmpty()) {
             return;
         }
-        mFooterItems.remove(mFooterItems.size() - 1);
-        getFooterAdapter().notifyItemRemoved(mFooterItems.size());
+        if (mFooterItems.size() > 1) {
+            mFooterItems.remove(mFooterItems.size() -2);
+            getFooterAdapter().notifyItemRemoved(mFooterItems.size() -2);
+        }
     }
 
     @Override
@@ -140,6 +143,7 @@ public class CHeaderFooterAdapter
 
         // need to determine adapter local position like this:
         RecyclerView.Adapter rootAdapter = rv.getAdapter();
+        //总位置，包含footview 以及item的位置，如果是footview点击，需要得到准确第几个位置，需要减去headcount以及itemcount
         int localPosition = WrapperAdapterUtils.unwrapPosition(rootAdapter, this, rootPosition);
 
         // get segment
@@ -157,7 +161,7 @@ public class CHeaderFooterAdapter
             throw new IllegalStateException("Something wrong.");
         }
         if (mCItemClickInterface != null) {
-            mCItemClickInterface.onHeadFootClickLister(v, null, 0);
+            mCItemClickInterface.onHeadFootClickLister(v, null, localPosition);
         }
     }
 
@@ -178,7 +182,7 @@ public class CHeaderFooterAdapter
                 if (mFooterItems.get(i).getId() == footView.getId()) {
                     mFooterItems.remove(i);
                     mHeaderItems.remove(mHeaderItems.size() - 1);
-                    getHeaderAdapter().notifyItemRemoved(mHeaderItems.size());
+                    getHeaderAdapter().notifyItemRemoved(i);
                     break;
                 }
             }
@@ -191,7 +195,7 @@ public class CHeaderFooterAdapter
             for (int i = 0; i < mFooterItems.size(); i++) {
                 if (mFooterItems.get(i).getId() == footView.getId()) {
                     mHeaderItems.remove(i);
-                    getHeaderAdapter().notifyItemRemoved(mHeaderItems.size());
+                    getHeaderAdapter().notifyItemRemoved(i);
                     break;
                 }
             }

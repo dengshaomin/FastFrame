@@ -20,10 +20,10 @@ import android.view.ViewGroup;
 import com.andview.refreshview.XRefreshView;
 import com.andview.refreshview.XRefreshView.SimpleXRefreshListener;
 import com.code.codeframlibrary.R;
-import com.code.codeframlibrary.commons.BaseLayout;
+import com.code.codeframlibrary.commons.baseview.BaseLayout;
 import com.code.codeframlibrary.commons.GlobalMsg;
-
-import butterknife.BindView;
+import com.code.codeframlibrary.commons.ciface.CHeadClickInterface;
+import com.code.codeframlibrary.commons.ciface.CListCallBackInterface;
 
 /**
  * Created by dengshaomin on 2017/12/4.
@@ -176,6 +176,42 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
             }
         });
 
+    }
+
+    public void addHeadView(View view) {
+        if (mCHeaderFooterAdapter != null) {
+            mCHeaderFooterAdapter.addHeaderItem(view);
+        }
+    }
+
+    public void removeHeadView(View view) {
+        if (mCHeaderFooterAdapter != null) {
+            mCHeaderFooterAdapter.removeHeaderView(view);
+        }
+    }
+
+    public void removeHeadView() {
+        if (mCHeaderFooterAdapter != null) {
+            mCHeaderFooterAdapter.removeHeaderItem();
+        }
+    }
+
+    public void addFooterView(View view) {
+        if (mCHeaderFooterAdapter != null) {
+            mCHeaderFooterAdapter.addFooterItem(view);
+        }
+    }
+
+    public void removeFooterView(View view) {
+        if (mCHeaderFooterAdapter != null) {
+            mCHeaderFooterAdapter.removeFootView(view);
+        }
+    }
+
+    public void removeFooterView() {
+        if (mCHeaderFooterAdapter != null) {
+            mCHeaderFooterAdapter.removeFooterItem();
+        }
     }
 
     private boolean isScrollBottom() {

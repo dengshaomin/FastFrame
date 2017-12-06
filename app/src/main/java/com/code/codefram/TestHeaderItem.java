@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.code.codeframlibrary.commons.BaseLayout;
+import com.code.codeframlibrary.commons.baseview.BaseLayout;
 import com.code.codeframlibrary.commons.GlobalMsg;
 
 import butterknife.BindView;

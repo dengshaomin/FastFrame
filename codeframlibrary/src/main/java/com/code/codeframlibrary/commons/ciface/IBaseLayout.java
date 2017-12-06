@@ -1,6 +1,8 @@
-package com.code.codeframlibrary.commons;
+package com.code.codeframlibrary.commons.ciface;
 
 import java.util.List;
+
+import com.code.codeframlibrary.commons.GlobalMsg;
 
 
 /**

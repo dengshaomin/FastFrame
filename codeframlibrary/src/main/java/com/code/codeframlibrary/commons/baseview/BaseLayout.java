@@ -1,4 +1,4 @@
-package com.code.codeframlibrary.commons;
+package com.code.codeframlibrary.commons.baseview;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import com.code.codeframlibrary.commons.GlobalMsg;
+import com.code.codeframlibrary.commons.ciface.IBaseLayout;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -22,6 +25,7 @@ import butterknife.Unbinder;
 /**
  * Created by dengshaomin on 2016/10/21.
  */
+//如果是recycleview 的item继承此类，可能由于回收服用问题导致 unbinder被调用，找不到内部布局变量，此时将 ButterKnife.bind 转移到setviewdata
 public abstract class BaseLayout extends LinearLayout implements IBaseLayout {
     private View rootView;
     private List<String> eventList = new ArrayList<>();
@@ -79,13 +83,13 @@ public abstract class BaseLayout extends LinearLayout implements IBaseLayout {
     protected void onDetachedFromWindow() {
         //unrefeist
         EventBus.getDefault().unregister(this);
-//        try {
-//            if (unbinder != null) {
-//                unbinder.unbind();
-//            }
-//        } catch (Exception e) {
-//
-//        }
+        try {
+            if (unbinder != null) {
+                unbinder.unbind();
+            }
+        } catch (Exception e) {
+
+        }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.code.codeframlibrary.R;
-import com.code.codeframlibrary.commons.BaseLayout;
+import com.code.codeframlibrary.commons.baseview.BaseLayout;
 import com.code.codeframlibrary.commons.GlobalMsg;
 
 /**

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.code.codefram.SPUtilsActivity"
+    >
+
+    <EditText
+        android:id="@+id/key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="http://www.baidu.com"
+        android:textSize="20sp"
+        />
+
+
+    <com.code.codeframlibrary.commons.widgets.SuperButton
+        android:id="@+id/request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:text="request"
+        android:textColor="@color/white"
+        stv:sCornersRadius="5dp"
+        stv:sSelectorNormalColor="@color/colorAccent"
+        stv:sSelectorPressedColor="@color/line"
+        stv:sUseSelector="true"
+        />
+
+
+    <TextView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+</LinearLayout>

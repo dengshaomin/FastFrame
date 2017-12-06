@@ -2,6 +2,8 @@ package com.code.codeframlibrary.commons;
 
 import android.content.Context;
 
+import com.code.codeframlibrary.commons.retrofit.RetrofitHttpUtil;
+import com.code.codeframlibrary.commons.utils.CSPUtils;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 
@@ -10,10 +12,23 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig;
  */
 
 public class CodeFram {
-    public static void init(Context context) {
+
+    public static Context mContext;
+
+    public static void init(Context context, String serverUrl) {
+        mContext = context;
         ImagePipelineConfig config = ImagePipelineConfig.newBuilder(context)
                 .setDownsampleEnabled(true)
                 .build();
         Fresco.initialize(context, config);
+        RetrofitHttpUtil.BASE_URL = serverUrl;
+    }
+
+    public static void init(Context context) {
+        init(context, null);
+    }
+
+    public static void onDestory(Context context) {
+        CSPUtils.getInstance(context).commit();
     }
 }

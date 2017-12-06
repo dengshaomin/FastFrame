@@ -3,7 +3,7 @@ package com.code.codefram;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.code.codeframlibrary.commons.iamgeloader.CImageLoader;
+import com.code.codeframlibrary.commons.utils.CImageUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.BindView;
@@ -23,7 +23,7 @@ public class FrescoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fresco);
         mUnbinder = ButterKnife.bind(this);
 
-        CImageLoader.getInstance().loadImage(mImage, "http://pic4.nipic.com/20091217/3885730_124701000519_2.jpg");
+        CImageUtils.getInstance().loadImage(mImage, "http://pic4.nipic.com/20091217/3885730_124701000519_2.jpg");
     }
 
     @Override

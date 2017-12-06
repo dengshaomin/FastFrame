@@ -39,7 +39,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".CListViewActivity" />
-        <activity android:name=".FrescoActivity"></activity>
+        <activity android:name=".FrescoActivity" />
+        <activity android:name=".SPUtilsActivity"></activity>
+        <activity android:name=".SuperButtonActivity"></activity>
+        <activity android:name=".FileUtilsActivity"></activity>
+        <activity android:name=".RetrofitUtilsActivity"></activity>
     </application>
 
 </manifest>

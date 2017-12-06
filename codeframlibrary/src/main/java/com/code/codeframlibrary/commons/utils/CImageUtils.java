@@ -1,4 +1,4 @@
-package com.code.codeframlibrary.commons.iamgeloader;
+package com.code.codeframlibrary.commons.utils;
 
 import android.content.Context;
 import android.net.Uri;
@@ -20,15 +20,15 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
  * Created by dengshaomin on 2017/11/7.
  */
 
-public class CImageLoader {
+public class CImageUtils {
 
-    public static CImageLoader imageLoader = null;
+    public static CImageUtils imageLoader = null;
 
-    public static CImageLoader getInstance() {
+    public static CImageUtils getInstance() {
         if (imageLoader == null) {
-            synchronized (CImageLoader.class) {
+            synchronized (CImageUtils.class) {
                 if (imageLoader == null) {
-                    imageLoader = new CImageLoader();
+                    imageLoader = new CImageUtils();
                 }
             }
         }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="commonBackGround">#f1f1f1</color>
+    <color name="white">#ffffff</color>
+    <color name="desc">#d9d9ef</color>
+    <color name="font">#000000</color>
+    <color name="bannerUnSelect">#5d5d5d</color>
+    <color name="line">#d2d2d2</color>
+    <color name="translate">#00000000</color>
+
+    <color name="room_second_title">#aeadb7</color>
+</resources>

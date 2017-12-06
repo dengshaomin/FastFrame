@@ -40,10 +40,11 @@
         </activity>
         <activity android:name=".CListViewActivity" />
         <activity android:name=".FrescoActivity" />
-        <activity android:name=".SPUtilsActivity"></activity>
-        <activity android:name=".SuperButtonActivity"></activity>
-        <activity android:name=".FileUtilsActivity"></activity>
-        <activity android:name=".RetrofitUtilsActivity"></activity>
+        <activity android:name=".SPUtilsActivity" />
+        <activity android:name=".SuperButtonActivity" />
+        <activity android:name=".FileUtilsActivity" />
+        <activity android:name=".RetrofitUtilsActivity" />
+        <activity android:name=".BannerActivity"></activity>
     </application>
 
 </manifest>

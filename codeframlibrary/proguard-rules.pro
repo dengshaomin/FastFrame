@@ -180,3 +180,8 @@ public static final android.os.Parcelable$Creator *;
 -keepattributes Signature
 -dontwarn com.alibaba.fastjson.**
 -keep class com.alibaba.fastjson.**{*; }
+
+#banner
+-keep class com.youth.banner.** {
+    *;
+ }

@@ -46,4 +46,5 @@ dependencies {
     compile('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.11.0@aar') {
         transitive = true
     }
+    compile 'com.youth.banner:banner:1.4.10'  //最新版本
 }

@@ -22,7 +22,7 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
 public class CImageUtils {
 
-    public static CImageUtils imageLoader = null;
+    private static CImageUtils imageLoader = null;
 
     public static CImageUtils getInstance() {
         if (imageLoader == null) {

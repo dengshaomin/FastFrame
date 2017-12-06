@@ -82,14 +82,14 @@ public abstract class BaseLayout extends LinearLayout implements IBaseLayout {
     @Override
     protected void onDetachedFromWindow() {
         //unrefeist
-        EventBus.getDefault().unregister(this);
-        try {
-            if (unbinder != null) {
-                unbinder.unbind();
-            }
-        } catch (Exception e) {
-
-        }
+//        EventBus.getDefault().unregister(this);
+//        try {
+//            if (unbinder != null) {
+//                unbinder.unbind();
+//            }
+//        } catch (Exception e) {
+//
+//        }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

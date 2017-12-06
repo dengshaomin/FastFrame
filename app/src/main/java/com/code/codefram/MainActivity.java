@@ -35,7 +35,8 @@ public class MainActivity extends PermissionActivity {
         str_name.add("SuperButton");
         str_name.add("FileUtils");
         str_name.add("RetrofitUtils");
-        str_name.add("Bannere");
+        str_name.add("Banner");
+        str_name.add("TabBar");
         lv = (ListView) findViewById(R.id.lv);
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, str_name);
@@ -57,6 +58,9 @@ public class MainActivity extends PermissionActivity {
                     startActivity(new Intent(MainActivity.this, RetrofitUtilsActivity.class));
                 }else if (position == 6) {
                     startActivity(new Intent(MainActivity.this, BannerActivity.class));
+                }
+                else if (position == 7) {
+                    startActivity(new Intent(MainActivity.this, TabBarActivity.class));
                 }
             }
         });

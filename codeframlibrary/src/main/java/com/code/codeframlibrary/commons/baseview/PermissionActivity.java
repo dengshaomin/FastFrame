@@ -10,13 +10,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 
 import com.code.codeframlibrary.commons.ciface.IPermissionActivity;
 import com.github.lazylibrary.util.ToastUtils;
 
 
-public abstract class PermissionActivity extends Activity implements IPermissionActivity {
+public abstract class PermissionActivity extends AppCompatActivity implements IPermissionActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_CODE = 1;
 

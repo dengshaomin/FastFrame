@@ -34,7 +34,7 @@ public class CListViewActivity extends AppCompatActivity implements CListCallBac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clist_view);
         datas = new ArrayList<>();
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 10; i++) {
             datas.add(i + "");
         }
         mCListView = findViewById(R.id.recycler_view);

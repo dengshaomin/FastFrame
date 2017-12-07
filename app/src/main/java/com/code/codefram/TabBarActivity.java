@@ -91,7 +91,7 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
         list.add(mTab2);
         list.add(mTab3);
 //        list.add(mTab4);
-        viewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager(), list));
+        viewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager(), list,mTitles));
         tabbar.setContainer(viewPager);
         tabbar.setDismissListener(this);
         //显示圆点模式的徽章

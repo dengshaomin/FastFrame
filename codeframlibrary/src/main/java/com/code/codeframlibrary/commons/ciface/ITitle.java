@@ -5,14 +5,16 @@ package com.code.codeframlibrary.commons.ciface;
  */
 
 public interface ITitle {
+
     public boolean needTitle();
+
+    public String setTitleText();
 
     public int setTitleLeftImage();
 
     public int setTitleRightImage();
 
-    public String setTitleText();
-
     public void titleLeftClick();
+
     public void titleRightClick();
 }

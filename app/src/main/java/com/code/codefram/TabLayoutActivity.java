@@ -107,7 +107,6 @@ public class TabLayoutActivity extends BaseTitleActivity implements OnTabSelectL
             mFragments.add(SimpleCardFragment.getInstance(title));
         }
 
-        View decorView = getWindow().getDecorView();
         mAdapter = new FragmentAdapter(getSupportFragmentManager(), mFragments,mTitles);
         mVp.setAdapter(mAdapter);
 

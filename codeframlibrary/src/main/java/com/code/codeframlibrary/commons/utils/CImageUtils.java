@@ -1,20 +1,22 @@
 package com.code.codeframlibrary.commons.utils;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
+import java.io.File;
 
-import com.facebook.common.executors.CallerThreadExecutor;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.interfaces.DraweeController;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.core.ImagePipeline;
-import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
+import android.text.TextUtils;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.transition.Transition;
+import com.code.codeframlibrary.commons.CodeFram;
+import com.code.codeframlibrary.commons.ciface.CIGlideBitmapCallBack;
+import com.code.codeframlibrary.commons.ciface.CIGlideUrlCallBack;
+import com.code.codeframlibrary.commons.glide.GlideApp;
 
 /**
  * Created by dengshaomin on 2017/11/7.
@@ -35,39 +37,85 @@ public class CImageUtils {
         return imageLoader;
     }
 
-    public void loadImage(SimpleDraweeView simpleDraweeView, String url) {
-        SimpleDraweeView mSimpleDraweeView = simpleDraweeView;
-        if (mSimpleDraweeView == null) {
+    /**
+     * 使用当前context当 activity 或fragment生命周期结束时,glide会停止加载
+     */
+    public void loadImage(Context context, ImageView imageView, String url) {
+        if (imageView == null || context == null) {
             return;
         }
-        if (TextUtils.isEmpty(url)) {
+        GlideApp.with(context).load(url)
+//              .placeholder(R.drawable.icon_back)
+//              .error(R.drawable.icon_back)
+                .into(imageView);
+    }
+
+    /**
+     * 使用当前applictioncontext
+     */
+    public void loadImage(ImageView imageView, String url) {
+        if (imageView == null || CodeFram.mContext == null) {
             return;
         }
-        if (url.endsWith(".gif") || url.endsWith(".webp")) {
-            DraweeController mDraweeController = Fresco.newDraweeControllerBuilder()
-                    .setAutoPlayAnimations(true)
-                    .setUri(Uri.parse(url))//设置uri
-                    .build();
-            mSimpleDraweeView.setController(mDraweeController);
-        } else {
-            mSimpleDraweeView.setImageURI(url);
+        GlideApp.with(CodeFram.mContext).load(url)
+//                .placeholder(R.drawable.icon_back)
+//                .error(R.drawable.icon_back)
+                .into(imageView);
+    }
+
+    public void getDiskUrl(Context context, String imageUrl, CIGlideUrlCallBack ciGlideUrlCallBack) {
+        if (TextUtils.isEmpty(imageUrl) || context == null || ciGlideUrlCallBack == null) {
+            return;
+        }
+        GetImageCacheTask getImageCacheTask = new GetImageCacheTask();
+        getImageCacheTask.SaveImageTask(context);
+        getImageCacheTask.execute(imageUrl, ciGlideUrlCallBack);
+    }
+
+    public void getDiskImage(Context context, String imageUrl, final CIGlideBitmapCallBack ciGlideUrlCallBack) {
+        if (TextUtils.isEmpty(imageUrl) || context == null || ciGlideUrlCallBack == null) {
+            return;
+        }
+        Glide.with(context).load(imageUrl).into(new SimpleTarget<Drawable>() {
+            @Override
+            public void onResourceReady(Drawable resource, Transition<? super Drawable> transition) {
+                ciGlideUrlCallBack.callBack(((BitmapDrawable) resource).getBitmap());
+            }
+        });
+    }
+
+    class GetImageCacheTask extends AsyncTask<Object, Void, File> {
+
+        private Context context;
+
+        private CIGlideUrlCallBack mCIGlideUrlCallBack;
+
+        public void SaveImageTask(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        protected File doInBackground(Object... params) {
+            String imgUrl = (String) params[0];
+            mCIGlideUrlCallBack = (CIGlideUrlCallBack) params[1];
+            try {
+                return Glide.with(context)
+                        .load(imgUrl)
+                        .downloadOnly(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+                        .get();
+            } catch (Exception ex) {
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(File result) {
+            if (result == null) {
+                mCIGlideUrlCallBack.callBack(null);
+            } else {
+                mCIGlideUrlCallBack.callBack(result.getPath());
+            }
         }
     }
 
-    public void downImage(Context context, String imageUrl, BaseBitmapDataSubscriber target) {
-        if (TextUtils.isEmpty(imageUrl)) {
-            return;
-        }
-        if (target == null) {
-            return;
-        }
-        ImageRequest imageRequest = ImageRequestBuilder
-                .newBuilderWithSource(Uri.parse(imageUrl))
-                .setProgressiveRenderingEnabled(true)
-                .build();
-        ImagePipeline imagePipeline = Fresco.getImagePipeline();
-        DataSource<CloseableReference<CloseableImage>>
-                dataSource = imagePipeline.fetchDecodedImage(imageRequest, context);
-        dataSource.subscribe(target, CallerThreadExecutor.getInstance());
-    }
 }

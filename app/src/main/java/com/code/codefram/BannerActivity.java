@@ -4,15 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
 import com.code.codeframlibrary.commons.GlobalMsg;
 import com.code.codeframlibrary.commons.baseview.BaseTitleActivity;
 import com.code.codeframlibrary.commons.utils.CImageUtils;
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.github.lazylibrary.util.ToastUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -20,8 +16,6 @@ import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class BannerActivity extends BaseTitleActivity implements OnBannerListener {
 
@@ -115,14 +109,13 @@ public class BannerActivity extends BaseTitleActivity implements OnBannerListene
 
         @Override
         public void displayImage(Context context, Object path, ImageView imageView) {
-            CImageUtils.getInstance().loadImage((SimpleDraweeView) imageView, path + "");
+            CImageUtils.getInstance().loadImage(imageView, path + "");
         }
-
         //提供createImageView 方法，如果不用可以不重写这个方法，主要是方便自定义ImageView的创建
         @Override
         public ImageView createImageView(Context context) {
             //使用fresco，需要创建它提供的ImageView，当然你也可以用自己自定义的具有图片加载功能的ImageView
-            SimpleDraweeView simpleDraweeView = new SimpleDraweeView(context);
+            ImageView simpleDraweeView = new ImageView(context);
             return simpleDraweeView;
         }
     }

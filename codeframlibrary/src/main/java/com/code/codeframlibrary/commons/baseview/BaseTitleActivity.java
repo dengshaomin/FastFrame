@@ -16,7 +16,6 @@ import com.code.codeframlibrary.R;
 import com.code.codeframlibrary.commons.GlobalMsg;
 import com.code.codeframlibrary.commons.ciface.IBaseLayout;
 import com.code.codeframlibrary.commons.ciface.ITitle;
-import com.facebook.drawee.backends.pipeline.Fresco;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -45,7 +44,6 @@ public abstract class BaseTitleActivity extends PermissionActivity implements IB
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        Fresco.initialize(this);
         super.onCreate(savedInstanceState);
         EventBus.getDefault().register(this);
         setContentView(R.layout.activity_title_base);

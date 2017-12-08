@@ -45,8 +45,9 @@
         <activity android:name=".FileUtilsActivity" />
         <activity android:name=".RetrofitUtilsActivity" />
         <activity android:name=".BannerActivity" />
-        <activity android:name=".TabBarActivity"></activity>
-        <activity android:name=".TabLayoutActivity"></activity>
+        <activity android:name=".TabBarActivity" />
+        <activity android:name=".TabLayoutActivity" />
+        <activity android:name=".CircleImageViewActivity"></activity>
     </application>
 
 </manifest>

@@ -38,6 +38,7 @@ public class MainActivity extends PermissionActivity {
         str_name.add("Banner");
         str_name.add("TabBar");
         str_name.add("TabLayout");
+        str_name.add("CircleImageView");
         lv = (ListView) findViewById(R.id.lv);
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, str_name);
@@ -63,6 +64,8 @@ public class MainActivity extends PermissionActivity {
                     startActivity(new Intent(MainActivity.this, TabBarActivity.class));
                 } else if (position == 8) {
                     startActivity(new Intent(MainActivity.this, TabLayoutActivity.class));
+                }else if (position == 9) {
+                    startActivity(new Intent(MainActivity.this, CircleImageViewActivity.class));
                 }
             }
         });

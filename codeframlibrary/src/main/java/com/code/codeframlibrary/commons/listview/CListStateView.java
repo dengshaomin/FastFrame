@@ -3,6 +3,7 @@ package com.code.codeframlibrary.commons.listview;
 import java.util.List;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -84,20 +85,30 @@ public class CListStateView extends BaseLayout {
     @Override
     public void setViewData(Object data) {
         currentState = (int) data;
-        if(EMPTY == data){
-
-        }else if(ERROR == data){
-
+        if (EMPTY == Integer.parseInt((String) data)) {
+            image.setBackgroundResource(emptyResource);
+            tip.setText(emptyTip);
+        } else if (ERROR == Integer.parseInt((String) data)) {
+            image.setBackgroundResource(errorResource);
+            tip.setText(errorTip);
         }
     }
 
     public void setEmptyImage(int resource, String emptyTip) {
-        this.emptyResource = resource;
-        this.emptyTip = emptyTip;
+        if (resource > 0) {
+            this.emptyResource = resource;
+        }
+        if (!TextUtils.isEmpty(emptyTip)) {
+            this.emptyTip = emptyTip;
+        }
     }
 
     public void setErrorImage(int resource, String errorTip) {
-        this.errorResource = resource;
-        this.errorTip = errorTip;
+        if (resource > 0) {
+            this.errorResource = resource;
+        }
+        if (!TextUtils.isEmpty(errorTip)) {
+            this.errorTip = errorTip;
+        }
     }
 }

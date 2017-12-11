@@ -41,6 +41,7 @@ public class CListViewActivity extends AppCompatActivity implements CListCallBac
         mCListView.setRefreshMode(CListView.BOTH);
         mCListView.setSpringBackMode(CListView.BOTH);
         mCListView.setLayoutManager(new LinearLayoutManager(this));
+        mCListView.setNeedStateView(false);
         mCListView.setCListAction(datas, this);
     }
 

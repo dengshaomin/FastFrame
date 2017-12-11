@@ -16,6 +16,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.andview.refreshview.XRefreshView;
 import com.andview.refreshview.XRefreshView.SimpleXRefreshListener;
@@ -45,9 +46,13 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
 
     public static final int EMPTY = 2;
 
-    RecyclerView mRecyclerview;
+    private RecyclerView mRecyclerview;
 
-    XRefreshView mXrefreshview;
+    private XRefreshView mXrefreshview;
+
+    private CListStateView cListStateView;
+    private RelativeLayout clist_root;
+
 
     private int pageSize = 10;
 
@@ -119,6 +124,7 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
     public void initView() {
         mRecyclerview = getRootView().findViewById(R.id.recyclerview);
         mXrefreshview = getRootView().findViewById(R.id.xrefreshview);
+        clist_root = getRootView().findViewById(R.id.clist_root);
         initFootAndAdapter();
         initXrefreshView();
 
@@ -176,6 +182,20 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
             }
         });
 
+    }
+
+    public void setNeedStateView(boolean needStateView) {
+        if (needStateView) {
+            if (cListStateView == null) {
+                cListStateView = new CListStateView(getmContext());
+                clist_root.addView(cListStateView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            }
+            cListStateView.setVisibility(mAdapter == null || mAdapter.getItemCount() == 0 ? VISIBLE : GONE);
+        } else {
+            if (cListStateView != null) {
+                clist_root.removeView(cListStateView);
+            }
+        }
     }
 
     public void addHeadView(View view) {
@@ -407,8 +427,14 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
             case SUCCESS:
                 break;
             case ERROR:
+                if (refreshState == START && cListStateView != null && mAdapter.getItemCount() == 0) {
+                    cListStateView.setViewData(CListStateView.ERROR);
+                }
                 break;
             case EMPTY:
+                if (refreshState == START && cListStateView != null && mAdapter.getItemCount() == 0) {
+                    cListStateView.setViewData(CListStateView.EMPTY);
+                }
                 break;
         }
     }

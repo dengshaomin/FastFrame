@@ -15,6 +15,7 @@ import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
@@ -23,14 +24,15 @@ import com.andview.refreshview.XRefreshView.SimpleXRefreshListener;
 import com.code.codeframlibrary.R;
 import com.code.codeframlibrary.commons.baseview.BaseLayout;
 import com.code.codeframlibrary.commons.GlobalMsg;
-import com.code.codeframlibrary.commons.ciface.CHeadClickInterface;
-import com.code.codeframlibrary.commons.ciface.CListCallBackInterface;
+import com.code.codeframlibrary.commons.ciface.IHeadClick;
+import com.code.codeframlibrary.commons.ciface.IListCallBack;
+import com.code.codeframlibrary.commons.ciface.IListReLoad;
 
 /**
  * Created by dengshaomin on 2017/12/4.
  */
 
-public class CListView<T> extends BaseLayout implements CHeadClickInterface {
+public class CListView<T> extends BaseLayout implements IHeadClick, OnClickListener {
 
     public static final int START = 0;
 
@@ -51,8 +53,8 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
     private XRefreshView mXrefreshview;
 
     private CListStateView cListStateView;
-    private RelativeLayout clist_root;
 
+    private RelativeLayout clist_root;
 
     private int pageSize = 10;
 
@@ -64,7 +66,7 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
 
     private CHeaderFooterAdapter mCHeaderFooterAdapter;
 
-    private CListCallBackInterface mCListCallBackLister;
+    private IListCallBack mCListCallBackLister;
 
 
     private CListViewFooter mCListViewFooter;
@@ -89,7 +91,7 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
         super(context, attrs, defStyleAttr);
     }
 
-//    public void setCListCallBackLister(CListCallBackInterface CListCallBackLister) {
+//    public void setCListCallBackLister(IListCallBack CListCallBackLister) {
 //        mCListCallBackLister = CListCallBackLister;
 //    }
 
@@ -188,7 +190,16 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
         if (needStateView) {
             if (cListStateView == null) {
                 cListStateView = new CListStateView(getmContext());
-                clist_root.addView(cListStateView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                cListStateView.setIListReLoad(new IListReLoad() {
+                    @Override
+                    public void reLoad() {
+                        if (mCListCallBackLister != null) {
+                            mCListCallBackLister.onRefresh(pageIndex);
+                        }
+                    }
+                });
+                clist_root.addView(cListStateView,
+                        new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             }
             cListStateView.setVisibility(mAdapter == null || mAdapter.getItemCount() == 0 ? VISIBLE : GONE);
         } else {
@@ -261,7 +272,7 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
         }
     }
 
-    public void setCListAction(List<T> datas, CListCallBackInterface cListCallBackInterface) {
+    public void setCListAction(List<T> datas, IListCallBack cListCallBackInterface) {
         if (datas != null) {
             if (this.datas == null) {
                 this.datas = new ArrayList<>();
@@ -419,20 +430,25 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
         } else if (refreshState == END) {
             mXrefreshview.stopLoadMore();
         }
-        refreshState = DEFAULT;
         if (mCListViewFooter != null) {
             mCListViewFooter.setViewData(hasMoreData());
         }
+        refreshState = DEFAULT;
         switch (state) {
             case SUCCESS:
+                if (cListStateView != null && pageIndex == 1 && cListStateView != null && mAdapter.getItemCount() == 0) {
+                    cListStateView.setViewData(CListStateView.EMPTY);
+                } else if (cListStateView != null) {
+                    cListStateView.setViewData(CListStateView.CONTENT);
+                }
                 break;
             case ERROR:
-                if (refreshState == START && cListStateView != null && mAdapter.getItemCount() == 0) {
+                if (pageIndex == 1 && cListStateView != null && mAdapter.getItemCount() == 0) {
                     cListStateView.setViewData(CListStateView.ERROR);
                 }
                 break;
             case EMPTY:
-                if (refreshState == START && cListStateView != null && mAdapter.getItemCount() == 0) {
+                if (pageIndex == 1 && cListStateView != null && mAdapter.getItemCount() == 0) {
                     cListStateView.setViewData(CListStateView.EMPTY);
                 }
                 break;
@@ -469,5 +485,9 @@ public class CListView<T> extends BaseLayout implements CHeadClickInterface {
         if (mCListCallBackLister != null) {
             mCListCallBackLister.onHeadFootClickLister(view, data, position);
         }
+    }
+
+    @Override
+    public void onClick(View v) {
     }
 }

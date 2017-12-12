@@ -26,7 +26,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.code.codeframlibrary.R;
-import com.code.codeframlibrary.commons.ciface.CHeadClickInterface;
+import com.code.codeframlibrary.commons.ciface.IHeadClick;
 import com.h6ah4i.android.widget.advrecyclerview.headerfooter.AbstractHeaderFooterWrapperAdapter;
 import com.h6ah4i.android.widget.advrecyclerview.utils.RecyclerViewAdapterUtils;
 import com.h6ah4i.android.widget.advrecyclerview.utils.WrapperAdapterUtils;
@@ -40,10 +40,10 @@ public class CHeaderFooterAdapter
 
     List<View> mFooterItems;
 
-    CHeadClickInterface mCItemClickInterface;
+    IHeadClick mCItemClickInterface;
 
 
-    public CHeaderFooterAdapter(RecyclerView.Adapter adapter, CHeadClickInterface clickListener) {
+    public CHeaderFooterAdapter(RecyclerView.Adapter adapter, IHeadClick clickListener) {
         setAdapter(adapter);
         this.mCItemClickInterface = clickListener;
         mHeaderItems = new ArrayList<>();

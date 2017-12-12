@@ -9,7 +9,7 @@ import android.view.ViewGroup;
  * Created by dengshaomin on 2017/12/5.
  */
 
-public interface CListCallBackInterface {
+public interface IListCallBack {
 
     void onHeadFootClickLister(View view, Object data, int position);
 

@@ -15,11 +15,11 @@ import android.view.ViewGroup;
 
 import com.code.codeframlibrary.commons.listview.CCommonViewHolder;
 import com.code.codeframlibrary.commons.listview.CHeaderFooterAdapter;
-import com.code.codeframlibrary.commons.ciface.CListCallBackInterface;
+import com.code.codeframlibrary.commons.ciface.IListCallBack;
 import com.code.codeframlibrary.commons.listview.CListView;
 import com.github.lazylibrary.util.ToastUtils;
 
-public class CListViewActivity extends AppCompatActivity implements CListCallBackInterface {
+public class CListViewActivity extends AppCompatActivity implements IListCallBack {
 
     CHeaderFooterAdapter mCHeaderFooterAdapter;
 
@@ -34,15 +34,16 @@ public class CListViewActivity extends AppCompatActivity implements CListCallBac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clist_view);
         datas = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            datas.add(i + "");
-        }
+//        for (int i = 0; i < 10; i++) {
+//            datas.add(i + "");
+//        }
         mCListView = findViewById(R.id.recycler_view);
         mCListView.setRefreshMode(CListView.BOTH);
         mCListView.setSpringBackMode(CListView.BOTH);
         mCListView.setLayoutManager(new LinearLayoutManager(this));
-        mCListView.setNeedStateView(false);
+        mCListView.setNeedStateView(true);
         mCListView.setCListAction(datas, this);
+        onRefresh(1);
     }
 
     @Override
@@ -100,12 +101,12 @@ public class CListViewActivity extends AppCompatActivity implements CListCallBac
                 if (page == 1) {
                     datas.clear();
                 }
-                int size = datas.size();
-                for (int i = size; i < size + 10; i++) {
-                    datas.add(i + "");
-                }
+//                int size = datas.size();
+//                for (int i = size; i < size + 10; i++) {
+//                    datas.add(i + "");
+//                }
                 mCListView.updateData(datas);
-                mCListView.refreshComplete(CListView.SUCCESS);
+                mCListView.refreshComplete(CListView.ERROR);
             }
         }, 1000);
     }

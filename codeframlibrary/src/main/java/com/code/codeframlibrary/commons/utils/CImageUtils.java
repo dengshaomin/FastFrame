@@ -14,8 +14,8 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 import com.code.codeframlibrary.commons.CodeFram;
-import com.code.codeframlibrary.commons.ciface.CIGlideBitmapCallBack;
-import com.code.codeframlibrary.commons.ciface.CIGlideUrlCallBack;
+import com.code.codeframlibrary.commons.ciface.IGlideBitmapCallBack;
+import com.code.codeframlibrary.commons.ciface.IGlideUrlCallBack;
 import com.code.codeframlibrary.commons.glide.GlideApp;
 
 /**
@@ -63,7 +63,7 @@ public class CImageUtils {
                 .into(imageView);
     }
 
-    public void getDiskUrl(Context context, String imageUrl, CIGlideUrlCallBack ciGlideUrlCallBack) {
+    public void getDiskUrl(Context context, String imageUrl, IGlideUrlCallBack ciGlideUrlCallBack) {
         if (TextUtils.isEmpty(imageUrl) || context == null || ciGlideUrlCallBack == null) {
             return;
         }
@@ -72,7 +72,7 @@ public class CImageUtils {
         getImageCacheTask.execute(imageUrl, ciGlideUrlCallBack);
     }
 
-    public void getDiskImage(Context context, String imageUrl, final CIGlideBitmapCallBack ciGlideUrlCallBack) {
+    public void getDiskImage(Context context, String imageUrl, final IGlideBitmapCallBack ciGlideUrlCallBack) {
         if (TextUtils.isEmpty(imageUrl) || context == null || ciGlideUrlCallBack == null) {
             return;
         }
@@ -88,7 +88,7 @@ public class CImageUtils {
 
         private Context context;
 
-        private CIGlideUrlCallBack mCIGlideUrlCallBack;
+        private IGlideUrlCallBack mCIGlideUrlCallBack;
 
         public void SaveImageTask(Context context) {
             this.context = context;
@@ -97,7 +97,7 @@ public class CImageUtils {
         @Override
         protected File doInBackground(Object... params) {
             String imgUrl = (String) params[0];
-            mCIGlideUrlCallBack = (CIGlideUrlCallBack) params[1];
+            mCIGlideUrlCallBack = (IGlideUrlCallBack) params[1];
             try {
                 return Glide.with(context)
                         .load(imgUrl)

@@ -98,15 +98,12 @@ public class CListViewActivity extends AppCompatActivity implements IListCallBac
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (page == 1) {
-                    datas.clear();
+                datas.clear();
+                for (int i = 0; i < 10; i++) {
+                    datas.add(i + "");
                 }
-//                int size = datas.size();
-//                for (int i = size; i < size + 10; i++) {
-//                    datas.add(i + "");
-//                }
                 mCListView.updateData(datas);
-                mCListView.refreshComplete(CListView.ERROR);
+                mCListView.refreshComplete(CListView.SUCCESS);
             }
         }, 1000);
     }

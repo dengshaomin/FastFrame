@@ -2,26 +2,53 @@
 <RelativeLayout android:id="@+id/xrefreshview_footer_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="50dp"
     android:layout_gravity="center_horizontal"
     >
 
-    <ProgressBar
+    <FrameLayout
         android:id="@+id/progress"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone"
-        />
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            >
+
+            <ProgressBar
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:indeterminateDrawable="@drawable/list_progressbar_style"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:text="正在加载..."
+                android:textColor="@color/clist_head_foot_color"
+                />
+        </LinearLayout>
+    </FrameLayout>
 
 
     <TextView
         android:id="@+id/no_more_tip"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="到底了，别拽了~~"
+        android:textColor="@color/clist_head_foot_color"
         android:visibility="gone"
         />
 </RelativeLayout>

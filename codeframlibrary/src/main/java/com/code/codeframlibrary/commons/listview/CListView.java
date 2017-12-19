@@ -105,7 +105,7 @@ public class CListView<T> extends BaseLayout implements IHeadClick, OnClickListe
             case START:
                 mXrefreshview.enableRecyclerViewPullDown(true);
                 mXrefreshview.enableRecyclerViewPullUp(false);
-                mXrefreshview.setPullLoadEnable(false);
+//                mXrefreshview.setPullLoadEnable(false);
                 break;
             case END:
                 mXrefreshview.enableRecyclerViewPullUp(true);
@@ -118,6 +118,9 @@ public class CListView<T> extends BaseLayout implements IHeadClick, OnClickListe
             case NONE:
                 mXrefreshview.enableRecyclerViewPullUp(false);
                 mXrefreshview.enableRecyclerViewPullDown(false);
+                break;
+            default:
+                setSpringBackMode(NONE);
                 break;
         }
     }
@@ -289,6 +292,11 @@ public class CListView<T> extends BaseLayout implements IHeadClick, OnClickListe
 
     public void updateData(List<T> datas) {
         if (datas == null) {
+            refreshComplete(pageIndex == 1 ? ERROR : SUCCESS);
+            return;
+        }
+        if (datas != null && datas.size() == 0) {
+            refreshComplete(pageIndex == 1 ? EMPTY : SUCCESS);
             return;
         }
         if (this.datas == null) {
@@ -298,6 +306,7 @@ public class CListView<T> extends BaseLayout implements IHeadClick, OnClickListe
             this.datas.clear();
         }
         this.datas.addAll(datas);
+        refreshComplete(SUCCESS);
         mAdapter.notifyDataSetChanged();
     }
 
@@ -330,13 +339,14 @@ public class CListView<T> extends BaseLayout implements IHeadClick, OnClickListe
                 }
             };
         }
+
         if (mCHeaderFooterAdapter == null) {
             mCHeaderFooterAdapter = new CHeaderFooterAdapter(mAdapter, this);
         }
         if (mCListViewFooter == null) {
             mCListViewFooter = new CListViewFooter(getmContext());
+            mCHeaderFooterAdapter.addFooterItem(mCListViewFooter);
         }
-        mCHeaderFooterAdapter.addFooterItem(mCListViewFooter);
         mRecyclerview.setAdapter(mCHeaderFooterAdapter);
 
     }
@@ -369,6 +379,9 @@ public class CListView<T> extends BaseLayout implements IHeadClick, OnClickListe
 
     public void setRefreshMode(int mode) {
         refreMode = mode;
+        if (mCListViewFooter != null) {
+            mCListViewFooter.setVisibility(refreMode == END || refreMode == BOTH ? VISIBLE : GONE);
+        }
         switch (mode) {
             case START:
                 mXrefreshview.setPullRefreshEnable(true);
@@ -385,6 +398,9 @@ public class CListView<T> extends BaseLayout implements IHeadClick, OnClickListe
             case NONE:
                 mXrefreshview.setPullRefreshEnable(false);
                 mXrefreshview.setPullLoadEnable(false);
+                break;
+            default:
+                setRefreshMode(BOTH);
                 break;
         }
     }
@@ -424,7 +440,7 @@ public class CListView<T> extends BaseLayout implements IHeadClick, OnClickListe
         return mAdapter.getItemCount() == 0 || mAdapter.getItemCount() % pageSize != 0 ? false : true;
     }
 
-    public void refreshComplete(int state) {
+    private void refreshComplete(int state) {
         if (refreshState == START) {
             mXrefreshview.stopRefresh();
         } else if (refreshState == END) {

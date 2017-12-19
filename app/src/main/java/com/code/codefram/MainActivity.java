@@ -14,8 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.code.codeframlibrary.commons.baseview.PermissionActivity;
-import com.code.codeframlibrary.commons.retrofit.RetrofitHttpUtil;
-import com.github.lazylibrary.util.FileUtils;
 
 public class MainActivity extends PermissionActivity {
 
@@ -39,6 +37,7 @@ public class MainActivity extends PermissionActivity {
         str_name.add("TabBar");
         str_name.add("TabLayout");
         str_name.add("CircleImageView");
+        str_name.add("ListWithBaseListActivity");
         lv = (ListView) findViewById(R.id.lv);
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, str_name);
@@ -66,6 +65,8 @@ public class MainActivity extends PermissionActivity {
                     startActivity(new Intent(MainActivity.this, TabLayoutActivity.class));
                 }else if (position == 9) {
                     startActivity(new Intent(MainActivity.this, CircleImageViewActivity.class));
+                }else if (position == 10) {
+                    startActivity(new Intent(MainActivity.this, ListWithBaseListActivity.class));
                 }
             }
         });

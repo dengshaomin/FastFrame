@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,7 +22,6 @@ import com.github.lazylibrary.util.ToastUtils;
 
 public class CListViewActivity extends AppCompatActivity implements IListCallBack {
 
-    CHeaderFooterAdapter mCHeaderFooterAdapter;
 
     private List<String> datas;
 
@@ -103,7 +103,7 @@ public class CListViewActivity extends AppCompatActivity implements IListCallBac
                     datas.add(i + "");
                 }
                 mCListView.updateData(datas);
-                mCListView.refreshComplete(CListView.SUCCESS);
+//                mCListView.refreshComplete(CListView.SUCCESS);  合并
             }
         }, 1000);
     }

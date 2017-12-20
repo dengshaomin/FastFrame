@@ -6,14 +6,11 @@ import java.util.List;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView.ItemDecoration;
 import android.support.v7.widget.RecyclerView.LayoutManager;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.code.codeframlibrary.commons.GlobalMsg;
 import com.code.codeframlibrary.commons.activity.CListActivity;
 import com.code.codeframlibrary.commons.baseview.BaseItemLayout;
-import com.code.codeframlibrary.commons.listview.CCommonViewHolder;
 import com.code.codeframlibrary.commons.listview.CListView;
 
 public class ListWithBaseListActivity extends CListActivity<String> {

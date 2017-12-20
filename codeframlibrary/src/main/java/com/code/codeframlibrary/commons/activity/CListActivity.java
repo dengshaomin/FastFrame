@@ -1,14 +1,10 @@
 package com.code.codeframlibrary.commons.activity;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView.ViewHolder;
-import android.util.Log;
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.code.codeframlibrary.R;
@@ -57,7 +53,9 @@ public abstract class CListActivity<T> extends BaseTitleActivity implements ILis
     }
 
     public void updateData(List<T> datas) {
-        this.datas.clear();
+        if (mCListView.getPageIndex() == 1) {
+            this.datas.clear();
+        }
         this.datas.addAll(datas);
         mCListView.updateData(datas);
     }

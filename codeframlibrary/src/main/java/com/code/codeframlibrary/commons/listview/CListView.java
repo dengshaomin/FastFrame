@@ -95,6 +95,10 @@ public class CListView<T> extends BaseLayout implements IHeadClick, OnClickListe
 //        mCListCallBackLister = CListCallBackLister;
 //    }
 
+    public int getPageIndex() {
+        return pageIndex;
+    }
+
     @Override
     public int setContentLayout() {
         return R.layout.clist_view;

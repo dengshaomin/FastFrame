@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.code.codeframlibrary.commons.GlobalMsg;
 import com.code.codeframlibrary.commons.baseview.BaseTitleActivity;
+import com.code.codeframlibrary.commons.ciface.IBasePresent;
 import com.jpeng.jptabbar.BadgeDismissListener;
 import com.jpeng.jptabbar.JPTabBar;
 import com.jpeng.jptabbar.OnTabSelectListener;
@@ -150,5 +151,10 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
 
     public JPTabBar getTabbar() {
         return tabbar;
+    }
+
+    @Override
+    public IBasePresent getPresents() {
+        return null;
     }
 }

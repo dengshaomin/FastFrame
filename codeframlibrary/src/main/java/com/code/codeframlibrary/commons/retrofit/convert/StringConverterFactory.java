@@ -19,13 +19,13 @@ public final class StringConverterFactory extends Converter.Factory {
 
     @Override
     public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations,
-                                                            Retrofit retrofit) {
+            Retrofit retrofit) {
         return new StringResponseBodyConverter();
     }
 
     @Override
     public Converter<?, RequestBody> requestBodyConverter(Type type,
-                                                          Annotation[] parameterAnnotations, Annotation[] methodAnnotations, Retrofit retrofit) {
+            Annotation[] parameterAnnotations, Annotation[] methodAnnotations, Retrofit retrofit) {
         return new StringRequestBodyConverter();
     }
 }

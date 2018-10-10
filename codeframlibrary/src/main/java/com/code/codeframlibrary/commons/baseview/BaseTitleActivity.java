@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.code.codeframlibrary.R;
 import com.code.codeframlibrary.commons.GlobalMsg;
 import com.code.codeframlibrary.commons.ciface.IBaseLayout;
+import com.code.codeframlibrary.commons.ciface.IBasePresent;
 import com.code.codeframlibrary.commons.ciface.ITitle;
 
 import org.greenrobot.eventbus.EventBus;
@@ -41,6 +42,7 @@ public abstract class BaseTitleActivity extends PermissionActivity implements IB
 
     private Unbinder unbinder;
 
+    protected IBasePresent mIBasePresents;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,6 +57,7 @@ public abstract class BaseTitleActivity extends PermissionActivity implements IB
         }
         this.initView();
         this.initBundleData();
+        mIBasePresents = getPresents();
         this.getNetData();
     }
 
@@ -110,7 +113,14 @@ public abstract class BaseTitleActivity extends PermissionActivity implements IB
     protected void onDestroy() {
         unbinder.unbind();
         EventBus.getDefault().unregister(this);
+        releasePresents();
         super.onDestroy();
+    }
+
+    void releasePresents() {
+        if (mIBasePresents != null) {
+            mIBasePresents.destory();
+        }
     }
 
 
@@ -131,6 +141,8 @@ public abstract class BaseTitleActivity extends PermissionActivity implements IB
         }
         return null;
     }
+
+    public abstract IBasePresent getPresents();
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 //        if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {

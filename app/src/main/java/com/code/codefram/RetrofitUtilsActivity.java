@@ -2,22 +2,23 @@ package com.code.codefram;
 
 import java.util.List;
 
-import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
+import com.code.codefram.model.WeatherJson;
+import com.code.codefram.presents.TestPresent;
+import com.code.codefram.presents.TestPresent.ITest;
 import com.code.codeframlibrary.commons.GlobalMsg;
 import com.code.codeframlibrary.commons.baseview.BaseTitleActivity;
-import com.code.codeframlibrary.commons.retrofit.GCNetCallBack;
-import com.code.codeframlibrary.commons.retrofit.NetInterface;
-import com.code.codeframlibrary.commons.retrofit.RetrofitHttpUtil;
+import com.code.codeframlibrary.commons.ciface.IBasePresent;
 import com.code.codeframlibrary.commons.widgets.SuperButton;
+import com.github.lazylibrary.util.ToastUtils;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class RetrofitUtilsActivity extends BaseTitleActivity {
+public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest {
 
 
     @BindView(R.id.key)
@@ -91,22 +92,27 @@ public class RetrofitUtilsActivity extends BaseTitleActivity {
 
     @Override
     public void setViewData(Object data) {
-
     }
 
 
     @OnClick(R.id.request)
     public void onViewClicked() {
-        RetrofitHttpUtil.getInstance().getOutUrl(mKey.getText().toString(), null, new GCNetCallBack<String>("0", new NetInterface() {
-            @Override
-            public void onSuccess(String indentify, String code, String response) {
-                mList.setText(response);
-            }
-
-            @Override
-            public void onError(String indentify, String code, String msg) {
-                mList.setText(msg);
-            }
-        }));
+        ((TestPresent) mIBasePresents).getWeather("101010100");
     }
+
+    @Override
+    public IBasePresent getPresents() {
+        return new TestPresent(this);
+    }
+
+    @Override
+    public void showData(WeatherJson data) {
+        mList.setText(JSON.toJSONString(data) + "");
+    }
+
+    @Override
+    public void showError(String s) {
+        ToastUtils.showToast(this, s);
+    }
+
 }

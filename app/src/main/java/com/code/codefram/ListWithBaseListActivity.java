@@ -11,7 +11,9 @@ import android.view.View;
 import com.code.codeframlibrary.commons.GlobalMsg;
 import com.code.codeframlibrary.commons.activity.CListActivity;
 import com.code.codeframlibrary.commons.baseview.BaseItemLayout;
+import com.code.codeframlibrary.commons.ciface.IBasePresent;
 import com.code.codeframlibrary.commons.listview.CListView;
+import com.github.lazylibrary.util.ToastUtils;
 
 public class ListWithBaseListActivity extends CListActivity<String> {
 
@@ -78,7 +80,7 @@ public class ListWithBaseListActivity extends CListActivity<String> {
 
     @Override
     public void onItemClickLister(View view, Object data, int position) {
-
+        ToastUtils.showToast(this, position + "");
     }
 
     @Override
@@ -95,7 +97,6 @@ public class ListWithBaseListActivity extends CListActivity<String> {
             }
         }, 1000);
     }
-
 
 
     @Override
@@ -126,5 +127,10 @@ public class ListWithBaseListActivity extends CListActivity<String> {
     @Override
     public BaseItemLayout getListItemView() {
         return new TestItem(this);
+    }
+
+    @Override
+    public IBasePresent getPresents() {
+        return null;
     }
 }

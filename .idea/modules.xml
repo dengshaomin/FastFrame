@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CodeFram.iml" filepath="$PROJECT_DIR$/CodeFram.iml" />
-      <module fileurl="file://C:\Users\dengshaomin\Desktop\CodeFram\.idea\CodeFram.iml" filepath="C:\Users\dengshaomin\Desktop\CodeFram\.idea\CodeFram.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/codeframlibrary/codeframlibrary.iml" filepath="$PROJECT_DIR$/codeframlibrary/codeframlibrary.iml" />
     </modules>

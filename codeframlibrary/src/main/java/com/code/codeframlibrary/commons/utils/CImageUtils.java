@@ -5,18 +5,13 @@ import java.io.File;
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.text.TextUtils;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.target.Target;
-import com.bumptech.glide.request.transition.Transition;
-import com.code.codeframlibrary.commons.CodeFram;
 import com.code.codeframlibrary.commons.ciface.IGlideBitmapCallBack;
 import com.code.codeframlibrary.commons.ciface.IGlideUrlCallBack;
-import com.code.codeframlibrary.commons.glide.GlideApp;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 /**
  * Created by dengshaomin on 2017/11/7.
@@ -40,82 +35,19 @@ public class CImageUtils {
     /**
      * 使用当前context当 activity 或fragment生命周期结束时,glide会停止加载
      */
-    public void loadImage(Context context, ImageView imageView, String url) {
-        if (imageView == null || context == null) {
+    public void loadImage(SimpleDraweeView imageView, String url) {
+        if (url == null) {
             return;
         }
-        GlideApp.with(context).load(url)
-//              .placeholder(R.drawable.icon_back)
-//              .error(R.drawable.icon_back)
-                .into(imageView);
+        Uri uri = Uri.parse(url);
+        /*ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
+                .setProgressiveRenderingEnabled(true)//允许渐进加载
+                .build();
+        DraweeController controller = Fresco.newDraweeControllerBuilder()
+                .setImageRequest(request)
+                .setAutoPlayAnimations(true)// 允许加载gif图
+                .build();
+        imageView.setController(controller);*/
+        imageView.setImageURI(uri);
     }
-
-    /**
-     * 使用当前applictioncontext
-     */
-    public void loadImage(ImageView imageView, String url) {
-        if (imageView == null || CodeFram.mContext == null) {
-            return;
-        }
-        GlideApp.with(CodeFram.mContext).load(url)
-//                .placeholder(R.drawable.icon_back)
-//                .error(R.drawable.icon_back)
-                .into(imageView);
-    }
-
-    public void getDiskUrl(Context context, String imageUrl, IGlideUrlCallBack ciGlideUrlCallBack) {
-        if (TextUtils.isEmpty(imageUrl) || context == null || ciGlideUrlCallBack == null) {
-            return;
-        }
-        GetImageCacheTask getImageCacheTask = new GetImageCacheTask();
-        getImageCacheTask.SaveImageTask(context);
-        getImageCacheTask.execute(imageUrl, ciGlideUrlCallBack);
-    }
-
-    public void getDiskImage(Context context, String imageUrl, final IGlideBitmapCallBack ciGlideUrlCallBack) {
-        if (TextUtils.isEmpty(imageUrl) || context == null || ciGlideUrlCallBack == null) {
-            return;
-        }
-        Glide.with(context).load(imageUrl).into(new SimpleTarget<Drawable>() {
-            @Override
-            public void onResourceReady(Drawable resource, Transition<? super Drawable> transition) {
-                ciGlideUrlCallBack.callBack(((BitmapDrawable) resource).getBitmap());
-            }
-        });
-    }
-
-    class GetImageCacheTask extends AsyncTask<Object, Void, File> {
-
-        private Context context;
-
-        private IGlideUrlCallBack mCIGlideUrlCallBack;
-
-        public void SaveImageTask(Context context) {
-            this.context = context;
-        }
-
-        @Override
-        protected File doInBackground(Object... params) {
-            String imgUrl = (String) params[0];
-            mCIGlideUrlCallBack = (IGlideUrlCallBack) params[1];
-            try {
-                return Glide.with(context)
-                        .load(imgUrl)
-                        .downloadOnly(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
-                        .get();
-            } catch (Exception ex) {
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(File result) {
-            if (result == null) {
-                mCIGlideUrlCallBack.callBack(null);
-            } else {
-                mCIGlideUrlCallBack.callBack(result.getPath());
-            }
-        }
-    }
-
 }

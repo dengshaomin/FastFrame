@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.code.codeframlibrary.commons.GlobalMsg;
 import com.code.codeframlibrary.commons.baseview.BaseTitleActivity;
+import com.code.codeframlibrary.commons.ciface.IBasePresent;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.flyco.tablayout.widget.MsgView;
@@ -172,5 +173,10 @@ public class TabLayoutActivity extends BaseTitleActivity implements OnTabSelectL
     @Override
     public void onTabReselect(int position) {
         Toast.makeText(mContext, "onTabReselect&position--->" + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public IBasePresent getPresents() {
+        return null;
     }
 }

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.code.codeframlibrary.commons.utils.CImageUtils;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -13,7 +14,7 @@ import butterknife.Unbinder;
 public class FrescoActivity extends AppCompatActivity {
 
     @BindView(R.id.image)
-    ImageView mImage;
+    SimpleDraweeView mImage;
 
     private Unbinder mUnbinder;
 

@@ -47,7 +47,6 @@
         <activity android:name=".BannerActivity" />
         <activity android:name=".TabBarActivity" />
         <activity android:name=".TabLayoutActivity" />
-        <activity android:name=".CircleImageViewActivity" />
         <activity android:name=".ListWithBaseListActivity"></activity>
     </application>
 

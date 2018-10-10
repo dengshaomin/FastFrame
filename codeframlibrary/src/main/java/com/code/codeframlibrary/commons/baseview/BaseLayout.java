@@ -56,7 +56,7 @@ public abstract class BaseLayout extends LinearLayout implements IBaseLayout {
     }
 
 
-    public BaseLayout( Context context, AttributeSet attrs, int defStyleAttr) {
+    public BaseLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         EventBus.getDefault().register(this);
         setEvents();
@@ -77,6 +77,9 @@ public abstract class BaseLayout extends LinearLayout implements IBaseLayout {
         }
     }
 
+    public View findView(int id) {
+        return rootView.findViewById(id);
+    }
 
     private void setEvents() {
         List<String> events = regeistEvent();
@@ -110,26 +113,10 @@ public abstract class BaseLayout extends LinearLayout implements IBaseLayout {
         }
     }
 
-    public void hideKeyBoard() {
-//        if (!getKeyBoardState()) return;
-        InputMethodManager imm = (InputMethodManager) getmContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-    }
-
-    public void showKeyBoard() {
-//        if (getKeyBoardState()) return;
-        InputMethodManager imm = (InputMethodManager) getmContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-    }
-
     public void dialogDismiss() {
 
     }
 
-    public boolean getKeyBoardState() {
-        InputMethodManager imm = (InputMethodManager) getmContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        return imm.isActive();
-    }
 
     public void setPingBackParams(String rpage, String rblock) {
 

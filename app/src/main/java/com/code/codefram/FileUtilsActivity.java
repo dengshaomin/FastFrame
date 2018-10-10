@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.code.codeframlibrary.commons.GlobalMsg;
 import com.code.codeframlibrary.commons.baseview.BaseTitleActivity;
+import com.code.codeframlibrary.commons.ciface.IBasePresent;
 import com.code.codeframlibrary.commons.utils.CFlieUtils;
 import com.code.codeframlibrary.commons.utils.CSPUtils;
 import com.code.codeframlibrary.commons.widgets.SuperButton;
@@ -121,4 +122,8 @@ public class FileUtilsActivity extends BaseTitleActivity {
         }
     }
 
+    @Override
+    public IBasePresent getPresents() {
+        return null;
+    }
 }

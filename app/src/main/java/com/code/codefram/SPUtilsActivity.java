@@ -14,6 +14,7 @@ import android.widget.ListView;
 
 import com.code.codeframlibrary.commons.GlobalMsg;
 import com.code.codeframlibrary.commons.baseview.BaseTitleActivity;
+import com.code.codeframlibrary.commons.ciface.IBasePresent;
 import com.code.codeframlibrary.commons.utils.CSPUtils;
 import com.code.codeframlibrary.commons.widgets.SuperButton;
 import com.github.lazylibrary.util.AssetDatabaseOpenHelper;
@@ -131,5 +132,10 @@ public class SPUtilsActivity extends BaseTitleActivity {
                 adapter.notifyDataSetChanged();
                 break;
         }
+    }
+
+    @Override
+    public IBasePresent getPresents() {
+        return null;
     }
 }

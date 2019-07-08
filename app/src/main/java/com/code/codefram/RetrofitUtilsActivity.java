@@ -8,8 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.code.codefram.model.LoginModel;
-import com.code.codefram.model.WeatherJson;
+import com.code.codefram.model.LogisticsModel;
 import com.code.codefram.presents.TestPresent;
 import com.code.codefram.presents.TestPresent.ITest;
 import com.code.codeframlibrary.commons.GlobalMsg;
@@ -103,7 +102,7 @@ public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest, O
     }
 
     @Override
-    public void showData(LoginModel data) {
+    public void showData(List<LogisticsModel> data) {
         mList.setText(JSON.toJSONString(data) + "");
     }
 
@@ -114,6 +113,6 @@ public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest, O
 
     @Override
     public void onClick(View v) {
-        ((TestPresent) mIBasePresents).getWeather("101010100");
+        ((TestPresent) mIBasePresents).getLogistics();
     }
 }

@@ -42,9 +42,8 @@ public class CodeFram {
         return codeFram;
     }
 
-    public void init(Context context, String serverUrl) {
+    public void init(Context context) {
         mContext = context;
-        RetrofitHttpUtil.getInstance().init(serverUrl);
         CLog.init(mContext);
         initFresco();
     }

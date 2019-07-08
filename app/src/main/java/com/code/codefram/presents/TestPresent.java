@@ -1,18 +1,20 @@
 package com.code.codefram.presents;
 
-import com.code.codefram.model.LoginModel;
-import com.code.codefram.model.WeatherJson;
-import com.code.codeframlibrary.commons.ciface.IBasePresent;
-import com.code.codeframlibrary.commons.retrofit.RetrofitHttpUtil;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import io.reactivex.Observable;
+import com.code.codefram.model.LogisticsModel;
+import com.code.codeframlibrary.commons.ciface.IBasePresent;
+import com.code.codeframlibrary.commons.model.ServerCommonModel;
+import com.code.codeframlibrary.commons.retrofit.RetrofitHttpUtil;
+import com.code.codeframlibrary.commons.rx.Transformers;
+
 import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
+import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 public class TestPresent implements IBasePresent {
 
@@ -24,7 +26,7 @@ public class TestPresent implements IBasePresent {
 
     public TestPresent(ITest test) {
         this.mITest = test;
-        mApiTest = RetrofitHttpUtil.getInstance().getRetrofit().create(ApiTest.class);
+        mApiTest = RetrofitHttpUtil.createServerApi(ApiTest.class, "http://www.kuaidi100.com");
     }
 
     @Override
@@ -34,45 +36,50 @@ public class TestPresent implements IBasePresent {
         }
     }
 
-    public void getWeather(String cityId) {
-        mApiTest.getWeather(cityId).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<LoginModel>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                mDisposables = d;
-            }
+    public void getLogistics() {
+        Map<String, String> params = new HashMap<>();
+        params.put("type", "yuantong");
+        params.put("postid", "11111111111");
+        RetrofitHttpUtil.call(mApiTest.getWeather(params))
+                .compose(Transformers.async())
+                .subscribe(new Observer<List<LogisticsModel>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
-            @Override
-            public void onNext(LoginModel weatherJson) {
-                if (mITest != null) {
-                    mITest.showData(weatherJson);
-                }
-            }
+                    }
 
-            @Override
-            public void onError(Throwable e) {
-                if (mITest != null) {
-                    mITest.showError(e.getMessage());
-                }
-            }
+                    @Override
+                    public void onNext(List<LogisticsModel> logisticsModels) {
+                        if (mITest != null) {
+                            mITest.showData(logisticsModels);
+                        }
+                    }
 
-            @Override
-            public void onComplete() {
+                    @Override
+                    public void onError(Throwable e) {
+                        if (mITest != null) {
+                            mITest.showError(e == null ? "" : e.getMessage());
+                        }
+                    }
 
-            }
-        });
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
     public interface ITest {
 
-        void showData(LoginModel data);
+        void showData(List<LogisticsModel> data);
 
         void showError(String s);
     }
 
     interface ApiTest {
 
-        @GET("login")
-        Observable<LoginModel> getWeather(@Query("params") String qipuId);
+        @GET("/query")
+        Call<ServerCommonModel<List<LogisticsModel>>> getWeather(@QueryMap Map<String, String> params);
     }
 
 

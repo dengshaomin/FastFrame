@@ -13,6 +13,6 @@ public class MineApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        CodeFram.getInstance().init(this, "http://localhost:8080/");
+        CodeFram.getInstance().init(this);
     }
 }

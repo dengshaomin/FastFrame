@@ -13,6 +13,6 @@ public class MineApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        CodeFram.init(this, "http://www.weather.com.cn/");
+        CodeFram.init(this, "http://localhost:8080/");
     }
 }

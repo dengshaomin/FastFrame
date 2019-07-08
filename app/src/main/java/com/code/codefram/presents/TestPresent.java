@@ -1,5 +1,6 @@
 package com.code.codefram.presents;
 
+import com.code.codefram.model.LoginModel;
 import com.code.codefram.model.WeatherJson;
 import com.code.codeframlibrary.commons.ciface.IBasePresent;
 import com.code.codeframlibrary.commons.retrofit.RetrofitHttpUtil;
@@ -11,6 +12,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public class TestPresent implements IBasePresent {
 
@@ -33,14 +35,14 @@ public class TestPresent implements IBasePresent {
     }
 
     public void getWeather(String cityId) {
-        mApiTest.getWeather(cityId).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<WeatherJson>() {
+        mApiTest.getWeather(cityId).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<LoginModel>() {
             @Override
             public void onSubscribe(Disposable d) {
                 mDisposables = d;
             }
 
             @Override
-            public void onNext(WeatherJson weatherJson) {
+            public void onNext(LoginModel weatherJson) {
                 if (mITest != null) {
                     mITest.showData(weatherJson);
                 }
@@ -62,15 +64,15 @@ public class TestPresent implements IBasePresent {
 
     public interface ITest {
 
-        void showData(WeatherJson data);
+        void showData(LoginModel data);
 
         void showError(String s);
     }
 
     interface ApiTest {
 
-        @GET("adat/sk/{cityId}.html")
-        Observable<WeatherJson> getWeather(@Path("cityId") String cityId);
+        @GET("login")
+        Observable<LoginModel> getWeather(@Query("params") String qipuId);
     }
 
 

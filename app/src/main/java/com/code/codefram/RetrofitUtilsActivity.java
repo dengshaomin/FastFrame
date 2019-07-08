@@ -2,10 +2,13 @@ package com.code.codefram;
 
 import java.util.List;
 
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.code.codefram.model.LoginModel;
 import com.code.codefram.model.WeatherJson;
 import com.code.codefram.presents.TestPresent;
 import com.code.codefram.presents.TestPresent.ITest;
@@ -15,19 +18,14 @@ import com.code.codeframlibrary.commons.ciface.IBasePresent;
 import com.code.codeframlibrary.commons.widgets.SuperButton;
 import com.github.lazylibrary.util.ToastUtils;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 
-public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest {
+public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest, OnClickListener {
 
 
-    @BindView(R.id.key)
     EditText mKey;
 
-    @BindView(R.id.request)
     SuperButton mRequest;
 
-    @BindView(R.id.list)
     TextView mList;
 
     @Override
@@ -47,7 +45,7 @@ public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest {
 
     @Override
     public String setTitleText() {
-        return "FileUtils";
+        return "RetrofitUtils";
     }
 
 
@@ -68,6 +66,10 @@ public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest {
 
     @Override
     public void initView() {
+        mKey = findViewById(R.id.key);
+        mRequest = findViewById(R.id.request);
+        mList = findViewById(R.id.list);
+        mRequest.setOnClickListener(this);
     }
 
     @Override
@@ -95,18 +97,13 @@ public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest {
     }
 
 
-    @OnClick(R.id.request)
-    public void onViewClicked() {
-        ((TestPresent) mIBasePresents).getWeather("101010100");
-    }
-
     @Override
     public IBasePresent getPresents() {
         return new TestPresent(this);
     }
 
     @Override
-    public void showData(WeatherJson data) {
+    public void showData(LoginModel data) {
         mList.setText(JSON.toJSONString(data) + "");
     }
 
@@ -115,4 +112,8 @@ public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest {
         ToastUtils.showToast(this, s);
     }
 
+    @Override
+    public void onClick(View v) {
+        ((TestPresent) mIBasePresents).getWeather("101010100");
+    }
 }

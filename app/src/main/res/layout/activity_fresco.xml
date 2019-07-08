@@ -21,4 +21,10 @@
         app:roundTopRight="false"
         app:roundedCornerRadius="100dp"
         />
+
+    <ImageView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 </RelativeLayout>

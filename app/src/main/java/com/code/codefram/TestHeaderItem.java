@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.code.codeframlibrary.commons.baseview.BaseLayout;
 import com.code.codeframlibrary.commons.GlobalMsg;
 
-import butterknife.BindView;
 
 /**
  * Created by dengshaomin on 2017/12/4.
@@ -18,7 +17,6 @@ import butterknife.BindView;
 
 public class TestHeaderItem extends BaseLayout {
 
-    @BindView(R.id.text)
     TextView mText;
 
     public TestHeaderItem(Context context) {
@@ -40,6 +38,7 @@ public class TestHeaderItem extends BaseLayout {
 
     @Override
     public void initView() {
+        mText = getRootView().findViewById(R.id.text);
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
     }

@@ -21,8 +21,6 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * Created by dengshaomin on 2016/10/21.
@@ -34,7 +32,6 @@ public abstract class BaseLayout extends LinearLayout implements IBaseLayout {
 
     private List<String> eventList = new ArrayList<>();
 
-    private Unbinder unbinder;
 
     @Override
     public View getRootView() {
@@ -69,7 +66,6 @@ public abstract class BaseLayout extends LinearLayout implements IBaseLayout {
             return;
         }
         rootView = LayoutInflater.from(mContext).inflate(layoutId, this);
-        unbinder = ButterKnife.bind(this, rootView);
         if (rootView != null) {
             this.initView();
             this.initBundleData();

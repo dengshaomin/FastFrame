@@ -1,6 +1,8 @@
 package com.code.codefram;
 
-import android.graphics.Color;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -16,22 +18,23 @@ import com.jpeng.jptabbar.anno.NorIcons;
 import com.jpeng.jptabbar.anno.SeleIcons;
 import com.jpeng.jptabbar.anno.Titles;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import butterknife.BindView;
 
 public class TabBarActivity extends BaseTitleActivity implements BadgeDismissListener, OnTabSelectListener {
 
-    @BindView(R.id.view_pager)
     ViewPager viewPager;
-    @BindView(R.id.tabbar)
+
     JPTabBar tabbar;
+
     Fragment0 mTab0;
+
     Fragment1 mTab1;
+
     Fragment2 mTab2;
+
     Fragment3 mTab3;
+
     Fragment4 mTab4;
+
     @Titles
     private static final String[] mTitles = {"页面一", "页面二", "页面三", "页面四"};
 
@@ -42,6 +45,7 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
     @NorIcons
     private static final int[] mNormalIcons = {R.mipmap.tab1_normal, R.mipmap.tab2_normal, R.mipmap.tab3_normal, R
             .mipmap.tab4_normal};
+
     private List<Fragment> list = new ArrayList<>();
 
     @Override
@@ -81,6 +85,8 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
 
     @Override
     public void initView() {
+        viewPager = findViewById(R.id.view_pager);
+        tabbar = findViewById(R.id.tabbar);
         mTab0 = new Fragment0();
         mTab1 = new Fragment1();
         mTab2 = new Fragment2();
@@ -92,7 +98,7 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
         list.add(mTab2);
         list.add(mTab3);
 //        list.add(mTab4);
-        viewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager(), list,mTitles));
+        viewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager(), list, mTitles));
         tabbar.setContainer(viewPager);
         tabbar.setDismissListener(this);
         //显示圆点模式的徽章

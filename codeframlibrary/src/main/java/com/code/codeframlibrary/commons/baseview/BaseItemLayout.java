@@ -28,6 +28,7 @@ public abstract class BaseItemLayout extends BaseLayout {
     @Override
     public void initView() {
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        initItemView();
     }
 
     public abstract void initItemView();

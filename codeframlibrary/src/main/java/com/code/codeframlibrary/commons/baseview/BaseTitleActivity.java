@@ -22,9 +22,6 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 /**
  * Created by dengshaomin on 2017/11/7.
  */
@@ -40,7 +37,6 @@ public abstract class BaseTitleActivity extends PermissionActivity implements IB
 
     private List<String> eventList = new ArrayList<>();
 
-    private Unbinder unbinder;
 
     protected IBasePresent mIBasePresents;
 
@@ -50,7 +46,6 @@ public abstract class BaseTitleActivity extends PermissionActivity implements IB
         EventBus.getDefault().register(this);
         setContentView(R.layout.activity_title_base);
         initTitle();
-        unbinder = ButterKnife.bind(this);
         List<String> events = regeistEvent();
         if (events != null) {
             eventList.addAll(events);
@@ -111,7 +106,6 @@ public abstract class BaseTitleActivity extends PermissionActivity implements IB
 
     @Override
     protected void onDestroy() {
-        unbinder.unbind();
         EventBus.getDefault().unregister(this);
         releasePresents();
         super.onDestroy();

@@ -4,21 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.widget.ImageView;
 
 import com.code.codeframlibrary.commons.GlobalMsg;
 import com.code.codeframlibrary.commons.baseview.BaseTitleActivity;
 import com.code.codeframlibrary.commons.ciface.IBasePresent;
-import com.code.codeframlibrary.commons.utils.CImageUtils;
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.github.lazylibrary.util.ToastUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
-import com.youth.banner.loader.ImageLoader;
 import com.youth.banner.loader.ImageLoaderInterface;
 
-import butterknife.BindView;
 
 public class BannerActivity extends BaseTitleActivity implements OnBannerListener {
 
@@ -29,7 +24,6 @@ public class BannerActivity extends BaseTitleActivity implements OnBannerListene
         add("http://pic.58pic.com/58pic/13/70/90/29358PICQjG_1024.jpg");
     }};
 
-    @BindView(R.id.banner)
     Banner mBanner;
 
     @Override
@@ -69,6 +63,7 @@ public class BannerActivity extends BaseTitleActivity implements OnBannerListene
 
     @Override
     public void initView() {
+        mBanner = findViewById(R.id.banner);
         mBanner.setImages(imageUrl).setImageLoader(new FrescoImageLoader())
                 .isAutoPlay(true)
                 .setDelayTime(3000)

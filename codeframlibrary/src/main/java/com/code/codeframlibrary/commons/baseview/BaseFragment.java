@@ -20,8 +20,6 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * Created by Administrator on 2017/12/6.
@@ -30,7 +28,6 @@ import butterknife.Unbinder;
 public abstract class BaseFragment extends Fragment implements IBaseLayout {
     private View rootView;
     private List<String> eventList = new ArrayList<>();
-    private Unbinder unbinder;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -45,7 +42,6 @@ public abstract class BaseFragment extends Fragment implements IBaseLayout {
         } else {
             rootView = inflater.inflate(layoutId, null);
         }
-        unbinder = ButterKnife.bind(this, rootView);
         if (rootView != null) {
             this.initView();
             this.initBundleData();
@@ -57,13 +53,6 @@ public abstract class BaseFragment extends Fragment implements IBaseLayout {
     @Override
     public void onDestroy() {
         EventBus.getDefault().unregister(this);
-        try {
-            if (unbinder != null) {
-                unbinder.unbind();
-            }
-        } catch (Exception e) {
-
-        }
         super.onDestroy();
     }
 

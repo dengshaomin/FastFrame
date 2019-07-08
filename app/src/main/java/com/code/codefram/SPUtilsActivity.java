@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.TextureView;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -17,28 +16,19 @@ import com.code.codeframlibrary.commons.baseview.BaseTitleActivity;
 import com.code.codeframlibrary.commons.ciface.IBasePresent;
 import com.code.codeframlibrary.commons.utils.CSPUtils;
 import com.code.codeframlibrary.commons.widgets.SuperButton;
-import com.github.lazylibrary.util.AssetDatabaseOpenHelper;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-public class SPUtilsActivity extends BaseTitleActivity {
 
 
-    @BindView(R.id.key)
+public class SPUtilsActivity extends BaseTitleActivity implements OnClickListener {
+
+
     EditText mKey;
 
-    @BindView(R.id.value)
     EditText mValue;
 
-    @BindView(R.id.save)
     SuperButton mSave;
 
-    @BindView(R.id.get)
     SuperButton mGet;
 
-    @BindView(R.id.list)
     ListView mList;
 
     private List<String> str_name = new ArrayList<String>();
@@ -83,6 +73,13 @@ public class SPUtilsActivity extends BaseTitleActivity {
 
     @Override
     public void initView() {
+        mKey = findViewById(R.id.key);
+        mValue = findViewById(R.id.value);
+        mSave = findViewById(R.id.save);
+        mGet = findViewById(R.id.get);
+        mList = findViewById(R.id.list);
+        mSave.setOnClickListener(this);
+        mGet.setOnClickListener(this);
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, str_name);
         mList.setAdapter(adapter);
@@ -114,9 +111,15 @@ public class SPUtilsActivity extends BaseTitleActivity {
     }
 
 
-    @OnClick({R.id.save, R.id.get})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
+
+    @Override
+    public IBasePresent getPresents() {
+        return null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.save:
                 if (TextUtils.isEmpty(mKey.getText().toString())) {
                     return;
@@ -132,10 +135,5 @@ public class SPUtilsActivity extends BaseTitleActivity {
                 adapter.notifyDataSetChanged();
                 break;
         }
-    }
-
-    @Override
-    public IBasePresent getPresents() {
-        return null;
     }
 }

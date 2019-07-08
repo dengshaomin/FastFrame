@@ -18,42 +18,29 @@ import com.flyco.tablayout.SlidingTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.flyco.tablayout.widget.MsgView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class TabLayoutActivity extends BaseTitleActivity implements OnTabSelectListener {
 
-    @BindView(R.id.tl_1)
     SlidingTabLayout mTl1;
 
-    @BindView(R.id.tl_2)
     SlidingTabLayout mTl2;
 
-    @BindView(R.id.tl_3)
     SlidingTabLayout mTl3;
 
-    @BindView(R.id.tl_4)
     SlidingTabLayout mTl4;
 
-    @BindView(R.id.tl_5)
     SlidingTabLayout mTl5;
 
-    @BindView(R.id.tl_6)
     SlidingTabLayout mTl6;
 
-    @BindView(R.id.tl_7)
     SlidingTabLayout mTl7;
 
-    @BindView(R.id.tl_8)
     SlidingTabLayout mTl8;
 
-    @BindView(R.id.tl_9)
     SlidingTabLayout mTl9;
 
-    @BindView(R.id.tl_10)
     SlidingTabLayout mTl10;
 
-    @BindView(R.id.vp)
     ViewPager mVp;
 
     private Context mContext = this;
@@ -104,11 +91,22 @@ public class TabLayoutActivity extends BaseTitleActivity implements OnTabSelectL
 
     @Override
     public void initView() {
+        mTl1 = findViewById(R.id.tl_1);
+        mTl2 = findViewById(R.id.tl_2);
+        mTl3 = findViewById(R.id.tl_3);
+        mTl4 = findViewById(R.id.tl_4);
+        mTl5 = findViewById(R.id.tl_5);
+        mTl6 = findViewById(R.id.tl_6);
+        mTl7 = findViewById(R.id.tl_7);
+        mTl8 = findViewById(R.id.tl_8);
+        mTl9 = findViewById(R.id.tl_9);
+        mTl10 = findViewById(R.id.tl_10);
+        mVp = findViewById(R.id.vp);
         for (String title : mTitles) {
             mFragments.add(SimpleCardFragment.getInstance(title));
         }
 
-        mAdapter = new FragmentAdapter(getSupportFragmentManager(), mFragments,mTitles);
+        mAdapter = new FragmentAdapter(getSupportFragmentManager(), mFragments, mTitles);
         mVp.setAdapter(mAdapter);
 
         mTl1.setViewPager(mVp);

@@ -20,32 +20,47 @@ public class AssetsUtils {
      */
     public static String readFile(Context context, String fileName) {
         String result = "";
+        InputStreamReader inputReader = null;
+        BufferedReader bufReader = null;
         try {
-            InputStreamReader inputReader = new InputStreamReader(context.getResources().getAssets().open(fileName));
-            BufferedReader bufReader = new BufferedReader(inputReader);
+            inputReader = new InputStreamReader(context.getResources().getAssets().open(fileName));
+            bufReader = new BufferedReader(inputReader);
             String line = "";
             while ((line = bufReader.readLine()) != null) {
                 result += line;
             }
-            inputReader.close();
-            bufReader.close();
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                inputReader.close();
+                bufReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return result;
     }
+
     /*
      * 从Assets中读取图片
      */
-    public static  Bitmap readBitmap(Context context,String fileName) {
+    public static Bitmap readBitmap(Context context, String fileName) {
         Bitmap image = null;
+        InputStream is = null;
         try {
             AssetManager am = context.getResources().getAssets();
-            InputStream is = am.open(fileName);
+            is = am.open(fileName);
             image = BitmapFactory.decodeStream(is);
-            is.close();
+
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return image;
 

@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CodeFram.iml" filepath="$PROJECT_DIR$/CodeFram.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/codeframlibrary/codeframlibrary.iml" filepath="$PROJECT_DIR$/codeframlibrary/codeframlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cframe/cframe.iml" filepath="$PROJECT_DIR$/cframe/cframe.iml" />
     </modules>
   </component>
 </project>

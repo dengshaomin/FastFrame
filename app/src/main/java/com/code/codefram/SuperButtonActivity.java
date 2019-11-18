@@ -3,7 +3,7 @@ package com.code.codefram;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.code.codeframlibrary.commons.widgets.SuperButton;
+import com.code.cframe.widgets.SuperButton;
 
 /**
  * Created by allen on 2017/7/10.

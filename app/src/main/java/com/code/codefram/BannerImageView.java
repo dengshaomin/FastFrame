@@ -5,9 +5,9 @@ import java.util.List;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.code.codeframlibrary.commons.GlobalMsg;
-import com.code.codeframlibrary.commons.baseview.BaseLayout;
-import com.code.codeframlibrary.commons.utils.CImageUtils;
+import com.code.cframe.GlobalMsg;
+import com.code.cframe.baseview.BaseLayout;
+import com.code.cframe.utils.CImageUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 public class BannerImageView extends BaseLayout {

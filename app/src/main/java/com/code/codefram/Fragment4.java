@@ -1,7 +1,7 @@
 package com.code.codefram;
 
-import com.code.codeframlibrary.commons.GlobalMsg;
-import com.code.codeframlibrary.commons.baseview.BaseFragment;
+import com.code.cframe.GlobalMsg;
+import com.code.cframe.baseview.BaseFragment;
 
 import java.util.List;
 

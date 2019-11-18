@@ -8,11 +8,11 @@ import android.support.v7.widget.RecyclerView.ItemDecoration;
 import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.view.View;
 
-import com.code.codeframlibrary.commons.GlobalMsg;
-import com.code.codeframlibrary.commons.activity.CListActivity;
-import com.code.codeframlibrary.commons.baseview.BaseItemLayout;
-import com.code.codeframlibrary.commons.ciface.IBasePresent;
-import com.code.codeframlibrary.commons.listview.CListView;
+import com.code.cframe.GlobalMsg;
+import com.code.cframe.activity.CListActivity;
+import com.code.cframe.baseview.BaseItemLayout;
+import com.code.cframe.ciface.IBasePresent;
+import com.code.cframe.listview.CListView;
 import com.github.lazylibrary.util.ToastUtils;
 
 public class ListWithBaseListActivity extends CListActivity<String> {

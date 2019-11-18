@@ -13,7 +13,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.code.codeframlibrary.commons.baseview.PermissionActivity;
+import com.code.cframe.baseview.PermissionActivity;
 
 public class MainActivity extends PermissionActivity {
 

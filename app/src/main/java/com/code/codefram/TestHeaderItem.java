@@ -7,8 +7,8 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.code.codeframlibrary.commons.baseview.BaseLayout;
-import com.code.codeframlibrary.commons.GlobalMsg;
+import com.code.cframe.baseview.BaseLayout;
+import com.code.cframe.GlobalMsg;
 
 
 /**

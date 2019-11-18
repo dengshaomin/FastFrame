@@ -8,16 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView.ViewHolder;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.code.codeframlibrary.commons.listview.CCommonViewHolder;
-import com.code.codeframlibrary.commons.listview.CHeaderFooterAdapter;
-import com.code.codeframlibrary.commons.ciface.IListCallBack;
-import com.code.codeframlibrary.commons.listview.CListView;
+import com.code.cframe.listview.CCommonViewHolder;
+import com.code.cframe.ciface.IListCallBack;
+import com.code.cframe.listview.CListView;
 import com.github.lazylibrary.util.ToastUtils;
 
 public class CListViewActivity extends AppCompatActivity implements IListCallBack {

@@ -5,15 +5,13 @@ import java.util.List;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.view.View;
 import android.widget.Toast;
 
-import com.code.codeframlibrary.commons.GlobalMsg;
-import com.code.codeframlibrary.commons.baseview.BaseTitleActivity;
-import com.code.codeframlibrary.commons.ciface.IBasePresent;
+import com.code.cframe.GlobalMsg;
+import com.code.cframe.baseview.BaseTitleActivity;
+import com.code.cframe.ciface.IBasePresent;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.flyco.tablayout.widget.MsgView;

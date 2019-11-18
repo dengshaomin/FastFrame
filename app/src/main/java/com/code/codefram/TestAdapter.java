@@ -6,7 +6,7 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.code.codeframlibrary.commons.listview.CCommonViewHolder;
+import com.code.cframe.listview.CCommonViewHolder;
 
 /**
  * Created by dengshaomin on 2017/12/4.

@@ -5,9 +5,9 @@ import java.util.List;
 
 import android.content.Context;
 
-import com.code.codeframlibrary.commons.GlobalMsg;
-import com.code.codeframlibrary.commons.baseview.BaseTitleActivity;
-import com.code.codeframlibrary.commons.ciface.IBasePresent;
+import com.code.cframe.GlobalMsg;
+import com.code.cframe.baseview.BaseTitleActivity;
+import com.code.cframe.ciface.IBasePresent;
 import com.github.lazylibrary.util.ToastUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;

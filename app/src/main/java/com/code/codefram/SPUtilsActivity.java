@@ -11,11 +11,11 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.code.codeframlibrary.commons.GlobalMsg;
-import com.code.codeframlibrary.commons.baseview.BaseTitleActivity;
-import com.code.codeframlibrary.commons.ciface.IBasePresent;
-import com.code.codeframlibrary.commons.utils.CSPUtils;
-import com.code.codeframlibrary.commons.widgets.SuperButton;
+import com.code.cframe.GlobalMsg;
+import com.code.cframe.baseview.BaseTitleActivity;
+import com.code.cframe.ciface.IBasePresent;
+import com.code.cframe.utils.CSPUtils;
+import com.code.cframe.widgets.SuperButton;
 
 
 public class SPUtilsActivity extends BaseTitleActivity implements OnClickListener {

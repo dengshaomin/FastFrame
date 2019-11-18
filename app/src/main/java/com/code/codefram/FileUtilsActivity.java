@@ -8,11 +8,11 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.code.codeframlibrary.commons.GlobalMsg;
-import com.code.codeframlibrary.commons.baseview.BaseTitleActivity;
-import com.code.codeframlibrary.commons.ciface.IBasePresent;
-import com.code.codeframlibrary.commons.utils.CFlieUtils;
-import com.code.codeframlibrary.commons.widgets.SuperButton;
+import com.code.cframe.GlobalMsg;
+import com.code.cframe.baseview.BaseTitleActivity;
+import com.code.cframe.ciface.IBasePresent;
+import com.code.cframe.utils.CFlieUtils;
+import com.code.cframe.widgets.SuperButton;
 
 
 public class FileUtilsActivity extends BaseTitleActivity implements OnClickListener {

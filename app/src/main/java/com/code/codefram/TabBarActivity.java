@@ -8,9 +8,9 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Toast;
 
-import com.code.codeframlibrary.commons.GlobalMsg;
-import com.code.codeframlibrary.commons.baseview.BaseTitleActivity;
-import com.code.codeframlibrary.commons.ciface.IBasePresent;
+import com.code.cframe.GlobalMsg;
+import com.code.cframe.baseview.BaseTitleActivity;
+import com.code.cframe.ciface.IBasePresent;
 import com.jpeng.jptabbar.BadgeDismissListener;
 import com.jpeng.jptabbar.JPTabBar;
 import com.jpeng.jptabbar.OnTabSelectListener;

@@ -6,8 +6,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import com.code.codeframlibrary.commons.GlobalMsg;
-import com.code.codeframlibrary.commons.baseview.BaseItemLayout;
+import com.code.cframe.GlobalMsg;
+import com.code.cframe.baseview.BaseItemLayout;
 
 /**
  * Created by dengshaomin on 2017/12/4.

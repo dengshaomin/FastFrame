@@ -24,7 +24,7 @@
         android:textSize="20sp"
         />
 
-    <com.code.codeframlibrary.commons.widgets.SuperButton
+    <com.code.cframe.widgets.SuperButton
         android:id="@+id/save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         stv:sUseSelector="true"
         />
 
-    <com.code.codeframlibrary.commons.widgets.SuperButton
+    <com.code.cframe.widgets.SuperButton
         android:id="@+id/get"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

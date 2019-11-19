@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.code.cframe.utils.CImageUtils;
+import com.code.cframe.utils.CLog;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 

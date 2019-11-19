@@ -26,9 +26,9 @@ import okhttp3.OkHttpClient;
 
 public class CFrame {
 
-    private Context mContext;
+    public static Context mApplicationContext;
 
-    private static CFrame codeFram;
+    private static volatile CFrame codeFram;
 
     public static CFrame getInstance() {
         if (codeFram == null) {
@@ -42,8 +42,8 @@ public class CFrame {
     }
 
     public void init(Context context) {
-        mContext = context;
-        CLog.init(mContext);
+        mApplicationContext = context.getApplicationContext();
+        CLog.init();
         initFresco();
     }
 
@@ -64,14 +64,14 @@ public class CFrame {
         listeners.add(new RequestLoggingListener());
 
         ImagePipelineConfig imagePiplineConfig = OkHttpImagePipelineConfigFactory
-                .newBuilder(mContext, new OkHttpClient())
+                .newBuilder(mApplicationContext, new OkHttpClient())
                 .setRequestListeners(listeners)
                 .setBitmapsConfig(Bitmap.Config.ARGB_8888)
                 .setProgressiveJpegConfig(pjpegConfig)
                 .setDownsampleEnabled(enableDownSample)
                 .build();
 
-        Fresco.initialize(mContext, imagePiplineConfig);
+        Fresco.initialize(mApplicationContext, imagePiplineConfig);
     }
 
     public static void onDestory(Context context) {

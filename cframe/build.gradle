@@ -28,8 +28,8 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //    compile 'com.huxq17.xrefreshview:xrefreshview:3.6.9'
     api 'org.greenrobot:eventbus:3.1.0-RC'
-    api 'de.hdodenhof:circleimageview:2.2.0'
-    api 'com.github.lazylibrary:lazylibrary:1.0.2'
+//    api 'de.hdodenhof:circleimageview:2.2.0'
+//    api 'com.github.lazylibrary:lazylibrary:1.0.2'
     api 'com.squareup.retrofit2:retrofit:2.3.0'
     api 'com.alibaba:fastjson:1.2.40'
     api('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.11.0@aar') {

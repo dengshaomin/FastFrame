@@ -8,15 +8,15 @@ import com.facebook.drawee.view.SimpleDraweeView;
  * Created by dengshaomin on 2017/11/7.
  */
 
-public class CImageUtils {
+public class ImageUtils {
 
-    private static CImageUtils imageLoader = null;
+    private static ImageUtils imageLoader = null;
 
-    public static CImageUtils getInstance() {
+    public static ImageUtils getInstance() {
         if (imageLoader == null) {
-            synchronized (CImageUtils.class) {
+            synchronized (ImageUtils.class) {
                 if (imageLoader == null) {
-                    imageLoader = new CImageUtils();
+                    imageLoader = new ImageUtils();
                 }
             }
         }

@@ -8,7 +8,7 @@ import android.content.Context;
 import com.code.cframe.GlobalMsg;
 import com.code.cframe.baseview.BaseTitleActivity;
 import com.code.cframe.ciface.IBasePresent;
-import com.github.lazylibrary.util.ToastUtils;
+import com.code.cframe.utils.ToastUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;

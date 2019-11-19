@@ -11,26 +11,26 @@ import android.content.SharedPreferences.Editor;
  */
 
 
-public class CSPUtils {
+public class SharedPreferencesUtils {
 
 
     private static final String PREFERENCE_NAME = "sp.utils";
 
-    private static CSPUtils instance;
+    private static SharedPreferencesUtils instance;
 
     private SharedPreferences sharedPreferences;
 
     private Editor editor;
 
-    public CSPUtils(Context context) {
+    public SharedPreferencesUtils(Context context) {
         sharedPreferences = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
     }
 
 
-    public static synchronized CSPUtils getInstance(Context context) {
+    public static synchronized SharedPreferencesUtils getInstance(Context context) {
         if (instance == null) {
-            instance = new CSPUtils(context);
+            instance = new SharedPreferencesUtils(context);
         }
         return instance;
     }

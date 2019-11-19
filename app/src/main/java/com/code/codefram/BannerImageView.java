@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 
 import com.code.cframe.GlobalMsg;
 import com.code.cframe.baseview.BaseLayout;
-import com.code.cframe.utils.CImageUtils;
+import com.code.cframe.utils.ImageUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 public class BannerImageView extends BaseLayout {
@@ -59,6 +59,6 @@ public class BannerImageView extends BaseLayout {
 
     @Override
     public void setViewData(Object data) {
-        CImageUtils.getInstance().loadImage(image, data + "");
+        ImageUtils.getInstance().loadImage(image, data + "");
     }
 }

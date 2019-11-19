@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import com.code.cframe.listview.CCommonViewHolder;
 import com.code.cframe.ciface.IListCallBack;
 import com.code.cframe.listview.CListView;
-import com.github.lazylibrary.util.ToastUtils;
+import com.code.cframe.utils.ToastUtils;
 
 public class CListViewActivity extends AppCompatActivity implements IListCallBack {
 

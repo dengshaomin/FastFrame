@@ -14,7 +14,7 @@ import android.widget.ListView;
 import com.code.cframe.GlobalMsg;
 import com.code.cframe.baseview.BaseTitleActivity;
 import com.code.cframe.ciface.IBasePresent;
-import com.code.cframe.utils.CSPUtils;
+import com.code.cframe.utils.SharedPreferencesUtils;
 import com.code.cframe.widgets.SuperButton;
 
 
@@ -124,11 +124,11 @@ public class SPUtilsActivity extends BaseTitleActivity implements OnClickListene
                 if (TextUtils.isEmpty(mKey.getText().toString())) {
                     return;
                 }
-                CSPUtils.getInstance(this).put(mKey.getText().toString(), mValue.getText().toString());
+                SharedPreferencesUtils.getInstance(this).put(mKey.getText().toString(), mValue.getText().toString());
                 break;
             case R.id.get:
                 str_name.clear();
-                Map<String, String> values = (Map<String, String>) CSPUtils.getInstance(this).getAll();
+                Map<String, String> values = (Map<String, String>) SharedPreferencesUtils.getInstance(this).getAll();
                 for (String key : values.keySet()) {
                     str_name.add(key + " " + values.get(key));
                 }

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.code.cframe.GlobalMsg;
 import com.code.cframe.baseview.BaseTitleActivity;
 import com.code.cframe.ciface.IBasePresent;
-import com.code.cframe.utils.CFlieUtils;
+import com.code.cframe.utils.FileUtils;
 import com.code.cframe.widgets.SuperButton;
 
 
@@ -107,10 +107,10 @@ public class FileUtilsActivity extends BaseTitleActivity implements OnClickListe
                 if (TextUtils.isEmpty(mKey.getText().toString())) {
                     return;
                 }
-                CFlieUtils.saveStrToFile(mKey.getText().toString(), mValue.getText().toString());
+                FileUtils.saveStrToFileInside(mKey.getText().toString(), mValue.getText().toString());
                 break;
             case R.id.get:
-                mList.setText(CFlieUtils.readFile(mKey.getText().toString()));
+                mList.setText(FileUtils.readFileInside(mKey.getText().toString()));
                 break;
         }
     }
@@ -127,10 +127,10 @@ public class FileUtilsActivity extends BaseTitleActivity implements OnClickListe
                 if (TextUtils.isEmpty(mKey.getText().toString())) {
                     return;
                 }
-                CFlieUtils.saveStrToFile(mKey.getText().toString(), mValue.getText().toString());
+                FileUtils.saveStrToFileInside(mKey.getText().toString(), mValue.getText().toString());
                 break;
             case R.id.get:
-                mList.setText(CFlieUtils.readFile(mKey.getText().toString()));
+                mList.setText(FileUtils.readFileInside(mKey.getText().toString()));
                 break;
         }
     }

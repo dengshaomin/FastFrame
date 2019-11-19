@@ -28,8 +28,8 @@ public class MainActivity extends PermissionActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         str_name.add("CListView");
-        str_name.add("CImageUtils");
-        str_name.add("CSPUtils");
+        str_name.add("ImageUtils");
+        str_name.add("SharedPreferencesUtils");
         str_name.add("SuperButton");
         str_name.add("FileUtils");
         str_name.add("RetrofitUtils");

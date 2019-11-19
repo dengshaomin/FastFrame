@@ -8,7 +8,7 @@ import android.graphics.Bitmap;
 import android.os.Build;
 
 import com.code.cframe.utils.CLog;
-import com.code.cframe.utils.CSPUtils;
+import com.code.cframe.utils.SharedPreferencesUtils;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.backends.okhttp3.OkHttpImagePipelineConfigFactory;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
@@ -75,7 +75,7 @@ public class CFrame {
     }
 
     public static void onDestory(Context context) {
-        CSPUtils.getInstance(context).commit();
+        SharedPreferencesUtils.getInstance(context).commit();
     }
 
 }

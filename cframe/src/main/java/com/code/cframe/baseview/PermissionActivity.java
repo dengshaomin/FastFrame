@@ -13,7 +13,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import com.code.cframe.ciface.IPermissionActivity;
-import com.github.lazylibrary.util.ToastUtils;
+import com.code.cframe.utils.ToastUtils;
 
 
 public abstract class PermissionActivity extends AppCompatActivity implements IPermissionActivity {

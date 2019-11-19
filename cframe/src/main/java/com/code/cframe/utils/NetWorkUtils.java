@@ -5,7 +5,7 @@ import android.content.Context;
 import com.code.cframe.net.NetWorkTypeUtils;
 import com.code.cframe.net.NetworkStatus;
 
-public class CNetUtils {
+public class NetWorkUtils {
 
     /**
      * 是否为移动网络

@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 import com.code.cframe.baseview.BaseTitleActivity;
 import com.code.cframe.ciface.IBasePresent;
 import com.code.cframe.utils.SharedPreferencesUtils;
@@ -101,7 +101,7 @@ public class SPUtilsActivity extends BaseTitleActivity implements OnClickListene
     }
 
     @Override
-    public void eventComming(GlobalMsg globalMsg) {
+    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

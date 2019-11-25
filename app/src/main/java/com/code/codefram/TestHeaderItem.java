@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.code.cframe.baseview.BaseLayout;
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 
 
 /**
@@ -59,7 +59,7 @@ public class TestHeaderItem extends BaseLayout {
     }
 
     @Override
-    public void eventComming(GlobalMsg globalMsg) {
+    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

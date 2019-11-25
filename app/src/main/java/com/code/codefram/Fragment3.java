@@ -1,6 +1,6 @@
 package com.code.codefram;
 
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 import com.code.cframe.baseview.BaseFragment;
 
 import java.util.List;
@@ -37,7 +37,7 @@ public class Fragment3 extends BaseFragment {
     }
 
     @Override
-    public void eventComming(GlobalMsg globalMsg) {
+    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

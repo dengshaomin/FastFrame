@@ -8,5 +8,9 @@ import java.util.List;
 
 public interface IPermissionActivity {
 
-    public List<String> needPermissions();
+    List<String> needPermissions();
+
+    void permissionsSuccess();
+
+    void permissionsFail(List<String> permissions);
 }

@@ -1,25 +1,18 @@
 package com.code.cframe.ciface;
 
-import java.util.List;
-
-import com.code.cframe.GlobalMsg;
-
 
 /**
  * Created by dengshaomin on 2016/10/21.
  */
 public interface IBaseLayout {
-    public int setContentLayout();
 
-    public void initView();
+    int setContentLayout();
 
-    public void initBundleData();
+    void initView();
 
-    public void getNetData();
+    void initBundleData();
 
-    public List<String> regeistEvent();
+    void getNetData();
 
-    public void eventComming(GlobalMsg globalMsg);
-
-    public void setViewData(Object data);
+    void setViewData(Object data);
 }

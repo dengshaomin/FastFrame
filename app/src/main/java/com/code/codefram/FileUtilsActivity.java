@@ -8,7 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 import com.code.cframe.baseview.BaseTitleActivity;
 import com.code.cframe.ciface.IBasePresent;
 import com.code.cframe.utils.FileUtils;
@@ -91,7 +91,7 @@ public class FileUtilsActivity extends BaseTitleActivity implements OnClickListe
     }
 
     @Override
-    public void eventComming(GlobalMsg globalMsg) {
+    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

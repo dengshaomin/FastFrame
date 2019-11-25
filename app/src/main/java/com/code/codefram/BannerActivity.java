@@ -5,7 +5,7 @@ import java.util.List;
 
 import android.content.Context;
 
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 import com.code.cframe.baseview.BaseTitleActivity;
 import com.code.cframe.ciface.IBasePresent;
 import com.code.cframe.utils.ToastUtils;
@@ -88,7 +88,7 @@ public class BannerActivity extends BaseTitleActivity implements OnBannerListene
     }
 
     @Override
-    public void eventComming(GlobalMsg globalMsg) {
+    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

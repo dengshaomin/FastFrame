@@ -6,7 +6,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 import com.code.cframe.baseview.BaseItemLayout;
 
 /**
@@ -56,7 +56,7 @@ public class TestItem extends BaseItemLayout {
     }
 
     @Override
-    public void eventComming(GlobalMsg globalMsg) {
+    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

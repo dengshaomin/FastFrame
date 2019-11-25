@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 import com.code.cframe.ciface.IBaseLayout;
 
 import org.greenrobot.eventbus.EventBus;
@@ -56,7 +56,7 @@ public abstract class BaseFragment extends Fragment implements IBaseLayout {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onMessageEvent(GlobalMsg event) {
+    public void onMessageEvent(GlobalEvent event) {
         /* Do something */
         for (String s : eventList) {
             if (s.equals(event.getMsgId())) {

@@ -5,10 +5,8 @@ import java.util.List;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.widget.Toast;
 
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 import com.code.cframe.baseview.BaseTitleActivity;
 import com.code.cframe.ciface.IBasePresent;
 import com.jpeng.jptabbar.BadgeDismissListener;
@@ -107,13 +105,13 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
         //设置Badge消失的代理
         tabbar.setTabListener(this);
         tabbar.setUseScrollAnimate(true);
-        tabbar.getMiddleView().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(TabBarActivity.this, "中间点击", Toast.LENGTH_SHORT).show();
-                ;
-            }
-        });
+//        tabbar.getMiddleView().setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(TabBarActivity.this, "中间点击", Toast.LENGTH_SHORT).show();
+//                ;
+//            }
+//        });
     }
 
     @Override
@@ -132,7 +130,7 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
     }
 
     @Override
-    public void eventComming(GlobalMsg globalMsg) {
+    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

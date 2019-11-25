@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.code.cframe.R;
 import com.code.cframe.baseview.BaseLayout;
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 
 /**
  * Created by dengshaomin on 2017/7/25.
@@ -56,7 +56,7 @@ public class CListViewFooter extends BaseLayout {
     }
 
     @Override
-    public void eventComming(GlobalMsg globalMsg) {
+    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

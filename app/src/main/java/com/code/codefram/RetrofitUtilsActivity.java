@@ -12,7 +12,7 @@ import com.code.cframe.utils.ToastUtils;
 import com.code.codefram.model.LogisticsModel;
 import com.code.codefram.presents.TestPresent;
 import com.code.codefram.presents.TestPresent.ITest;
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 import com.code.cframe.baseview.BaseTitleActivity;
 import com.code.cframe.ciface.IBasePresent;
 import com.code.cframe.widgets.SuperButton;
@@ -87,7 +87,7 @@ public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest, O
     }
 
     @Override
-    public void eventComming(GlobalMsg globalMsg) {
+    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

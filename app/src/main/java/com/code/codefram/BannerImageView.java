@@ -5,7 +5,7 @@ import java.util.List;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 import com.code.cframe.baseview.BaseLayout;
 import com.code.cframe.utils.ImageUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -53,7 +53,7 @@ public class BannerImageView extends BaseLayout {
     }
 
     @Override
-    public void eventComming(GlobalMsg globalMsg) {
+    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

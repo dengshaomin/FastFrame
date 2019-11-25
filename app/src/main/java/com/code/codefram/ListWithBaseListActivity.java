@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView.ItemDecoration;
 import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.view.View;
 
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 import com.code.cframe.activity.CListActivity;
 import com.code.cframe.baseview.BaseItemLayout;
 import com.code.cframe.ciface.IBasePresent;
@@ -64,7 +64,7 @@ public class ListWithBaseListActivity extends CListActivity<String> {
     }
 
     @Override
-    public void eventComming(GlobalMsg globalMsg) {
+    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

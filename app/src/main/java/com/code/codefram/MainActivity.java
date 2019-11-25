@@ -13,9 +13,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.code.cframe.baseview.PermissionActivity;
+import com.code.cframe.baseview.BasePermissionActivity;
 
-public class MainActivity extends PermissionActivity {
+public class MainActivity extends BasePermissionActivity {
 
     private ListView lv;
 

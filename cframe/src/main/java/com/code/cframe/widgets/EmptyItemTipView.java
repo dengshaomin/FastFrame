@@ -6,7 +6,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import com.code.cframe.R;
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 import com.code.cframe.baseview.BaseLayout;
 
 /**
@@ -53,7 +53,7 @@ public class EmptyItemTipView extends BaseLayout {
     }
 
     @Override
-    public void eventComming(GlobalMsg globalMsg) {
+    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

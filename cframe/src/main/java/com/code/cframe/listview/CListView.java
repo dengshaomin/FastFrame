@@ -23,7 +23,7 @@ import com.andview.refreshview.XRefreshView;
 import com.andview.refreshview.XRefreshView.SimpleXRefreshListener;
 import com.code.cframe.R;
 import com.code.cframe.baseview.BaseLayout;
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 import com.code.cframe.ciface.IHeadClick;
 import com.code.cframe.ciface.IListCallBack;
 import com.code.cframe.ciface.IListReLoad;
@@ -491,7 +491,7 @@ public class CListView<T> extends BaseLayout implements IHeadClick, OnClickListe
     }
 
     @Override
-    public void eventComming(GlobalMsg globalMsg) {
+    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

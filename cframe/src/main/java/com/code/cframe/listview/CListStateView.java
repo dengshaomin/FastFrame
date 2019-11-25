@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.code.cframe.R;
-import com.code.cframe.GlobalMsg;
+import com.code.cframe.GlobalEvent;
 import com.code.cframe.baseview.BaseLayout;
 import com.code.cframe.ciface.IListReLoad;
 
@@ -99,7 +99,7 @@ public class CListStateView extends BaseLayout implements OnClickListener {
     }
 
     @Override
-    public void eventComming(GlobalMsg globalMsg) {
+    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

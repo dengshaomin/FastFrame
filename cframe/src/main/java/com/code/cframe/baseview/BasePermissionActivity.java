@@ -16,7 +16,7 @@ import com.code.cframe.ciface.IPermissionActivity;
 import com.code.cframe.utils.ToastUtils;
 
 
-public abstract class PermissionActivity extends AppCompatActivity implements IPermissionActivity {
+public abstract class BasePermissionActivity extends AppCompatActivity implements IPermissionActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_CODE = 1;
 
@@ -47,20 +47,38 @@ public abstract class PermissionActivity extends AppCompatActivity implements IP
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == MY_PERMISSIONS_REQUEST_CODE) {
+            List<String> failP = new ArrayList<>();
             for (int i = 0; i < grantResults.length; i++) {
                 if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
-                    ToastUtils.showToast(PermissionActivity.this, "部分权限被拒绝~");
-                    finish();
-                    return;
+                    if (permissions != null && permissions.length >= i) {
+                        failP.add(permissions[i]);
+                    }
                 }
             }
-             permissonSuccess();
+            if (failP.size() > 0) {
+                ToastUtils.showToast(BasePermissionActivity.this, "部分权限被拒绝~");
+                permissionsFail(failP);
+                return;
+            }
+            permissionsSuccess();
             return;
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
-    public void permissonSuccess() {
+    @Override
+    public void permissionsSuccess() {
+
+    }
+
+    @Override
+    public void permissionsFail(List<String> permissions) {
+
+    }
+
+    @Override
+    public List<String> needPermissions() {
+        return null;
     }
 
     public void showProgressDialog() {

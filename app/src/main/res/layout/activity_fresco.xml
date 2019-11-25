@@ -11,15 +11,9 @@
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:actualImageScaleType="centerCrop"
+        app:actualImageScaleType="fitCenter"
         app:placeholderImage="@mipmap/ic_launcher"
         app:placeholderImageScaleType="centerCrop"
-        app:roundAsCircle="false"
-        app:roundBottomLeft="false"
-        app:roundBottomRight="true"
-        app:roundTopLeft="true"
-        app:roundTopRight="false"
-        app:roundedCornerRadius="100dp"
         />
 
     <ImageView

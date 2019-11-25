@@ -9,7 +9,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -54,5 +53,6 @@ dependencies {
     api 'com.facebook.fresco:animated-webp:0.14.1'
     //网络实现层想使用okhttp3，需要添加以下依赖
     api 'com.facebook.fresco:imagepipeline-okhttp3:0.14.1'
+    api 'com.github.dengshaomin:RxRetrofit-master:1.0.3'
 
 }

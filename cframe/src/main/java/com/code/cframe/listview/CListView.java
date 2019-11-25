@@ -24,6 +24,7 @@ import com.andview.refreshview.XRefreshView.SimpleXRefreshListener;
 import com.code.cframe.R;
 import com.code.cframe.baseview.BaseLayout;
 import com.code.cframe.GlobalEvent;
+import com.code.cframe.baseview.pagestate.PageStateView;
 import com.code.cframe.ciface.IHeadClick;
 import com.code.cframe.ciface.IListCallBack;
 import com.code.cframe.ciface.IListReLoad;
@@ -52,7 +53,7 @@ public class CListView<T> extends BaseLayout implements IHeadClick, OnClickListe
 
     private XRefreshView mXrefreshview;
 
-    private CListStateView cListStateView;
+    private PageStateView cListStateView;
 
     private RelativeLayout clist_root;
 
@@ -196,7 +197,7 @@ public class CListView<T> extends BaseLayout implements IHeadClick, OnClickListe
     public void setNeedStateView(boolean needStateView) {
         if (needStateView) {
             if (cListStateView == null) {
-                cListStateView = new CListStateView(getmContext());
+                cListStateView = new PageStateView(getmContext());
                 cListStateView.setIListReLoad(new IListReLoad() {
                     @Override
                     public void reLoad() {
@@ -457,19 +458,19 @@ public class CListView<T> extends BaseLayout implements IHeadClick, OnClickListe
         switch (state) {
             case SUCCESS:
                 if (cListStateView != null && pageIndex == 1 && cListStateView != null && mAdapter.getItemCount() == 0) {
-                    cListStateView.setViewData(CListStateView.EMPTY);
+                    cListStateView.setViewData(PageStateView.EMPTY);
                 } else if (cListStateView != null) {
-                    cListStateView.setViewData(CListStateView.CONTENT);
+                    cListStateView.setViewData(PageStateView.CONTENT);
                 }
                 break;
             case ERROR:
                 if (pageIndex == 1 && cListStateView != null && mAdapter.getItemCount() == 0) {
-                    cListStateView.setViewData(CListStateView.ERROR);
+                    cListStateView.setViewData(PageStateView.ERROR);
                 }
                 break;
             case EMPTY:
                 if (pageIndex == 1 && cListStateView != null && mAdapter.getItemCount() == 0) {
-                    cListStateView.setViewData(CListStateView.EMPTY);
+                    cListStateView.setViewData(PageStateView.EMPTY);
                 }
                 break;
         }

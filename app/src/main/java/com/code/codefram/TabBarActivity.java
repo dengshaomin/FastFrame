@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
 import com.code.cframe.GlobalEvent;
-import com.code.cframe.baseview.BaseTitleActivity;
+import com.code.cframe.activity.BaseTitleActivity;
 import com.code.cframe.ciface.IBasePresent;
 import com.jpeng.jptabbar.BadgeDismissListener;
 import com.jpeng.jptabbar.JPTabBar;

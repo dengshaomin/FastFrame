@@ -1,4 +1,4 @@
-package com.code.cframe.baseview;
+package com.code.cframe.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,14 +9,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.code.cframe.R;
-import com.code.cframe.ciface.IBaseLayout;
+import com.code.cframe.ciface.IBaseViewLayout;
 import com.code.cframe.ciface.ITitle;
 
 /**
  * Created by dengshaomin on 2017/11/7.
  */
 
-public abstract class BaseTitleActivity extends BaseEventActivity implements IBaseLayout, ITitle {
+public abstract class BaseTitleActivity extends BaseBundleActivity implements IBaseViewLayout, ITitle {
 
     private LinearLayout container;
 
@@ -27,7 +27,6 @@ public abstract class BaseTitleActivity extends BaseEventActivity implements IBa
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.initBundleData();
         setContentView(R.layout.activity_title_base);
         initTitle();
         this.initView();
@@ -71,12 +70,4 @@ public abstract class BaseTitleActivity extends BaseEventActivity implements IBa
     public void titleLeftClick() {
         finish();
     }
-
-    public Object getBunleData() {
-        if (getIntent() != null) {
-            return getIntent().getSerializableExtra(this.getClass().getName());
-        }
-        return null;
-    }
-
 }

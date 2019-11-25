@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.code.cframe.GlobalEvent;
-import com.code.cframe.ciface.IBaseLayout;
+import com.code.cframe.ciface.IBaseViewLayout;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -24,7 +24,7 @@ import java.util.List;
  * Created by Administrator on 2017/12/6.
  */
 
-public abstract class BaseFragment extends Fragment implements IBaseLayout {
+public abstract class BaseFragment extends Fragment implements IBaseViewLayout {
     private View rootView;
     private List<String> eventList = new ArrayList<>();
 

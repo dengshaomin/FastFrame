@@ -1,4 +1,4 @@
-package com.code.cframe.listview;
+package com.code.cframe.baseview.pagestate;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import com.code.cframe.ciface.IListReLoad;
  * Created by dengshaomin on 2017/12/8.
  */
 
-public class CListStateView extends BaseLayout implements OnClickListener {
+public class PageStateView extends BaseLayout implements OnClickListener {
 
     public static final int EMPTY = 0;
 
@@ -50,21 +50,21 @@ public class CListStateView extends BaseLayout implements OnClickListener {
 
     private IListReLoad mIListReLoad;
 
-    public CListStateView(Context context) {
+    public PageStateView(Context context) {
         super(context);
     }
 
-    public CListStateView(Context context, AttributeSet attrs) {
+    public PageStateView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CListStateView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PageStateView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @Override
     public int setContentLayout() {
-        return R.layout.clist_state_view;
+        return R.layout.state_loading_view;
     }
 
     public void setIListReLoad(IListReLoad IListReLoad) {
@@ -81,9 +81,9 @@ public class CListStateView extends BaseLayout implements OnClickListener {
 
     @Override
     public void initBundleData() {
-        this.errorResource = R.drawable.clist_error;
+        this.errorResource = R.drawable.stateview_refresh;
         this.errorTip = "数据获取异常，点击刷新~";
-        this.emptyResource = R.drawable.clist_empty;
+        this.emptyResource = R.drawable.stateview_empty;
         this.emptyTip = "没有数据~";
         this.loadingTip = "正在加载...";
     }
@@ -132,35 +132,35 @@ public class CListStateView extends BaseLayout implements OnClickListener {
         }
     }
 
-    public CListStateView setEmptyImage(int resource) {
+    public PageStateView setEmptyImage(int resource) {
         if (resource > 0) {
             this.emptyResource = resource;
         }
         return this;
     }
 
-    public CListStateView setEmptyTip(String emptyTip) {
+    public PageStateView setEmptyTip(String emptyTip) {
         if (!TextUtils.isEmpty(emptyTip)) {
             this.emptyTip = emptyTip;
         }
         return this;
     }
 
-    public CListStateView setErrorImage(int resource) {
+    public PageStateView setErrorImage(int resource) {
         if (resource > 0) {
             this.errorResource = resource;
         }
         return this;
     }
 
-    public CListStateView setErrorTip(String errorTip) {
+    public PageStateView setErrorTip(String errorTip) {
         if (!TextUtils.isEmpty(errorTip)) {
             this.errorTip = errorTip;
         }
         return this;
     }
 
-    public CListStateView setLoadingTip(String loadingTip) {
+    public PageStateView setLoadingTip(String loadingTip) {
         if (!TextUtils.isEmpty(loadingTip)) {
             this.loadingTip = loadingTip;
         }

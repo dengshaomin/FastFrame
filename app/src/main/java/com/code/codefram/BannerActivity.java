@@ -6,7 +6,7 @@ import java.util.List;
 import android.content.Context;
 
 import com.code.cframe.GlobalEvent;
-import com.code.cframe.baseview.BaseTitleActivity;
+import com.code.cframe.activity.BaseTitleActivity;
 import com.code.cframe.ciface.IBasePresent;
 import com.code.cframe.utils.ToastUtils;
 import com.youth.banner.Banner;

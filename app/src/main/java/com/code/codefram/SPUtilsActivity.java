@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.code.cframe.GlobalEvent;
-import com.code.cframe.baseview.BaseTitleActivity;
+import com.code.cframe.activity.BaseTitleActivity;
 import com.code.cframe.ciface.IBasePresent;
 import com.code.cframe.utils.SharedPreferencesUtils;
 import com.code.cframe.widgets.SuperButton;

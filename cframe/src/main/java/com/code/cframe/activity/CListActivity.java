@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 
 import com.code.cframe.R;
 import com.code.cframe.baseview.BaseItemLayout;
-import com.code.cframe.baseview.BaseTitleActivity;
 import com.code.cframe.ciface.IListActivityCallBack;
 import com.code.cframe.ciface.IListCallBack;
 import com.code.cframe.listview.CCommonViewHolder;

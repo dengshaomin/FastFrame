@@ -4,9 +4,7 @@ package com.code.cframe.ciface;
 /**
  * Created by dengshaomin on 2016/10/21.
  */
-public interface IBaseLayout {
+public interface IBaseActivityLayout extends IBaseLayout {
 
-    int setContentLayout();
-
-    void initView();
+    void getNetData();
 }

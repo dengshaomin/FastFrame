@@ -10,7 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.Toast;
 
 import com.code.cframe.GlobalEvent;
-import com.code.cframe.baseview.BaseTitleActivity;
+import com.code.cframe.activity.BaseTitleActivity;
 import com.code.cframe.ciface.IBasePresent;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;

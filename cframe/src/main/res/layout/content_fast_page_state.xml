@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.code.codefram.FastListActivity"
-    >
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.FastPageStateActivity"
+    tools:showIn="@layout/activity_fast_page_state">
 
 </android.support.constraint.ConstraintLayout>

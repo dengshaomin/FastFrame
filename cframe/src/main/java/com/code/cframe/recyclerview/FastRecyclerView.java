@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView.Adapter;
 import android.support.v7.widget.RecyclerView.ItemDecoration;
 import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -15,6 +16,7 @@ import com.code.cframe.R;
 import com.code.cframe.baseview.BaseRecyclerView;
 import com.code.cframe.ciface.IBaseRecyclerViewCb;
 import com.code.cframe.ciface.IFastRecyclerViewCb;
+import com.code.cframe.utils.CollectionUtils;
 
 /**
  * Created by dengshaomin on 2017/12/4.
@@ -22,23 +24,31 @@ import com.code.cframe.ciface.IFastRecyclerViewCb;
 
 public class FastRecyclerView<T> extends BaseRecyclerView {
 
-
-    public static final int SUCCESS = 0;
-
-    public static final int ERROR = 1;
-
-    public static final int EMPTY = 2;
-
     private int pageSize = 10;
 
     private int pageIndex = 1;
 
-    private Adapter mAdapter;
 
     private List<T> datas;
 
     public FastRecyclerView(Context context, Adapter adapter, IBaseRecyclerViewCb iBaseRecyclerViewCb) {
         super(context, adapter, iBaseRecyclerViewCb);
+    }
+
+    public FastRecyclerView(Context context) {
+        super(context);
+    }
+
+    public FastRecyclerView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public FastRecyclerView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
+    public List<T> getDatas() {
+        return datas;
     }
 
     public int getPageIndex() {
@@ -54,22 +64,18 @@ public class FastRecyclerView<T> extends BaseRecyclerView {
     }
 
     public void updateData(List<T> datas) {
-        if (datas == null) {
-            refreshComplete();
-            return;
-        }
-        if (datas != null && datas.size() == 0) {
-            refreshComplete();
+        if (CollectionUtils.isEmpty(datas)) {
+            refreshComplete(false);
             return;
         }
         if (this.datas == null) {
             this.datas = new ArrayList<>();
         }
-        if (pageIndex == 1) {
+        if (refreshState == Mode.START) {
             this.datas.clear();
         }
         this.datas.addAll(datas);
-        refreshComplete();
+        refreshComplete(mAdapter.getItemCount() % pageSize == 0);
         mAdapter.notifyDataSetChanged();
     }
 
@@ -134,7 +140,7 @@ public class FastRecyclerView<T> extends BaseRecyclerView {
 //    }
     @Override
     protected void needLoadMore() {
-        if (refreMode == Mode.START || refreMode == Mode.NONE || refreshState == Mode.END) {
+        if (refreMode == Mode.START || refreMode == Mode.NONE || refreshState != DEFAULT) {
             return;
         }
         if (mAdapter.getItemCount() == 0 || mAdapter.getItemCount() % pageSize != 0) {
@@ -146,7 +152,7 @@ public class FastRecyclerView<T> extends BaseRecyclerView {
         this.pageIndex = mAdapter.getItemCount() / pageSize + 1;
         refreshState = Mode.END;
         if (mIBaseRecyclerViewCb != null) {
-            mIBaseRecyclerViewCb.onRefresh(this.pageIndex);
+            mIBaseRecyclerViewCb.onRefresh(refreshState);
         }
     }
 

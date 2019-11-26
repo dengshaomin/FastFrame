@@ -1,5 +1,7 @@
 package com.code.cframe.baseview;
 
+import java.util.List;
+
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +11,7 @@ import android.support.v7.widget.RecyclerView.ItemDecoration;
 import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.support.v7.widget.RecyclerView.OnScrollListener;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
@@ -25,6 +28,24 @@ import com.code.cframe.recyclerview.CHeaderFooterAdapter;
  */
 
 public class BaseRecyclerView extends BaseViewLayout implements IHeadClick, OnClickListener {
+
+    public BaseRecyclerView(Context context, Adapter adapter, IBaseRecyclerViewCb iBaseRecyclerViewCb) {
+        this(context);
+        setIBaseRecyclerViewCb(iBaseRecyclerViewCb);
+        setAdapter(adapter);
+    }
+
+    public BaseRecyclerView(Context context) {
+        this(context, null);
+    }
+
+    public BaseRecyclerView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public BaseRecyclerView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
 
     //刷新模式
     public static class Mode {
@@ -47,7 +68,7 @@ public class BaseRecyclerView extends BaseViewLayout implements IHeadClick, OnCl
 
     protected int refreMode;
 
-    private Adapter mAdapter;
+    protected Adapter mAdapter;
 
     private CHeaderFooterAdapter mCHeaderFooterAdapter;
 
@@ -64,10 +85,9 @@ public class BaseRecyclerView extends BaseViewLayout implements IHeadClick, OnCl
 
     private boolean hasMoreData = true;
 
-    public BaseRecyclerView(Context context, Adapter adapter, IBaseRecyclerViewCb iBaseRecyclerViewCb) {
-        super(context);
-        setIBaseRecyclerViewCb(iBaseRecyclerViewCb);
-        setAdapter(adapter);
+
+    public int getRefreshState() {
+        return refreshState;
     }
 
     public void setIBaseRecyclerViewCb(IBaseRecyclerViewCb IBaseRecyclerViewCb) {
@@ -172,7 +192,7 @@ public class BaseRecyclerView extends BaseViewLayout implements IHeadClick, OnCl
     }
 
     protected void needLoadMore() {
-        if (refreMode == Mode.START || refreMode == Mode.NONE || refreshState == Mode.END) {
+        if (refreMode == Mode.START || refreMode == Mode.NONE || refreshState != DEFAULT) {
             return;
         }
         refreshState = Mode.END;
@@ -305,7 +325,7 @@ public class BaseRecyclerView extends BaseViewLayout implements IHeadClick, OnCl
         }
     }
 
-    public void refreshComplete() {
+    public void refreshComplete(boolean hasMoreData) {
         this.hasMoreData = hasMoreData;
         if (refreshState == Mode.START) {
             mXrefreshview.stopRefresh();

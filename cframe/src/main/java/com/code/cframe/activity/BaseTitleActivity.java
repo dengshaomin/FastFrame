@@ -19,7 +19,7 @@ import com.code.cframe.ciface.ITitle;
 
 public abstract class BaseTitleActivity extends BaseBundleActivity implements IBaseLayout, ITitle {
 
-    private ViewGroup container;
+    protected ViewGroup container;
 
     private View left_image, right_image;
 
@@ -34,7 +34,6 @@ public abstract class BaseTitleActivity extends BaseBundleActivity implements IB
         this.initData();
         this.getNetData();
     }
-
     public void getNetData() {
     }
 

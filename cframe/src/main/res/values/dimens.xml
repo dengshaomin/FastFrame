@@ -1,5 +1,5 @@
 <resources>
-    <dimen name="gap" >100dp</dimen >
+    <dimen name="gap">100dp</dimen>
     <dimen name="paddingLR">15dp</dimen>
     <dimen name="titleText">24sp</dimen>
     <dimen name="hometitleText">30sp</dimen>
@@ -11,4 +11,5 @@
     <dimen name="text20">20sp</dimen>
     <dimen name="text22">22sp</dimen>
     <dimen name="titleBarHeight">56dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

@@ -29,4 +29,5 @@
     <!--    net-->
     <string name="net_off">网络断开连接</string>
     <string name="net_off_click">网络断开连接，点击重试</string>
+    <string name="title_activity_fast_page_state">FastPageStateActivity</string>
 </resources>

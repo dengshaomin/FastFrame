@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.code.cframe.GlobalEvent;
 import com.code.cframe.activity.BaseTitleActivity;
-import com.code.cframe.ciface.IBasePresent;
 import com.code.cframe.utils.FileUtils;
 import com.code.cframe.widgets.SuperButton;
 

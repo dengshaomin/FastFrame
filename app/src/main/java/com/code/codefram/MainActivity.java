@@ -36,7 +36,7 @@ public class MainActivity extends BasePermissionActivity {
         str_name.add("Banner");
         str_name.add("TabBar");
         str_name.add("TabLayout");
-        str_name.add("ListWithBaseListActivity");
+        str_name.add("FastListActivity");
         lv = (ListView) findViewById(R.id.lv);
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, str_name);
@@ -63,7 +63,7 @@ public class MainActivity extends BasePermissionActivity {
                 } else if (position == 8) {
                     startActivity(new Intent(MainActivity.this, TabLayoutActivity.class));
                 } else if (position == 9) {
-                    startActivity(new Intent(MainActivity.this, ListWithBaseListActivity.class));
+                    startActivity(new Intent(MainActivity.this, FastListActivity.class));
                 }
             }
         });

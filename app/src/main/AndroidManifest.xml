@@ -49,7 +49,7 @@
         <activity android:name=".BannerActivity" />
         <activity android:name=".TabBarActivity" />
         <activity android:name=".TabLayoutActivity" />
-        <activity android:name=".ListWithBaseListActivity"></activity>
+        <activity android:name=".FastListActivity"></activity>
     </application>
 
 </manifest>

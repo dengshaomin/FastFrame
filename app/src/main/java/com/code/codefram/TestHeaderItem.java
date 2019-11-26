@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.code.cframe.baseview.BaseLayout;
+import com.code.cframe.baseview.BaseViewLayout;
 import com.code.cframe.GlobalEvent;
 
 
@@ -15,7 +15,7 @@ import com.code.cframe.GlobalEvent;
  * Created by dengshaomin on 2017/12/4.
  */
 
-public class TestHeaderItem extends BaseLayout {
+public class TestHeaderItem extends BaseViewLayout {
 
     TextView mText;
 
@@ -40,26 +40,6 @@ public class TestHeaderItem extends BaseLayout {
     public void initView() {
         mText = getRootView().findViewById(R.id.text);
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-    }
-
-    @Override
-    public void initBundleData() {
-
-    }
-
-    @Override
-    public void getNetData() {
-
-    }
-
-    @Override
-    public List<String> regeistEvent() {
-        return null;
-    }
-
-    @Override
-    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

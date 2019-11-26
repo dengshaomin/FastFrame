@@ -35,10 +35,6 @@ public class SPUtilsActivity extends BaseTitleActivity implements OnClickListene
 
     private ArrayAdapter<String> adapter;
 
-    @Override
-    public boolean needTitle() {
-        return true;
-    }
 
     @Override
     public int setTitleLeftImage() {
@@ -85,10 +81,6 @@ public class SPUtilsActivity extends BaseTitleActivity implements OnClickListene
         mList.setAdapter(adapter);
     }
 
-    @Override
-    public void initBundleData() {
-
-    }
 
     @Override
     public void getNetData() {
@@ -105,17 +97,6 @@ public class SPUtilsActivity extends BaseTitleActivity implements OnClickListene
 
     }
 
-    @Override
-    public void setViewData(Object data) {
-
-    }
-
-
-
-    @Override
-    public IBasePresent getPresents() {
-        return null;
-    }
 
     @Override
     public void onClick(View v) {

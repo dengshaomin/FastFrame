@@ -6,10 +6,15 @@
     android:background="@color/white"
     >
 
-    <com.code.cframe.listview.CListView
-        android:id="@+id/recycler_view"
+    <com.code.cframe.recyclerview.FastRecyclerView
+        android:id="@+id/fast_rcv_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
 
+    <com.code.cframe.baseview.PageStateView
+        android:id="@+id/page_state_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 </RelativeLayout>

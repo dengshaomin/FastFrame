@@ -21,11 +21,6 @@ public class Fragment4 extends BaseFragment {
     }
 
     @Override
-    public void initBundleData() {
-
-    }
-
-    @Override
     public void getNetData() {
 
     }

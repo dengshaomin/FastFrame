@@ -2,7 +2,6 @@ package com.code.codefram.model;
 
 public class LogisticsModel {
 
-
     private String time;
 
     private String ftime;

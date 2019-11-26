@@ -14,25 +14,27 @@
  *    limitations under the License.
  */
 
-package com.code.cframe.listview;
+package com.code.cframe.recyclerview;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.Recycler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.code.cframe.R;
+import com.code.cframe.baseview.BaseRecyclerView;
 import com.code.cframe.ciface.IHeadClick;
 import com.h6ah4i.android.widget.advrecyclerview.headerfooter.AbstractHeaderFooterWrapperAdapter;
 import com.h6ah4i.android.widget.advrecyclerview.utils.RecyclerViewAdapterUtils;
 import com.h6ah4i.android.widget.advrecyclerview.utils.WrapperAdapterUtils;
 
 public class CHeaderFooterAdapter
-        extends AbstractHeaderFooterWrapperAdapter<CCommonViewHolder, CCommonViewHolder>
+        extends AbstractHeaderFooterWrapperAdapter<RecyclerView.ViewHolder, RecyclerView.ViewHolder>
         implements View.OnClickListener {
 
 
@@ -71,21 +73,21 @@ public class CHeaderFooterAdapter
     }
 
     @Override
-    public CCommonViewHolder onCreateHeaderItemViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateHeaderItemViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.clist_header_container, parent, false);
         v.setOnClickListener(this);
-        return new CCommonViewHolder(v);
+        return new RecyclerView.ViewHolder(v){};
     }
 
     @Override
-    public CCommonViewHolder onCreateFooterItemViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateFooterItemViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.clist_header_container, parent, false);
         v.setOnClickListener(this);
-        return new CCommonViewHolder(v);
+        return new RecyclerView.ViewHolder(v){};
     }
 
     @Override
-    public void onBindHeaderItemViewHolder(CCommonViewHolder holder, int localPosition) {
+    public void onBindHeaderItemViewHolder(RecyclerView.ViewHolder holder, int localPosition) {
         ((LinearLayout) holder.itemView).removeAllViews();
         if (mHeaderItems.get(localPosition).getParent() != null) {
             ((ViewGroup) mHeaderItems.get(localPosition).getParent()).removeAllViews();
@@ -94,7 +96,7 @@ public class CHeaderFooterAdapter
     }
 
     @Override
-    public void onBindFooterItemViewHolder(CCommonViewHolder holder, int localPosition) {
+    public void onBindFooterItemViewHolder(RecyclerView.ViewHolder holder, int localPosition) {
         ((LinearLayout) holder.itemView).removeAllViews();
         if (mFooterItems.get(localPosition).getParent() != null) {
             ((ViewGroup) mFooterItems.get(localPosition).getParent()).removeAllViews();

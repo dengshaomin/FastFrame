@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.code.cframe.GlobalEvent;
+import com.code.cframe.ciface.IBaseEvent;
 import com.code.cframe.ciface.IBaseViewLayout;
 
 import org.greenrobot.eventbus.EventBus;
@@ -24,29 +25,50 @@ import java.util.List;
  * Created by Administrator on 2017/12/6.
  */
 
-public abstract class BaseFragment extends Fragment implements IBaseViewLayout {
+public abstract class BaseFragment extends Fragment implements IBaseViewLayout, IBaseEvent {
+
     private View rootView;
+
     private List<String> eventList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if(rootView != null) return rootView;
-        EventBus.getDefault().register(this);
-        setEvents();
+        if (rootView != null) {
+            return rootView;
+        }
+        if (needGlobalEvent()) {
+            EventBus.getDefault().register(this);
+            setEvents();
+        }
         int layoutId = this.setContentLayout();
         if (layoutId == 0) {
-            TextView tx = new TextView(getActivity());
-            tx.setText("setLayout first~~");
-            rootView = tx;
+            throw new RuntimeException("setLayout first~~");
         } else {
             rootView = inflater.inflate(layoutId, null);
         }
         if (rootView != null) {
             this.initView();
-            this.initBundleData();
+            this.getBundleData();
             this.getNetData();
         }
         return rootView;
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public View findView(int id) {
+        return rootView.findViewById(id);
+    }
+
+    public void getBundleData() {
+
+    }
+
+    public void getNetData() {
     }
 
     @Override
@@ -64,6 +86,16 @@ public abstract class BaseFragment extends Fragment implements IBaseViewLayout {
                 break;
             }
         }
+    }
+
+    @Override
+    public boolean needGlobalEvent() {
+        return false;
+    }
+
+    @Override
+    public List<String> regeistEvent() {
+        return null;
     }
 
     private void setEvents() {

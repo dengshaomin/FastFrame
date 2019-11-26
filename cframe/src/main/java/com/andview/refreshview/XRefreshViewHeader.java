@@ -46,7 +46,7 @@ public class XRefreshViewHeader extends LinearLayout implements IHeaderCallBack 
 
     private void initView(Context context) {
         mContent = (ViewGroup) LayoutInflater.from(context).inflate(
-                R.layout.clist_view_header, this);
+                R.layout.view_xrefresh_header, this);
         mArrowImageView = (ImageView) findViewById(R.id.xrefreshview_header_arrow);
         mOkImageView = (ImageView) findViewById(R.id.xrefreshview_header_ok);
         mHintTextView = (TextView) findViewById(R.id.xrefreshview_header_hint_textview);

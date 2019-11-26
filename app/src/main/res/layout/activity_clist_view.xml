@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:id="@+id/container"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="@color/white"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
     >
 
-    <com.code.cframe.listview.CListView
-        android:id="@+id/recycler_view"
+    <com.code.cframe.baseview.BaseRecyclerView
+        android:id="@+id/baerecycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
 
-</FrameLayout>
+    <com.code.cframe.baseview.PageStateView
+        android:id="@+id/page_state_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+</RelativeLayout>

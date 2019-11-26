@@ -9,4 +9,6 @@ public interface IBaseLayout {
     int setContentLayout();
 
     void initView();
+
+    void initData();
 }

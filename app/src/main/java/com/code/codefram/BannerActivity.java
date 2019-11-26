@@ -27,11 +27,6 @@ public class BannerActivity extends BaseTitleActivity implements OnBannerListene
     Banner mBanner;
 
     @Override
-    public boolean needTitle() {
-        return true;
-    }
-
-    @Override
     public int setTitleLeftImage() {
         return 0;
     }
@@ -73,11 +68,6 @@ public class BannerActivity extends BaseTitleActivity implements OnBannerListene
     }
 
     @Override
-    public void initBundleData() {
-
-    }
-
-    @Override
     public void getNetData() {
 
     }
@@ -92,21 +82,12 @@ public class BannerActivity extends BaseTitleActivity implements OnBannerListene
 
     }
 
-    @Override
-    public void setViewData(Object data) {
-
-    }
-
 
     @Override
     public void OnBannerClick(int position) {
         ToastUtils.showToast(this, position + "");
     }
 
-    @Override
-    public IBasePresent getPresents() {
-        return null;
-    }
 
     public class FrescoImageLoader extends BannerImageLoader {
 

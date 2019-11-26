@@ -46,10 +46,6 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
 
     private List<Fragment> list = new ArrayList<>();
 
-    @Override
-    public boolean needTitle() {
-        return true;
-    }
 
     @Override
     public int setTitleLeftImage() {
@@ -115,11 +111,6 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
     }
 
     @Override
-    public void initBundleData() {
-
-    }
-
-    @Override
     public void getNetData() {
 
     }
@@ -134,10 +125,6 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
 
     }
 
-    @Override
-    public void setViewData(Object data) {
-
-    }
 
     @Override
     public void onDismiss(int position) {
@@ -157,8 +144,4 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
         return tabbar;
     }
 
-    @Override
-    public IBasePresent getPresents() {
-        return null;
-    }
 }

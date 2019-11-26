@@ -9,6 +9,7 @@ import android.os.Build;
 
 import com.code.cframe.utils.CLog;
 import com.code.cframe.utils.SharedPreferencesUtils;
+import com.code.rxretrofitlibrary.http.HttpUtils;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.backends.okhttp3.OkHttpImagePipelineConfigFactory;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
@@ -44,6 +45,7 @@ public class CFrame {
     public void init(Context context) {
         mApplicationContext = context.getApplicationContext();
         CLog.init();
+        HttpUtils.init(context);
         initFresco();
     }
 

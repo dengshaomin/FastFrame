@@ -7,13 +7,13 @@ import android.util.AttributeSet;
 
 import com.code.cframe.R;
 import com.code.cframe.GlobalEvent;
-import com.code.cframe.baseview.BaseLayout;
+import com.code.cframe.baseview.BaseViewLayout;
 
 /**
  * Created by dengshaomin on 2017/12/19.
  */
 
-public class EmptyItemTipView extends BaseLayout {
+public class EmptyItemTipView extends BaseViewLayout {
 
     public EmptyItemTipView(Context context) {
         super(context);
@@ -34,26 +34,6 @@ public class EmptyItemTipView extends BaseLayout {
 
     @Override
     public void initView() {
-
-    }
-
-    @Override
-    public void initBundleData() {
-
-    }
-
-    @Override
-    public void getNetData() {
-
-    }
-
-    @Override
-    public List<String> regeistEvent() {
-        return null;
-    }
-
-    @Override
-    public void eventComming(GlobalEvent globalMsg) {
 
     }
 

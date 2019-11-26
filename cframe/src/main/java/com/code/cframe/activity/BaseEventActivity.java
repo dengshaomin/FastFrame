@@ -57,9 +57,7 @@ public abstract class BaseEventActivity extends BasePermissionActivity implement
 
     @Override
     protected void onDestroy() {
-        if (needGlobalEvent()) {
-            EventBus.getDefault().unregister(this);
-        }
+        EventBus.getDefault().unregister(this);
         super.onDestroy();
     }
 }

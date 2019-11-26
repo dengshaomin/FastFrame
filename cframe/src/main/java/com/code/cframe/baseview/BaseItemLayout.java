@@ -8,7 +8,7 @@ import android.view.ViewGroup;
  * Created by dengshaomin on 2017/12/19.
  */
 
-public abstract class BaseItemLayout extends BaseLayout {
+public abstract class BaseItemLayout extends BaseViewLayout {
 
 
     public BaseItemLayout(Context context) {

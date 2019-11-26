@@ -13,7 +13,7 @@ import com.code.cframe.ciface.IBaseViewLayout;
 /**
  * Created by dengshaomin on 2016/10/21.
  */
-public abstract class BaseLayout extends LinearLayout implements IBaseViewLayout {
+public abstract class BaseViewLayout extends LinearLayout implements IBaseViewLayout {
 
     private View rootView;
 
@@ -25,16 +25,16 @@ public abstract class BaseLayout extends LinearLayout implements IBaseViewLayout
 
     private Context mContext;
 
-    public BaseLayout(Context context) {
+    public BaseViewLayout(Context context) {
         this(context, null);
     }
 
-    public BaseLayout(Context context, AttributeSet attrs) {
+    public BaseViewLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
 
-    public BaseLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BaseViewLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.mContext = context;
         int layoutId = this.setContentLayout();
@@ -44,7 +44,13 @@ public abstract class BaseLayout extends LinearLayout implements IBaseViewLayout
         rootView = LayoutInflater.from(mContext).inflate(layoutId, this);
         if (rootView != null) {
             this.initView();
+            initData();
         }
+    }
+
+    @Override
+    public void initData() {
+
     }
 
     @Override

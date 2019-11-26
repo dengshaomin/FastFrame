@@ -45,7 +45,7 @@ public class MainActivity extends BasePermissionActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
-                    startActivity(new Intent(MainActivity.this, CListViewActivity.class));
+                    startActivity(new Intent(MainActivity.this, BaseRecyclerViewActivity.class));
                 } else if (position == 1) {
                     startActivity(new Intent(MainActivity.this, FrescoActivity.class));
                 } else if (position == 2) {

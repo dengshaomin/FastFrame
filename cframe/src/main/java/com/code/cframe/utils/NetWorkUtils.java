@@ -26,19 +26,8 @@ public class NetWorkUtils {
     /**
      * 是否为无网络状态
      */
-    public static boolean isOffNetWork(Context context) {
+    public static boolean connected(Context context) {
         NetworkStatus status = NetWorkTypeUtils.getNetworkStatus(context);
         return status == NetworkStatus.OFF;
     }
-
-    public static boolean isMobileNetwork(NetworkStatus status) {
-        if (status != null) {
-            if (status == NetworkStatus.MOBILE_4G || status == NetworkStatus.MOBILE_3G || status ==
-                    NetworkStatus.MOBILE_2G) {
-                return true;
-            }
-        }
-        return false;
-    }
-
 }

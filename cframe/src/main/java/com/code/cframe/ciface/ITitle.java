@@ -6,15 +6,13 @@ package com.code.cframe.ciface;
 
 public interface ITitle {
 
-    public boolean needTitle();
+    String setTitleText();
 
-    public String setTitleText();
+    int setTitleLeftImage();
 
-    public int setTitleLeftImage();
+    int setTitleRightImage();
 
-    public int setTitleRightImage();
+    void titleLeftClick();
 
-    public void titleLeftClick();
-
-    public void titleRightClick();
+    void titleRightClick();
 }

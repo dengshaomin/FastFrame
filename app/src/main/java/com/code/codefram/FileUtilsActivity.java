@@ -29,11 +29,6 @@ public class FileUtilsActivity extends BaseTitleActivity implements OnClickListe
     TextView mList;
 
     @Override
-    public boolean needTitle() {
-        return true;
-    }
-
-    @Override
     public int setTitleLeftImage() {
         return 0;
     }
@@ -76,11 +71,6 @@ public class FileUtilsActivity extends BaseTitleActivity implements OnClickListe
     }
 
     @Override
-    public void initBundleData() {
-
-    }
-
-    @Override
     public void getNetData() {
 
     }
@@ -92,11 +82,6 @@ public class FileUtilsActivity extends BaseTitleActivity implements OnClickListe
 
     @Override
     public void eventComming(GlobalEvent globalMsg) {
-
-    }
-
-    @Override
-    public void setViewData(Object data) {
 
     }
 
@@ -113,11 +98,6 @@ public class FileUtilsActivity extends BaseTitleActivity implements OnClickListe
                 mList.setText(FileUtils.readFileInside(mKey.getText().toString()));
                 break;
         }
-    }
-
-    @Override
-    public IBasePresent getPresents() {
-        return null;
     }
 
     @Override

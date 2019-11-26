@@ -39,27 +39,6 @@ public class TestItem extends BaseItemLayout {
     public void initItemView() {
         mText = getRootView().findViewById(R.id.text);
     }
-
-    @Override
-    public void initBundleData() {
-
-    }
-
-    @Override
-    public void getNetData() {
-
-    }
-
-    @Override
-    public List<String> regeistEvent() {
-        return null;
-    }
-
-    @Override
-    public void eventComming(GlobalEvent globalMsg) {
-
-    }
-
     @Override
     public void setViewData(Object data) {
         mText.setText(data + "");

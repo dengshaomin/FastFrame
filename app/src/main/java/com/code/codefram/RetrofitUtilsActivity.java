@@ -27,35 +27,11 @@ public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest, O
 
     TextView mList;
 
-    @Override
-    public boolean needTitle() {
-        return true;
-    }
-
-    @Override
-    public int setTitleLeftImage() {
-        return 0;
-    }
-
-    @Override
-    public int setTitleRightImage() {
-        return 0;
-    }
+    TestPresent mTestPresent;
 
     @Override
     public String setTitleText() {
-        return "RetrofitUtils";
-    }
-
-
-    @Override
-    public void titleRightClick() {
-
-    }
-
-    @Override
-    public List<String> needPermissions() {
-        return null;
+        return this.getClass().getSimpleName();
     }
 
     @Override
@@ -72,13 +48,9 @@ public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest, O
     }
 
     @Override
-    public void initBundleData() {
-
-    }
-
-    @Override
-    public void getNetData() {
-
+    public void initData() {
+        super.initData();
+        mTestPresent = new TestPresent(this, this);
     }
 
     @Override
@@ -91,15 +63,6 @@ public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest, O
 
     }
 
-    @Override
-    public void setViewData(Object data) {
-    }
-
-
-    @Override
-    public IBasePresent getPresents() {
-        return new TestPresent(this);
-    }
 
     @Override
     public void showData(List<LogisticsModel> data) {
@@ -113,6 +76,6 @@ public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest, O
 
     @Override
     public void onClick(View v) {
-        ((TestPresent) mIBasePresents).getLogistics();
+        mTestPresent.getLogistics();
     }
 }

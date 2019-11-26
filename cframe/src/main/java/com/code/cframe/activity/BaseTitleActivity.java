@@ -5,10 +5,11 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.code.cframe.R;
+import com.code.cframe.ciface.IBaseLayout;
 import com.code.cframe.ciface.IBaseViewLayout;
 import com.code.cframe.ciface.ITitle;
 
@@ -16,9 +17,9 @@ import com.code.cframe.ciface.ITitle;
  * Created by dengshaomin on 2017/11/7.
  */
 
-public abstract class BaseTitleActivity extends BaseBundleActivity implements IBaseViewLayout, ITitle {
+public abstract class BaseTitleActivity extends BaseBundleActivity implements IBaseLayout, ITitle {
 
-    private LinearLayout container;
+    private ViewGroup container;
 
     private View left_image, right_image;
 
@@ -30,44 +31,65 @@ public abstract class BaseTitleActivity extends BaseBundleActivity implements IB
         setContentView(R.layout.activity_title_base);
         initTitle();
         this.initView();
+        this.initData();
         this.getNetData();
     }
 
+    public void getNetData() {
+    }
+
+    @Override
+    public void initData() {
+
+    }
 
     private void initTitle() {
         container = findViewById(R.id.container);
         if (setContentLayout() != 0) {
             LayoutInflater.from(this).inflate(setContentLayout(), container);
         }
-        findViewById(R.id.title_lay).setVisibility(needTitle() ? View.VISIBLE : View.GONE);
-        if (needTitle()) {
-            title_text = findViewById(R.id.title_text);
-            left_image = findViewById(R.id.left_image);
-            right_image = findViewById(R.id.right_image);
-            left_image.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    titleLeftClick();
-                }
-            });
-            right_image.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    titleRightClick();
-                }
-            });
-            title_text.setText(TextUtils.isEmpty(setTitleText()) ? "" : setTitleText());
-            if (setTitleLeftImage() > 0) {
-                left_image.setBackgroundResource(setTitleLeftImage());
+        title_text = findViewById(R.id.title_text);
+        left_image = findViewById(R.id.left_image);
+        right_image = findViewById(R.id.right_image);
+        left_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                titleLeftClick();
             }
-            if (setTitleRightImage() > 0) {
-                left_image.setBackgroundResource(setTitleRightImage());
+        });
+        right_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                titleRightClick();
             }
+        });
+        title_text.setText(TextUtils.isEmpty(setTitleText()) ? "" : setTitleText());
+        if (setTitleLeftImage() > 0) {
+            left_image.setBackgroundResource(setTitleLeftImage());
+        }
+        if (setTitleRightImage() > 0) {
+            left_image.setBackgroundResource(setTitleRightImage());
         }
     }
 
     @Override
     public void titleLeftClick() {
-        finish();
+        onBackPressed();
+    }
+
+
+    @Override
+    public int setTitleLeftImage() {
+        return 0;
+    }
+
+    @Override
+    public int setTitleRightImage() {
+        return 0;
+    }
+
+    @Override
+    public void titleRightClick() {
+
     }
 }

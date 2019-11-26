@@ -52,10 +52,6 @@ public class TabLayoutActivity extends BaseTitleActivity implements OnTabSelectL
 
     private FragmentAdapter mAdapter;
 
-    @Override
-    public boolean needTitle() {
-        return true;
-    }
 
     @Override
     public String setTitleText() {
@@ -136,10 +132,6 @@ public class TabLayoutActivity extends BaseTitleActivity implements OnTabSelectL
         mTl2.setMsgMargin(5, 0, 10);
     }
 
-    @Override
-    public void initBundleData() {
-
-    }
 
     @Override
     public void getNetData() {
@@ -156,10 +148,6 @@ public class TabLayoutActivity extends BaseTitleActivity implements OnTabSelectL
 
     }
 
-    @Override
-    public void setViewData(Object data) {
-
-    }
 
     @Override
     public void onTabSelect(int position) {
@@ -171,8 +159,4 @@ public class TabLayoutActivity extends BaseTitleActivity implements OnTabSelectL
         Toast.makeText(mContext, "onTabReselect&position--->" + position, Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public IBasePresent getPresents() {
-        return null;
-    }
 }

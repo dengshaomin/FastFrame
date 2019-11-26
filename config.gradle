@@ -1,0 +1,23 @@
+ext {
+    support = [
+//            recyclerview: 'com.android.support:recyclerview-v7:27.1.1',
+            appcompat_v7: 'com.android.support:appcompat-v7:27.1.1',
+    ]
+    fresco = [
+            fresco: 'com.facebook.fresco:fresco:0.14.1',
+            //在 API < 14 上的机器支持 WebP 时，需要添加以下依赖
+            animated_base_support: 'com.facebook.fresco:animated-base-support:0.14.1',
+            //支持GIF动图，需要添加以下依赖
+            animated_gif: 'com.facebook.fresco:animated-gif:0.14.1',
+            //支持WebP，需要添加以下依赖
+            webpsupport: 'com.facebook.fresco:webpsupport:0.14.1',
+            //支持WebP动图，需要添加以下依赖
+            animated_webp: 'com.facebook.fresco:animated-webp:0.14.1',
+            //网络实现层想使用okhttp3，需要添加以下依赖
+            imagepipeline_okhttp3 : 'com.facebook.fresco:imagepipeline-okhttp3:0.14.1',
+    ]
+    rxretrofit = [
+        RxRetrofit_master: 'com.github.dengshaomin:RxRetrofit-master:1.0.5',
+    ]
+
+}

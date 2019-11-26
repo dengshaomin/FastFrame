@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.widget.Button;
 
 import com.code.cframe.R;
+import com.code.cframe.utils.DensityUtil;
 
 /**
  * Created by Allen on 2017/7/6.
@@ -742,8 +743,7 @@ public class SuperButton extends Button {
      * @return 返回值
      */
     private int dip2px(Context context, float dipValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dipValue * scale + 0.5f);
+        return DensityUtil.dip2px(context,dipValue);
     }
 
 }

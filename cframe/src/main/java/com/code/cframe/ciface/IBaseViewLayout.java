@@ -8,9 +8,6 @@ import android.view.View;
  */
 public interface IBaseViewLayout<T> extends IBaseLayout {
 
-
-    void initData();
-
     void setViewData(T data);
 
     View findView(int id);

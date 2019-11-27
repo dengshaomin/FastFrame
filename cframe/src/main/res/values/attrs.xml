@@ -23,6 +23,7 @@
         <attr name="autoRefresh" format="boolean" />
         <attr name="autoLoadMore" format="boolean" />
     </declare-styleable>
+
     <declare-styleable name="SuperButton">
         <attr name="sGravity" format="enum">
             <enum name="center" value="0" />
@@ -88,5 +89,9 @@
             <enum name="sweep" value="2" />
         </attr>
 
+    </declare-styleable>
+
+    <declare-styleable name="LazyViewPager">
+        <attr name="init_lazy_item_offset" format="float" />
     </declare-styleable>
 </resources>

@@ -8,13 +8,14 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-
-
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            // 混淆
+            minifyEnabled true
+            // Zipalign优化
+            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -41,4 +42,6 @@ dependencies {
     api rootProject.fresco.animated_webp
     api rootProject.fresco.imagepipeline_okhttp3
     api rootProject.other.rxretrofit
+    api rootProject.other.multidex
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

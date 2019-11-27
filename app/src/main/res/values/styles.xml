@@ -8,6 +8,12 @@
 <!--        <item name="android:windowFullscreen">true</item>-->
     </style>
 
+    <style name="WelcomeTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/default_theme_bg</item>  <!-- 默认背景-->
+    </style>
 
     <style name="myRecyclerViewStyle">
         <!-- NOTE: clipChildren should be false on API level 11 or later -->

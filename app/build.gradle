@@ -6,9 +6,11 @@ android {
         applicationId "com.code.codefram"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionCode 2
+        versionName "1.0.1"
+//        ndk {
+//            abiFilters 'armeabi'
+//        }
     }
     buildTypes {
         release {
@@ -18,6 +20,8 @@ android {
             zipAlignEnabled true
             // 移除无用的resource文件
             shrinkResources true
+            multiDexEnabled true
+            multiDexKeepFile file('maindexlist.keep')
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -31,5 +35,4 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation rootProject.ext.support.appcompat_v7
     implementation project(':cframe')
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

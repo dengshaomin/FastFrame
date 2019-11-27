@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.code.cframe"
-    >
+    package="com.code.cframe">
 
     <application>
-        <activity
-            android:name=".fastactivity.FastTitleActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            ></activity>
+        <activity android:name=".fastactivity.FastTitleActivity" />
         <activity android:name=".fastactivity.FastRecyclerViewActivity" />
     </application>
 

@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
 
+import com.code.cframe.CFrame;
+
 /**
  * liujingyuan
  */
@@ -32,7 +34,11 @@ public class DensityUtil {
 		return (int) (dpValue * scale + 0.5f);
 
 	}
+	public static int dip2px(float dpValue) {
+		final float scale = CFrame.mApplicationContext.getResources().getDisplayMetrics().density;
+		return (int) (dpValue * scale + 0.5f);
 
+	}
 	/**
 	 *
 	 * @param context    上下文
@@ -43,5 +49,44 @@ public class DensityUtil {
 		final float scale = context.getResources().getDisplayMetrics().density;
 		return (int) (pxValue / scale + 0.5f);
 
+	}
+
+	public static int px2dip(float pxValue) {
+		final float scale =  CFrame.mApplicationContext.getResources().getDisplayMetrics().density;
+		return (int) (pxValue / scale + 0.5f);
+	}
+
+	/**
+	 * 将px值转换为sp值，保证文字大小不变
+	 *
+	 * @param pxValue
+	 * @param fontScale
+	 *            （DisplayMetrics类中属性scaledDensity）
+	 * @return
+	 */
+	public static int px2sp(Context context, float pxValue) {
+		final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+		return (int) (pxValue / fontScale + 0.5f);
+	}
+	public static int px2sp( float pxValue) {
+		final float fontScale = CFrame.mApplicationContext.getResources().getDisplayMetrics().scaledDensity;
+		return (int) (pxValue / fontScale + 0.5f);
+	}
+	/**
+	 * 将sp值转换为px值，保证文字大小不变
+	 *
+	 * @param spValue
+	 * @param fontScale
+	 *            （DisplayMetrics类中属性scaledDensity）
+	 * @return
+	 */
+	public static int sp2px(Context context, float spValue) {
+		final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+		return (int) (spValue * fontScale + 0.5f);
+	}
+
+	public static int sp2px( float spValue) {
+		final float fontScale = CFrame.mApplicationContext.getResources().getDisplayMetrics().scaledDensity;
+		return (int) (spValue * fontScale + 0.5f);
 	}
 }

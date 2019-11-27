@@ -60,7 +60,6 @@ public class TestPresent extends BasePresent implements IBasePresent {
     }
 
     interface ApiTest {
-
         @GET("/query")
         Observable<ServerModel<List<LogisticsModel>>> getWeather(@QueryMap Map<String, String> params);
     }

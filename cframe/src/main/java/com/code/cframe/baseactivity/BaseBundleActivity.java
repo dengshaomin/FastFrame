@@ -1,4 +1,4 @@
-package com.code.cframe.activity;
+package com.code.cframe.baseactivity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

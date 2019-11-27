@@ -13,13 +13,13 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.code.cframe.activity.BasePermissionActivity;
+import com.code.cframe.baseactivity.BasePermissionActivity;
 
 public class MainActivity extends BasePermissionActivity {
 
     private ListView lv;
 
-    private List<String> str_name = new ArrayList<String>();
+    private List<Class> str_name = new ArrayList<>();
 
     private ArrayAdapter<String> adapter;
 
@@ -27,44 +27,24 @@ public class MainActivity extends BasePermissionActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        str_name.add("CListView");
-        str_name.add("ImageUtils");
-        str_name.add("SharedPreferencesUtils");
-        str_name.add("SuperButton");
-        str_name.add("FileUtils");
-        str_name.add("RetrofitUtils");
-        str_name.add("Banner");
-        str_name.add("TabBar");
-        str_name.add("TabLayout");
-        str_name.add("FastListActivity");
+        str_name.add(BaseRecyclerSimpleActivity.class);
+        str_name.add(FrescoActivity.class);
+        str_name.add(SPUtilsActivity.class);
+        str_name.add(SuperButtonActivity.class);
+        str_name.add(FileUtilsActivity.class);
+        str_name.add(RetrofitUtilsActivity.class);
+        str_name.add(BannerActivity.class);
+        str_name.add(TabBarActivity.class);
+        str_name.add(TabLayoutActivity.class);
+        str_name.add(FastRecycleSimpleActivity.class);
+        str_name.add(FastTitleSimpleActivity.class);
         lv = (ListView) findViewById(R.id.lv);
-        adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, str_name);
+        adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, str_name);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-                    startActivity(new Intent(MainActivity.this, BaseRecyclerViewActivity.class));
-                } else if (position == 1) {
-                    startActivity(new Intent(MainActivity.this, FrescoActivity.class));
-                } else if (position == 2) {
-                    startActivity(new Intent(MainActivity.this, SPUtilsActivity.class));
-                } else if (position == 3) {
-                    startActivity(new Intent(MainActivity.this, SuperButtonActivity.class));
-                } else if (position == 4) {
-                    startActivity(new Intent(MainActivity.this, FileUtilsActivity.class));
-                } else if (position == 5) {
-                    startActivity(new Intent(MainActivity.this, RetrofitUtilsActivity.class));
-                } else if (position == 6) {
-                    startActivity(new Intent(MainActivity.this, BannerActivity.class));
-                } else if (position == 7) {
-                    startActivity(new Intent(MainActivity.this, TabBarActivity.class));
-                } else if (position == 8) {
-                    startActivity(new Intent(MainActivity.this, TabLayoutActivity.class));
-                } else if (position == 9) {
-                    startActivity(new Intent(MainActivity.this, FastListActivity.class));
-                }
+                startActivity(new Intent(MainActivity.this, str_name.get(position)));
             }
         });
     }

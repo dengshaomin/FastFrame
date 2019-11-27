@@ -3,7 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="commonBackGround">#303F9F</color>
+    <color name="commonBackGround">#ffffff</color>
+    <color name="titleBarColor">#303F9F</color>
     <color name="white">#f1f1f1</color>
     <color name="desc">#d9d9ef</color>
     <color name="font">#000000</color>

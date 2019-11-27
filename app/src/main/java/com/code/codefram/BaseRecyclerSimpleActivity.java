@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.code.cframe.activity.BaseTitleActivity;
+import com.code.cframe.baseactivity.BaseTitleActivity;
 import com.code.cframe.baseview.BaseRecyclerView;
 import com.code.cframe.baseview.BaseRecyclerView.Mode;
 import com.code.cframe.baseview.PageStateView;
@@ -23,7 +23,7 @@ import com.code.cframe.ciface.IBaseRecyclerViewCb;
 import com.code.cframe.utils.CollectionUtils;
 import com.code.cframe.utils.ToastUtils;
 
-public class BaseRecyclerViewActivity extends BaseTitleActivity implements IBaseRecyclerViewCb {
+public class BaseRecyclerSimpleActivity extends BaseTitleActivity implements IBaseRecyclerViewCb {
 
 
     private List<String> datas;
@@ -80,7 +80,7 @@ public class BaseRecyclerViewActivity extends BaseTitleActivity implements IBase
         switch (item.getItemId()) {
             case R.id.menu_add_header:
                 headCount++;
-                TestHeaderItem testItem = new TestHeaderItem(BaseRecyclerViewActivity.this);
+                TestHeaderItem testItem = new TestHeaderItem(BaseRecyclerSimpleActivity.this);
                 testItem.setViewData(headCount + "");
                 baerecycler_view.addHeadView(testItem);
                 break;
@@ -90,7 +90,7 @@ public class BaseRecyclerViewActivity extends BaseTitleActivity implements IBase
                 break;
             case R.id.menu_add_footer:
                 footCount++;
-                TestHeaderItem testItem1 = new TestHeaderItem(BaseRecyclerViewActivity.this);
+                TestHeaderItem testItem1 = new TestHeaderItem(BaseRecyclerSimpleActivity.this);
                 testItem1.setViewData(footCount + "");
                 baerecycler_view.addFooterView(testItem1);
                 break;
@@ -104,7 +104,7 @@ public class BaseRecyclerViewActivity extends BaseTitleActivity implements IBase
 
     @Override
     public void onHeadFootClickLister(View view, Object data, int position) {
-        ToastUtils.showToast(this, position + "");
+        ToastUtils.showToast( position + "");
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.code.cframe.activity;
+package com.code.cframe.baseactivity;
 
 import java.util.ArrayList;
 import java.util.List;

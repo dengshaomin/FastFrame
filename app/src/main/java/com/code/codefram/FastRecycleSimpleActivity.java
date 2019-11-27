@@ -9,11 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.code.cframe.activity.FastRecyclerViewActivity;
+import com.code.cframe.fastactivity.FastRecyclerViewActivity;
 import com.code.cframe.baseview.BaseRecyclerView.Mode;
 import com.code.cframe.utils.CollectionUtils;
 
-public class FastListActivity extends FastRecyclerViewActivity<String> {
+public class FastRecycleSimpleActivity extends FastRecyclerViewActivity<String> {
 
 
     @Override
@@ -33,7 +33,7 @@ public class FastListActivity extends FastRecyclerViewActivity<String> {
 
     @Override
     public void onRefresh(int currentState) {
-        Log.e(this.getClass().getSimpleName(),currentState +"");
+        Log.e(this.getClass().getSimpleName(), currentState + "");
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

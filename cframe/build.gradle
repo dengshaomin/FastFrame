@@ -25,23 +25,20 @@ android {
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api 'org.greenrobot:eventbus:3.1.0-RC'
-    api 'com.alibaba:fastjson:1.2.40'
-    api('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.11.0@aar') {
+    api rootProject.other.eventbus
+    api rootProject.other.fastjson
+    api(rootProject.other.advrecyclerview) {
         transitive = true
     }
-    api 'com.youth.banner:banner:1.4.10'
+    api rootProject.other.banner
     //最新版本
-    api 'com.jpeng:JPTabBar:1.3.3'
-    api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    api rootProject.other.JPTabBar
+    api rootProject.other.FlycoTabLayout_Lib
     api rootProject.fresco.fresco
     api rootProject.fresco.animated_base_support
     api rootProject.fresco.animated_gif
     api rootProject.fresco.webpsupport
     api rootProject.fresco.animated_webp
     api rootProject.fresco.imagepipeline_okhttp3
-    api rootProject.rxretrofit.RxRetrofit_master
-
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.android.support:design:28.0.0'
+    api rootProject.other.rxretrofit
 }

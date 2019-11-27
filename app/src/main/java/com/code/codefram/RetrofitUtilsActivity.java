@@ -13,8 +13,7 @@ import com.code.codefram.model.LogisticsModel;
 import com.code.codefram.presents.TestPresent;
 import com.code.codefram.presents.TestPresent.ITest;
 import com.code.cframe.GlobalEvent;
-import com.code.cframe.activity.BaseTitleActivity;
-import com.code.cframe.ciface.IBasePresent;
+import com.code.cframe.baseactivity.BaseTitleActivity;
 import com.code.cframe.widgets.SuperButton;
 
 
@@ -71,7 +70,7 @@ public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest, O
 
     @Override
     public void showError(String s) {
-        ToastUtils.showToast(this, s);
+        ToastUtils.showToast( s);
     }
 
     @Override

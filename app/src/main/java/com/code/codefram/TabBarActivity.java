@@ -5,10 +5,12 @@ import java.util.List;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.Toast;
 
 import com.code.cframe.GlobalEvent;
-import com.code.cframe.activity.BaseTitleActivity;
-import com.code.cframe.ciface.IBasePresent;
+import com.code.cframe.baseactivity.BaseTitleActivity;
+import com.code.cframe.utils.ToastUtils;
 import com.jpeng.jptabbar.BadgeDismissListener;
 import com.jpeng.jptabbar.JPTabBar;
 import com.jpeng.jptabbar.OnTabSelectListener;
@@ -46,30 +48,9 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
 
     private List<Fragment> list = new ArrayList<>();
 
-
-    @Override
-    public int setTitleLeftImage() {
-        return 0;
-    }
-
-    @Override
-    public int setTitleRightImage() {
-        return 0;
-    }
-
     @Override
     public String setTitleText() {
         return this.getClass().getSimpleName();
-    }
-
-    @Override
-    public void titleRightClick() {
-
-    }
-
-    @Override
-    public List<String> needPermissions() {
-        return null;
     }
 
     @Override
@@ -101,30 +82,13 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
         //设置Badge消失的代理
         tabbar.setTabListener(this);
         tabbar.setUseScrollAnimate(true);
-//        tabbar.getMiddleView().setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(TabBarActivity.this, "中间点击", Toast.LENGTH_SHORT).show();
-//                ;
-//            }
-//        });
+        tabbar.getMiddleView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showToast("中间点击");
+            }
+        });
     }
-
-    @Override
-    public void getNetData() {
-
-    }
-
-    @Override
-    public List<String> regeistEvent() {
-        return null;
-    }
-
-    @Override
-    public void eventComming(GlobalEvent globalMsg) {
-
-    }
-
 
     @Override
     public void onDismiss(int position) {
@@ -144,4 +108,8 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
         return tabbar;
     }
 
+    @Override
+    public boolean needStatuBarTransparent() {
+        return true;
+    }
 }

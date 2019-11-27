@@ -1,4 +1,4 @@
-package com.code.cframe.activity;
+package com.code.cframe.baseactivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import com.code.cframe.utils.ToastUtils;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 
-public abstract class BasePermissionActivity extends RxAppCompatActivity implements IPermissionActivity {
+public abstract class BasePermissionActivity extends BaseStatuBarActivity implements IPermissionActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_CODE = 1;
 
@@ -56,7 +56,7 @@ public abstract class BasePermissionActivity extends RxAppCompatActivity impleme
                 }
             }
             if (failP.size() > 0) {
-                ToastUtils.showToast(BasePermissionActivity.this, "部分权限被拒绝~");
+                ToastUtils.showToast("部分权限被拒绝~");
                 permissionsFail(failP);
                 return;
             }

@@ -1,21 +1,21 @@
-package com.code.cframe.activity;
+package com.code.cframe.fastactivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.code.cframe.R;
+import com.code.cframe.baseactivity.BaseTitleActivity;
 import com.code.cframe.baseview.BaseRecyclerView.Mode;
 import com.code.cframe.baseview.PageStateView;
 import com.code.cframe.baseview.PageStateView.State;
-import com.code.cframe.ciface.IBaseRecyclerViewCb;
 import com.code.cframe.ciface.IFastRecyclerViewCb;
 import com.code.cframe.recyclerview.FastRecyclerView;
 import com.code.cframe.utils.CollectionUtils;
-import com.code.cframe.utils.NetWorkUtils;
-
+/**
+ * 快速创建列表页面
+ * */
 public abstract class FastRecyclerViewActivity<T> extends BaseTitleActivity implements IFastRecyclerViewCb {
 
     protected FastRecyclerView fast_rcv_view;

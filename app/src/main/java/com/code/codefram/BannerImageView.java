@@ -1,11 +1,8 @@
 package com.code.codefram;
 
-import java.util.List;
-
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.code.cframe.GlobalEvent;
 import com.code.cframe.baseview.BaseViewLayout;
 import com.code.cframe.utils.ImageUtils;
 import com.facebook.drawee.view.SimpleDraweeView;

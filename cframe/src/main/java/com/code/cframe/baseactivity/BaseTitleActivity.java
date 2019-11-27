@@ -1,4 +1,4 @@
-package com.code.cframe.activity;
+package com.code.cframe.baseactivity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.code.cframe.R;
 import com.code.cframe.ciface.IBaseLayout;
-import com.code.cframe.ciface.IBaseViewLayout;
 import com.code.cframe.ciface.ITitle;
 
 /**

@@ -9,9 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.code.cframe.fastactivity.FastRecyclerViewActivity;
-import com.code.cframe.baseview.BaseRecyclerView.Mode;
-import com.code.cframe.utils.CollectionUtils;
+import com.code.fastframe.fastactivity.FastRecyclerViewActivity;
+import com.code.fastframe.baseview.BaseRecyclerView.Mode;
+import com.code.fastframe.utils.CollectionUtils;
 
 public class FastRecycleSimpleActivity extends FastRecyclerViewActivity<String> {
 

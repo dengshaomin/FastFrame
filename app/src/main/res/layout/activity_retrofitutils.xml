@@ -17,7 +17,7 @@
         />
 
 
-    <com.code.cframe.widgets.SuperButton
+    <com.code.fastframe.widgets.SuperButton
         android:id="@+id/request"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

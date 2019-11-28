@@ -14,6 +14,16 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //防止点击app图标，发现应用重启了
+        if (!this.isTaskRoot()) {
+            Intent intent = getIntent();
+            if (intent != null) {
+                String action = intent.getAction();
+                if (intent.hasCategory(Intent.CATEGORY_LAUNCHER) && Intent.ACTION_MAIN.equals(action)) {
+                    finish();
+                }
+            }
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         Schedulers.newThread().scheduleDirect(new Runnable() {

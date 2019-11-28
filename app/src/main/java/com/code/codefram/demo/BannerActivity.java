@@ -5,9 +5,9 @@ import java.util.List;
 
 import android.content.Context;
 
-import com.code.cframe.GlobalEvent;
-import com.code.cframe.baseactivity.BaseTitleActivity;
-import com.code.cframe.utils.ToastUtils;
+import com.code.fastframe.eventbus.GlobalEvent;
+import com.code.fastframe.baseactivity.BaseTitleActivity;
+import com.code.fastframe.utils.ToastUtils;
 import com.code.codefram.R;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;

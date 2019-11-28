@@ -6,13 +6,13 @@
     android:background="@color/white"
     >
 
-    <com.code.cframe.baseview.BaseRecyclerView
+    <com.code.fastframe.baseview.BaseRecyclerView
         android:id="@+id/baerecycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
 
-    <com.code.cframe.baseview.PageStateView
+    <com.code.fastframe.baseview.PageStateView
         android:id="@+id/page_state_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

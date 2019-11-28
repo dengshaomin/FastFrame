@@ -1,13 +1,10 @@
 package com.code.codefram.demo;
 
-import java.util.List;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import com.code.cframe.GlobalEvent;
-import com.code.cframe.baseview.BaseItemLayout;
+import com.code.fastframe.baseview.BaseItemLayout;
 import com.code.codefram.R;
 
 /**

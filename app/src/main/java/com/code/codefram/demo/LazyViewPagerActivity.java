@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -12,10 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.code.cframe.baseactivity.BaseTitleActivity;
-import com.code.cframe.lazyviewpager.LazyFragmentPagerAdapter;
-import com.code.cframe.lazyviewpager.LazyViewPager;
-import com.code.cframe.lazyviewpager.LazyViewPagerAdapter;
+import com.code.fastframe.baseactivity.BaseTitleActivity;
+import com.code.fastframe.lazyviewpager.LazyFragmentPagerAdapter;
+import com.code.fastframe.lazyviewpager.LazyViewPager;
+import com.code.fastframe.lazyviewpager.LazyViewPagerAdapter;
 import com.code.codefram.R;
 
 public class LazyViewPagerActivity extends BaseTitleActivity {

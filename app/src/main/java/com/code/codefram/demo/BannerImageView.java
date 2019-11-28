@@ -3,8 +3,8 @@ package com.code.codefram.demo;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.code.cframe.baseview.BaseViewLayout;
-import com.code.cframe.utils.ImageUtils;
+import com.code.fastframe.baseview.BaseViewLayout;
+import com.code.fastframe.utils.ImageUtils;
 import com.code.codefram.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 

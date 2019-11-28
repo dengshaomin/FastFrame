@@ -4,7 +4,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.code.cframe.utils.ImageUtils;
+import com.code.fastframe.utils.ImageUtils;
 import com.code.codefram.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 

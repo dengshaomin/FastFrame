@@ -5,21 +5,18 @@ import java.util.List;
 
 import android.Manifest;
 import android.Manifest.permission;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import com.code.cframe.baseactivity.BasePermissionActivity;
-import com.code.cframe.utils.CompoundDrawableUtils;
-import com.code.cframe.utils.DensityUtil;
+import com.code.fastframe.baseactivity.BasePermissionActivity;
 import com.code.codefram.R;
+import com.code.fastframe.utils.DPUtils;
+import com.code.fastframe.utils.DensityUtil;
 
 public class MainActivity extends BasePermissionActivity {
 
@@ -31,6 +28,10 @@ public class MainActivity extends BasePermissionActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        float x1 = DensityUtil.dip2px(2);
+
+        float x2 = DPUtils.get(2);
+
         setContentView(R.layout.activity_main);
         str_name.add(BaseRecyclerSimpleActivity.class);
         str_name.add(FrescoActivity.class);

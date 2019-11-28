@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+
+    compileSdkVersion rootProject.build.compileSdkVersion
     defaultConfig {
-        applicationId "com.code.codefram"
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 2
-        versionName "1.0.1"
-//        ndk {
+        minSdkVersion rootProject.build.minSdkVersion
+        targetSdkVersion rootProject.build.targetSdkVersion
+        versionCode rootProject.build.versionCode
+        versionName rootProject.build.versionName
+        //        ndk {
 //            abiFilters 'armeabi'
 //        }
     }
@@ -29,10 +29,31 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    dexOptions {
+        // 最大堆内存
+        javaMaxHeapSize "4g"
+        // 是否支持大工程模式
+        jumboMode = true
+        // 线程数
+        threadCount = 8
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+//    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation rootProject.ext.support.appcompat_v7
-    implementation project(':cframe')
+    implementation project(':fastframe')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:text="LazyViewPager+Fragment" />
 
-        <com.code.cframe.lazyviewpager.LazyViewPager
+        <com.code.fastframe.lazyviewpager.LazyViewPager
             android:id="@+id/vp_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:text="LazyViewPager+Fragment" />
 
-        <com.code.cframe.lazyviewpager.LazyViewPager
+        <com.code.fastframe.lazyviewpager.LazyViewPager
             android:id="@+id/vp_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

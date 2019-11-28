@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:id="@+id/net_lay"
+    >
+
+
+    <ImageView
+        android:id="@+id/net_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/stateview_refresh"
+        android:scaleType="centerInside"
+        />
+
+    <TextView
+        android:id="@+id/net_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/net_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/net_off_click"
+        android:textColor="#999999"
+        android:textSize="12sp"
+        />
+</RelativeLayout>

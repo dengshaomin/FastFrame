@@ -1,1 +1,1 @@
-include ':app', ':cframe'
+include ':app', ':fastframe'

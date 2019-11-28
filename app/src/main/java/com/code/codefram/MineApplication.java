@@ -7,13 +7,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.multidex.MultiDex;
 
-import com.code.cframe.CFrame;
+import com.code.fastframe.FastFrame;
 import com.code.codefram.activity.LoadMultidexActivity;
-import com.code.cframe.utils.MultidexUtils;
-import com.code.cframe.utils.ProcessUtil;
+import com.code.fastframe.utils.MultidexUtils;
+import com.code.fastframe.utils.ProcessUtil;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
-import static com.code.codefram.activity.LoadMultidexActivity.MULTIDEX_INSTALLED_FLAG_FILE;
 
 /**
  * Created by dengshaomin on 2017/12/6.
@@ -74,6 +73,6 @@ public class MineApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        CFrame.getInstance().init(this);
+        FastFrame.getInstance().init(this);
     }
 }

@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.build.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.build.minSdkVersion
+        targetSdkVersion rootProject.build.targetSdkVersion
+        versionCode rootProject.build.versionCode
+        versionName rootProject.build.versionName
+    }
+
+    buildTypes {
+        release {
+            // 混淆
+            minifyEnabled true
+            // Zipalign优化
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api rootProject.other.eventbus
+    api rootProject.other.fastjson
+    api(rootProject.other.advrecyclerview) {
+        transitive = true
+    }
+    api rootProject.other.banner
+    //最新版本
+    api rootProject.other.JPTabBar
+    api rootProject.other.FlycoTabLayout_Lib
+    api rootProject.fresco.fresco
+    api rootProject.fresco.animated_base_support
+    api rootProject.fresco.animated_gif
+    api rootProject.fresco.webpsupport
+    api rootProject.fresco.animated_webp
+    api rootProject.fresco.imagepipeline_okhttp3
+    api rootProject.other.rxretrofit
+    api rootProject.other.multidex
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+}

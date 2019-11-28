@@ -1,7 +1,7 @@
 package com.code.codefram.demo;
 
-import com.code.cframe.GlobalEvent;
-import com.code.cframe.baseview.BaseFragment;
+import com.code.fastframe.eventbus.GlobalEvent;
+import com.code.fastframe.baseview.BaseFragment;
 import com.code.codefram.R;
 
 import java.util.List;

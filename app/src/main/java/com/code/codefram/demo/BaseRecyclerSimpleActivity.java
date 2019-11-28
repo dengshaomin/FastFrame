@@ -12,14 +12,14 @@ import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.code.cframe.baseactivity.BaseTitleActivity;
-import com.code.cframe.baseview.BaseRecyclerView;
-import com.code.cframe.baseview.BaseRecyclerView.Mode;
-import com.code.cframe.baseview.PageStateView;
-import com.code.cframe.baseview.PageStateView.State;
-import com.code.cframe.ciface.IBaseRecyclerViewCb;
-import com.code.cframe.utils.CollectionUtils;
-import com.code.cframe.utils.ToastUtils;
+import com.code.fastframe.baseactivity.BaseTitleActivity;
+import com.code.fastframe.baseview.BaseRecyclerView;
+import com.code.fastframe.baseview.BaseRecyclerView.Mode;
+import com.code.fastframe.baseview.PageStateView;
+import com.code.fastframe.baseview.PageStateView.State;
+import com.code.fastframe.ciface.IBaseRecyclerViewCb;
+import com.code.fastframe.utils.CollectionUtils;
+import com.code.fastframe.utils.ToastUtils;
 import com.code.codefram.R;
 
 public class BaseRecyclerSimpleActivity extends BaseTitleActivity implements IBaseRecyclerViewCb {

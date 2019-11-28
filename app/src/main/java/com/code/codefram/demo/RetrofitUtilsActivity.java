@@ -8,14 +8,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.code.cframe.utils.ToastUtils;
+import com.code.fastframe.utils.ToastUtils;
 import com.code.codefram.R;
 import com.code.codefram.demo.model.LogisticsModel;
 import com.code.codefram.demo.presents.TestPresent;
 import com.code.codefram.demo.presents.TestPresent.ITest;
-import com.code.cframe.GlobalEvent;
-import com.code.cframe.baseactivity.BaseTitleActivity;
-import com.code.cframe.widgets.SuperButton;
+import com.code.fastframe.eventbus.GlobalEvent;
+import com.code.fastframe.baseactivity.BaseTitleActivity;
+import com.code.fastframe.widgets.SuperButton;
 
 
 public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest, OnClickListener {

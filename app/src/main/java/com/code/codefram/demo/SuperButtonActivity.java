@@ -3,7 +3,7 @@ package com.code.codefram.demo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.code.cframe.widgets.SuperButton;
+import com.code.fastframe.widgets.SuperButton;
 import com.code.codefram.R;
 
 /**

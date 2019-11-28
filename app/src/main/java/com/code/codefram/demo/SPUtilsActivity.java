@@ -11,10 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.code.cframe.GlobalEvent;
-import com.code.cframe.baseactivity.BaseTitleActivity;
-import com.code.cframe.utils.SharedPreferencesUtils;
-import com.code.cframe.widgets.SuperButton;
+import com.code.fastframe.eventbus.GlobalEvent;
+import com.code.fastframe.baseactivity.BaseTitleActivity;
+import com.code.fastframe.utils.SharedPreferencesUtils;
+import com.code.fastframe.widgets.SuperButton;
 import com.code.codefram.R;
 
 
@@ -105,11 +105,11 @@ public class SPUtilsActivity extends BaseTitleActivity implements OnClickListene
                 if (TextUtils.isEmpty(mKey.getText().toString())) {
                     return;
                 }
-                SharedPreferencesUtils.getInstance(this).put(mKey.getText().toString(), mValue.getText().toString());
+                SharedPreferencesUtils.getInstance().put(mKey.getText().toString(), mValue.getText().toString());
                 break;
             case R.id.get:
                 str_name.clear();
-                Map<String, String> values = (Map<String, String>) SharedPreferencesUtils.getInstance(this).getAll();
+                Map<String, String> values = (Map<String, String>) SharedPreferencesUtils.getInstance().getAll();
                 for (String key : values.keySet()) {
                     str_name.add(key + " " + values.get(key));
                 }

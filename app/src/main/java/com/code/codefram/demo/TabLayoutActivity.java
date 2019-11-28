@@ -9,8 +9,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.widget.Toast;
 
-import com.code.cframe.GlobalEvent;
-import com.code.cframe.baseactivity.BaseTitleActivity;
+import com.code.fastframe.eventbus.GlobalEvent;
+import com.code.fastframe.baseactivity.BaseTitleActivity;
 import com.code.codefram.R;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;

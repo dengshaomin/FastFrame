@@ -7,8 +7,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.code.cframe.baseactivity.BaseTitleActivity;
-import com.code.cframe.utils.ToastUtils;
+import com.code.fastframe.baseactivity.BaseTitleActivity;
+import com.code.fastframe.utils.ToastUtils;
 import com.code.codefram.R;
 import com.jpeng.jptabbar.BadgeDismissListener;
 import com.jpeng.jptabbar.JPTabBar;

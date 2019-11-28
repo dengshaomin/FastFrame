@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CFrame.iml" filepath="$PROJECT_DIR$/CFrame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CodeFram.iml" filepath="$PROJECT_DIR$/CodeFram.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/cframe/cframe.iml" filepath="$PROJECT_DIR$/cframe/cframe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fastframe/fastframe.iml" filepath="$PROJECT_DIR$/fastframe/fastframe.iml" />
     </modules>
   </component>
 </project>

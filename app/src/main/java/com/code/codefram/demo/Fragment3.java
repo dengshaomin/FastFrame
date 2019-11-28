@@ -1,10 +1,7 @@
 package com.code.codefram.demo;
 
-import com.code.cframe.GlobalEvent;
-import com.code.cframe.baseview.BaseFragment;
+import com.code.fastframe.baseview.BaseFragment;
 import com.code.codefram.R;
-
-import java.util.List;
 
 /**
  * Created by jpeng on 16-11-14.
@@ -22,23 +19,4 @@ public class Fragment3 extends BaseFragment {
 
     }
 
-    @Override
-    public void getNetData() {
-
-    }
-
-    @Override
-    public List<String> regeistEvent() {
-        return null;
-    }
-
-    @Override
-    public void eventComming(GlobalEvent globalMsg) {
-
-    }
-
-    @Override
-    public void setViewData(Object data) {
-
-    }
 }

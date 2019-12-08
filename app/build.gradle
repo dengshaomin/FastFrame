@@ -1,5 +1,6 @@
-apply plugin: 'com.android.application'
-
+//apply plugin: 'com.android.application'
+ext.mainApp = true //标记为主app module
+apply from: rootProject.file('cc-settings-2.gradle')
 android {
 
     compileSdkVersion rootProject.build.compileSdkVersion
@@ -8,7 +9,7 @@ android {
         targetSdkVersion rootProject.build.targetSdkVersion
         versionCode rootProject.build.versionCode
         versionName rootProject.build.versionName
-        //        ndk {
+//        ndk {
 //            abiFilters 'armeabi'
 //        }
     }
@@ -53,7 +54,6 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation rootProject.ext.support.appcompat_v7
-    implementation project(':fastframe')
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+//    implementation project(':fastframe')
+//    implementation rootProject.support.appcompat_v7
 }

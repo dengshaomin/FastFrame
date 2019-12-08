@@ -1,1 +1,1 @@
-include ':app', ':fastframe'
+include ':app', ':fastframe','testcomponent'

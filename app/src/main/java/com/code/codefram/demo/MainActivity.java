@@ -13,6 +13,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.billy.cc.core.component.CC;
 import com.code.fastframe.baseactivity.BasePermissionActivity;
 import com.code.codefram.R;
 import com.code.fastframe.utils.DPUtils;
@@ -54,6 +55,7 @@ public class MainActivity extends BasePermissionActivity {
                 startActivity(new Intent(MainActivity.this, str_name.get(position)));
             }
         });
+        CC.obtainBuilder("TestComponent").setActionName("showActivity").build().call();
     }
 
     @Override

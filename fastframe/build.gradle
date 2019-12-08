@@ -43,5 +43,6 @@ dependencies {
     api rootProject.fresco.imagepipeline_okhttp3
     api rootProject.other.rxretrofit
     api rootProject.other.multidex
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    api rootProject.support.constraint_layout
+    api rootProject.ext.support.appcompat_v7
 }

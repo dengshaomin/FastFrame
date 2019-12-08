@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
-import android.net.NetworkRequest;
 import android.os.Build;
 
 import com.code.fastframe.net.NetworkStatusReceiver;

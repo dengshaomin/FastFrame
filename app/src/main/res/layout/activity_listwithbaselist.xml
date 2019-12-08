@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.code.codefram.demo.FastRecycleSimpleActivity"
+    tools:context="com.code.fastframe.com.code.demo.demo.FastRecycleSimpleActivity"
     >
 
 </android.support.constraint.ConstraintLayout>

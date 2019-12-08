@@ -1,8 +1,6 @@
 package com.code.fastframe.utils;
 
 import com.code.fastframe.FastFrame;
-import com.code.fastframe.R;
-import com.code.rxretrofitlibrary.http.json.FastJsonConverterFactory;
 
 public class DPUtils {
 

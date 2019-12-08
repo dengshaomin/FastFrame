@@ -1,8 +1,8 @@
 ext {
 
     JavaV = JavaVersion.VERSION_1_8
-
     build = [
+            applicationId    : 'com.code.demo',
             compileSdkVersion: 28,
             minSdkVersion    : 15,
             targetSdkVersion : 28,
@@ -30,6 +30,18 @@ ext {
     cc = [
             register : "com.billy.android:cc-register:1.1.1",
             component: "com.billy.android:cc:2.1.5",
+    ]
+    xinge = [
+            open         : true,
+            XG_ACCESS_ID : '1500003187',
+            XG_ACCESS_KEY: 'AU5BRW66S5BL',
+    ]
+    jpush = [
+            open        : true,
+            JPUSH_APPKEY: 'ea087a8371a0a5e0a97fabf1',
+    ]
+    bugly = [
+            APPID: 'acd4fe4373',
     ]
     other = [
             rxretrofit        : 'com.github.dengshaomin:RxRetrofit-master:1.0.5',

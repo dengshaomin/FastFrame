@@ -197,5 +197,46 @@ public static final android.os.Parcelable$Creator *;
     *;
  }
 
+# #信鸽推送
+# -keep public class * extends android.app.Service
+# -keep public class * extends android.content.BroadcastReceiver
+# -keep class com.tencent.android.tpush.** {*;}
+# -keep class com.tencent.mid.** {*;}
+# -keep class com.qq.taf.jce.** {*;}
+# -keep class com.tencent.bigdata.** {*;}
+# #华为通道
+# -ignorewarning
+# -keepattributes *Annotation*
+# -keepattributes Exceptions
+# -keepattributes InnerClasses
+# -keepattributes Signature
+# -keepattributes SourceFile,LineNumberTable
+# -keep class com.hianalytics.android.**{*;}
+# -keep class com.huawei.updatesdk.**{*;}
+# -keep class com.huawei.hms.**{*;}
+# -keep class com.huawei.android.hms.agent.**{*;}
+# #小米通道
+# -keep class com.xiaomi.**{*;}
+# -keep public class * extends com.xiaomi.mipush.sdk.PushMessageReceiver
+#
+# #魅族通道
+# -dontwarn com.meizu.cloud.pushsdk.**
+# -keep class com.meizu.cloud.pushsdk.**{*;}
+
+#jpush
+-dontoptimize
+-dontpreverify
+
+-dontwarn cn.jpush.**
+-keep class cn.jpush.** { *; }
+-keep class * extends cn.jpush.android.helpers.JPushMessageReceiver { *; }
+
+-dontwarn cn.jiguang.**
+-keep class cn.jiguang.** { *; }
+
+#bugly
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
+
  # for DexGuard only
 # -keepresourcexmlelements manifest/application/meta-data@value=GlideModule

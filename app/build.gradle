@@ -1,17 +1,31 @@
 //apply plugin: 'com.android.application'
 ext.mainApp = true //标记为主app module
 apply from: rootProject.file('cc-settings-2.gradle')
+apply from: rootProject.file('cc-register-components.gradle')
+apply from: rootProject.file('xinge.gradle')
+apply from: rootProject.file('jpush.gradle')
+apply from: rootProject.file('bugly.gradle')
 android {
 
     compileSdkVersion rootProject.build.compileSdkVersion
     defaultConfig {
+        applicationId rootProject.build.applicationId
         minSdkVersion rootProject.build.minSdkVersion
         targetSdkVersion rootProject.build.targetSdkVersion
         versionCode rootProject.build.versionCode
         versionName rootProject.build.versionName
-//        ndk {
-//            abiFilters 'armeabi'
-//        }
+        multiDexEnabled true
+        manifestPlaceholders = [
+                //信鸽
+                XG_ACCESS_ID : rootProject.xinge.XG_ACCESS_ID,
+                XG_ACCESS_KEY: rootProject.xinge.XG_ACCESS_KEY,
+                //JPUSH
+                JPUSH_PKGNAME: rootProject.build.applicationId,
+                JPUSH_APPKEY : rootProject.jpush.JPUSH_APPKEY, //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+
+        buildConfigField "String", "BUGLY_APP_ID", "\"" + rootProject.bugly.APPID + "\""
     }
     buildTypes {
         release {
@@ -24,11 +38,14 @@ android {
             multiDexEnabled true
             multiDexKeepFile file('maindexlist.keep')
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            ndk {
+                abiFilters 'armeabi'
+            }
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility rootProject.JavaV
+        targetCompatibility rootProject.JavaV
     }
     dexOptions {
         // 最大堆内存
@@ -49,11 +66,13 @@ android {
         // but continue the build even when errors are found:
         abortOnError false
     }
+    sourceSets {
+        main.jniLibs.srcDirs = ['libs']
+    }
 //    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-//    implementation project(':fastframe')
-//    implementation rootProject.support.appcompat_v7
+
 }

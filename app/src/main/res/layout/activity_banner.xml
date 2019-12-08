@@ -4,7 +4,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.code.codefram.demo.BannerActivity"
+                tools:context="com.code.fastframe.com.code.demo.demo.BannerActivity"
     >
 
     <com.youth.banner.Banner

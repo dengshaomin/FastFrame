@@ -27,6 +27,16 @@ android {
 
         buildConfigField "String", "BUGLY_APP_ID", "\"" + rootProject.bugly.APPID + "\""
     }
+    signingConfigs {
+        config {
+            storeFile file("../development.jks")
+            storePassword "nothing"
+            keyAlias "cframe"
+            keyPassword "nothing"
+//            v1SigningEnabled true
+//            v2SigningEnabled false
+        }
+    }
     buildTypes {
         release {
             // 混淆
@@ -41,6 +51,10 @@ android {
             ndk {
                 abiFilters 'armeabi'
             }
+            signingConfig signingConfigs.config
+        }
+        debug{
+            signingConfig signingConfigs.config
         }
     }
     compileOptions {

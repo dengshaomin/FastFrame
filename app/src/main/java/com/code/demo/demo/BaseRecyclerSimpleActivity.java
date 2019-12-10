@@ -37,6 +37,7 @@ public class BaseRecyclerSimpleActivity extends BaseTitleActivity implements IBa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
     @Override
     public int setContentLayout() {
         return R.layout.activity_clist_view;
@@ -66,7 +67,7 @@ public class BaseRecyclerSimpleActivity extends BaseTitleActivity implements IBa
 
     @Override
     public void onHeadFootClickLister(View view, Object data, int position) {
-        ToastUtils.showToast( position + "");
+        ToastUtils.showToast(position + "");
     }
 
     @Override
@@ -90,6 +91,7 @@ public class BaseRecyclerSimpleActivity extends BaseTitleActivity implements IBa
             }
         }, 1000);
     }
+
     private void updatePageStateView() {
         if (CollectionUtils.isNull(datas)) {
             page_state_view.setViewData(baerecycler_view.getRefreshState() == Mode.START ? State.ERROR : State.SUCCESS);
@@ -100,17 +102,19 @@ public class BaseRecyclerSimpleActivity extends BaseTitleActivity implements IBa
         }
 
     }
-    private List<String> bornData(int currentState){
+
+    private List<String> bornData(int currentState) {
         int length = 0;
         if (currentState != Mode.START) {
             length = CollectionUtils.isEmpty(datas) ? 0 : datas.size();
         }
         List<String> strs = new ArrayList<>();
-        for(int i = length;i<length+10;i++){
-            strs.add(i+"");
+        for (int i = length; i < length + 10; i++) {
+            strs.add(i + "");
         }
         return strs;
     }
+
     public class TestAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
 
         private Context mContext;
@@ -121,10 +125,12 @@ public class BaseRecyclerSimpleActivity extends BaseTitleActivity implements IBa
             this.mContext = context;
             this.datas = datas;
         }
-        public void updateData(List<T> datas){
+
+        public void updateData(List<T> datas) {
             this.datas = datas;
             notifyDataSetChanged();
         }
+
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new ViewHolder(new TestItem(mContext)) {

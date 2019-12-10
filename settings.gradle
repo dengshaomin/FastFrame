@@ -1,1 +1,1 @@
-include ':app', ':fastframe','testcomponent'
+include ':app', ':fastframe', ':runtime', ':publishresource', ':weixin_component','testcomponent'

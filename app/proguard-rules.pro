@@ -238,5 +238,18 @@ public static final android.os.Parcelable$Creator *;
 -dontwarn com.tencent.bugly.**
 -keep public class com.tencent.bugly.**{*;}
 
+#weixin
+-keep class com.tencent.mm.opensdk.** {
+    *;
+}
+
+-keep class com.tencent.wxop.** {
+    *;
+}
+
+-keep class com.tencent.mm.sdk.** {
+    *;
+}
+
  # for DexGuard only
 # -keepresourcexmlelements manifest/application/meta-data@value=GlideModule

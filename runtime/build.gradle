@@ -25,6 +25,7 @@ android {
 }
 
 dependencies {
+    api rootProject.cc.component
     api project(path: ':publishresource')
     api project(path: ':fastframe')
 }

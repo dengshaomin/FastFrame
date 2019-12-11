@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.weixin_component">
+    package="com.code.weixin_component">
 
     <application
         android:allowBackup="true"

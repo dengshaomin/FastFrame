@@ -15,5 +15,6 @@
     <color name="room_second_title">#aeadb7</color>
     <color name="clist_head_foot_color">#999999</color>
 
-    <color name="gray">#999999</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_333333">#333333</color>
 </resources>

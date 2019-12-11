@@ -1,6 +1,5 @@
 project.apply plugin: 'cc-register'
 dependencies {
-    implementation rootProject.cc.component
     api project(path: ':runtime')
 }
 

@@ -4,9 +4,14 @@ import java.io.Serializable;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Gravity;
 
+import com.billy.cc.core.component.CC;
+import com.code.runtime.contants.ComponentsContants;
+import com.code.runtime.contants.ComponentsContants.Action;
+import com.code.runtime.contants.ComponentsContants.Name;
 import com.code.runtime.dialog.FullDialog;
 import com.code.runtime.dialog.ShareDialogView;
 import com.code.runtime.dialog.ShareDialogView.Bean;
@@ -34,21 +39,24 @@ public class ShareUtils {
         if (shareBean == null || !(context instanceof FragmentActivity)) {
             return;
         }
+        FullDialog fullDialog = FullDialog.newIntance(((FragmentActivity) context).getSupportFragmentManager());
         ShareDialogView shareDialogView = new ShareDialogView(context);
         shareDialogView.setIShareDialogView(new IShareDialogView() {
             @Override
             public void shareItemClick(Bean bean) {
-                int a = 1;
+                fullDialog.dismiss();
+                if (bean == null) {
+                    return;
+                }
+                CC.obtainBuilder(Name.Wechart).setContext(context).setActionName(Action.Share).addParam(ComponentsContants.VIEW_DATA, shareBean)
+                        .build().call();
             }
         });
-        if (shareBean.plat == Plat.WECHART) {
 
-            FullDialog.newIntance(((FragmentActivity) context).getSupportFragmentManager())
-                    .setContentView(shareDialogView)
-                    .setGravity(Gravity.BOTTOM)
-                    .setNeedBackGround(true)
-                    .showDidlog();
-        }
+        fullDialog.setContentView(shareDialogView)
+                .setGravity(Gravity.BOTTOM)
+                .setNeedBackGround(true)
+                .showDidlog();
     }
 
     public static class ShareBean implements Serializable {

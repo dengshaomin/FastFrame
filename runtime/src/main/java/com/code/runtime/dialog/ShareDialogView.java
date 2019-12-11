@@ -30,10 +30,10 @@ public class ShareDialogView extends BaseViewLayout {
     }
 
     private List<Bean> mBeans = new ArrayList<Bean>() {{
-        add(new Bean(Plat.WECHART, "微信好友", R.drawable.icon_wechart));
-        add(new Bean(Plat.WECHARTZONE, "微信朋友圈", R.drawable.icon_wechart_circle));
-        add(new Bean(Plat.QQ, "QQ好友", R.drawable.icon_qq));
-        add(new Bean(Plat.QZONE, "QQ空间", R.drawable.icon_qzone));
+        add(new Bean(Plat.WECHART, "微信好友", R.drawable.ic_share_wechat));
+        add(new Bean(Plat.WECHARTZONE, "微信朋友圈", R.drawable.ic_share_moments));
+        add(new Bean(Plat.QQ, "QQ好友", R.drawable.ic_share_qq));
+        add(new Bean(Plat.QZONE, "QQ空间", R.drawable.ic_share_qzone));
     }};
 
     public ShareDialogView(Context context) {
@@ -63,6 +63,14 @@ public class ShareDialogView extends BaseViewLayout {
         recyclerview = getRootView().findViewById(R.id.recyclerview);
         recyclerview.setLayoutManager(new GridLayoutManager(getContext(), 5));
         recyclerview.setAdapter(new ShareAdapter());
+        findView(R.id.cancel).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mIShareDialogView != null) {
+                    mIShareDialogView.shareItemClick(null);
+                }
+            }
+        });
     }
 
     public class ShareAdapter extends Adapter {

@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library'
+apply from: rootProject.file('cc-settings-2.gradle')
 android {
     compileSdkVersion rootProject.build.compileSdkVersion
 

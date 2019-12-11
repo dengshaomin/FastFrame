@@ -14,7 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import com.example.runtime.R;
+import com.code.runtime.R;
 
 public class FullDialog extends DialogFragment {
 
@@ -65,7 +65,6 @@ public class FullDialog extends DialogFragment {
         super.onCreate(savedInstanceState);
         Activity activity = getActivity();
         activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
     }
 
     @Override

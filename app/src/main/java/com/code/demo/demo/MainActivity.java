@@ -55,6 +55,7 @@ public class MainActivity extends BasePermissionActivity {
         str_name.add(FastRecycleSimpleActivity.class);
         str_name.add(FastTitleSimpleActivity.class);
         str_name.add(LazyViewPagerActivity.class);
+        str_name.add(ShareActivity.class);
         lv = (ListView) findViewById(R.id.lv);
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, str_name);
         lv.setAdapter(adapter);
@@ -64,7 +65,7 @@ public class MainActivity extends BasePermissionActivity {
                 startActivity(new Intent(MainActivity.this, str_name.get(position)));
             }
         });
-        CC.obtainBuilder("TestComponent").setActionName("showActivity").build().call();
+//        CC.obtainBuilder("TestComponent").setActionName("showActivity").build().call();
     }
 
     @Override

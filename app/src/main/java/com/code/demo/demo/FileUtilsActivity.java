@@ -75,10 +75,6 @@ public class FileUtilsActivity extends BaseTitleActivity implements OnClickListe
 
     }
 
-    @Override
-    public List<String> regeistEvent() {
-        return null;
-    }
 
     @Override
     public void eventComming(GlobalEvent globalMsg) {

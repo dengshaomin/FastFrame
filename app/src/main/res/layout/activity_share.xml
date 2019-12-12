@@ -4,15 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".demo.ShareActivity">
+    tools:context=".demo.ShareActivity"
+    >
 
-    <com.code.fastframe.widgets.SuperButton
-        android:id="@+id/wechart"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        android:text="微信"
-        stv:sCornersRadius="10dp"
-        stv:sSolidColor="@color/colorAccent" />
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        >
+
+        <com.code.fastframe.widgets.SuperButton
+            android:id="@+id/wechart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="微信"
+            stv:sCornersRadius="10dp"
+            stv:sSolidColor="@color/colorAccent"
+            />
+
+        <com.code.fastframe.widgets.SuperButton
+            android:id="@+id/qqlogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="qq登录"
+            stv:sCornersRadius="10dp"
+            stv:sSolidColor="@color/colorAccent"
+            />
+    </LinearLayout>
 </ScrollView>

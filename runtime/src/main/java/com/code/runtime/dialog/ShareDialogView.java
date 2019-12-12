@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.code.fastframe.baseview.BaseViewLayout;
 import com.code.fastframe.utils.CompoundDrawableUtils;
 import com.code.runtime.R;
-import com.code.runtime.utils.ShareUtils.Plat;
+import com.code.runtime.contants.ShareCotants.Plat;
 
 public class ShareDialogView extends BaseViewLayout {
 

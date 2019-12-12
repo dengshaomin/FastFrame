@@ -72,10 +72,6 @@ public class BannerActivity extends BaseTitleActivity implements OnBannerListene
 
     }
 
-    @Override
-    public List<String> regeistEvent() {
-        return null;
-    }
 
     @Override
     public void eventComming(GlobalEvent globalMsg) {

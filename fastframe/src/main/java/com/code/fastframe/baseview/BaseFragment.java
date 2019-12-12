@@ -28,7 +28,7 @@ public abstract class BaseFragment extends Fragment implements IBaseViewLayout, 
 
     private View rootView;
 
-    private List<String> eventList = new ArrayList<>();
+    private List<Integer> eventList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -89,8 +89,8 @@ public abstract class BaseFragment extends Fragment implements IBaseViewLayout, 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(GlobalEvent event) {
         /* Do something */
-        for (String s : eventList) {
-            if (s.equals(event.getMsgId())) {
+        for (Integer s : eventList) {
+            if (s == event.getMsgId()) {
                 eventComming(event);
                 break;
             }
@@ -103,12 +103,12 @@ public abstract class BaseFragment extends Fragment implements IBaseViewLayout, 
     }
 
     @Override
-    public List<String> regeistEvent() {
+    public List<Integer> regeistEvent() {
         return null;
     }
 
     private void setEvents() {
-        List<String> events = regeistEvent();
+        List<Integer> events = regeistEvent();
         if (events != null) {
             eventList.addAll(events);
         }

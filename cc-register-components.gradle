@@ -1,4 +1,5 @@
 dependencies {
     addComponent 'testcomponent'
     addComponent 'weixin_component'
+    addComponent 'qq_component'
 }

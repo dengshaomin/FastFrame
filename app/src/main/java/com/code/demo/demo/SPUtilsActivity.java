@@ -87,10 +87,6 @@ public class SPUtilsActivity extends BaseTitleActivity implements OnClickListene
 
     }
 
-    @Override
-    public List<String> regeistEvent() {
-        return null;
-    }
 
     @Override
     public void eventComming(GlobalEvent globalMsg) {

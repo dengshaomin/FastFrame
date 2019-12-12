@@ -4,8 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/share_dialog_bg"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/dp16"
-    android:paddingRight="@dimen/dp16">
+    >
 
     <TextView
         android:layout_width="match_parent"
@@ -15,19 +14,22 @@
         android:paddingBottom="10dp"
         android:text="分享至"
         android:textColor="@color/color_333333"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/dpline"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/color_999999" />
+        android:background="@color/color_999999"
+        />
 
     <TextView
         android:id="@+id/cancel"
@@ -38,5 +40,6 @@
         android:paddingBottom="10dp"
         android:text="取消"
         android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        />
 </LinearLayout>

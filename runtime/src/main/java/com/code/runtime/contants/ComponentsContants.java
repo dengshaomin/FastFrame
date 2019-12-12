@@ -4,6 +4,8 @@ public class ComponentsContants {
 
     public static final String VIEW_DATA = "VIEW_DATA";
 
+    public static final String ACTION_DATA = "ACTION_DATA";
+
     public static class Name {
 
         private static int NAME_BASE = 0;
@@ -11,6 +13,8 @@ public class ComponentsContants {
         private static final String NAME_STR = "COMPONENT_NAME_";
 
         public static final String Wechart = NAME_STR + NAME_BASE++;
+
+        public static final String QQ = NAME_STR + NAME_BASE++;
     }
 
     public static class Action {
@@ -20,5 +24,6 @@ public class ComponentsContants {
         private static int ACTION_BASE = 0;
 
         public static final String Share = ACTION_STR + ACTION_BASE++;
+        public static final String Login = ACTION_STR + ACTION_BASE++;
     }
 }

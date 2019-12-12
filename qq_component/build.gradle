@@ -1,0 +1,37 @@
+apply from: rootProject.file('cc-settings-2.gradle')
+ext {
+    QQ_APP_ID = '1105084207'
+}
+android {
+    compileSdkVersion rootProject.build.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.build.minSdkVersion
+        targetSdkVersion rootProject.build.targetSdkVersion
+        versionCode rootProject.build.versionCode
+        versionName rootProject.build.versionName
+        manifestPlaceholders = [
+                QQ_APP_ID: project.QQ_APP_ID,
+        ]
+        buildConfigField "String", "QQ_APP_ID", "\"" + project.QQ_APP_ID + "\""
+    }
+
+    buildTypes {
+        release {
+            // 混淆
+            minifyEnabled true
+            // Zipalign优化
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility rootProject.JavaV
+        targetCompatibility rootProject.JavaV
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+}

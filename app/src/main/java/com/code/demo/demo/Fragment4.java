@@ -26,10 +26,6 @@ public class Fragment4 extends BaseFragment {
 
     }
 
-    @Override
-    public List<String> regeistEvent() {
-        return null;
-    }
 
     @Override
     public void eventComming(GlobalEvent globalMsg) {

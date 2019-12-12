@@ -250,6 +250,13 @@ public static final android.os.Parcelable$Creator *;
 -keep class com.tencent.mm.sdk.** {
     *;
 }
+#QQ
+-keep class com.tencent.open.TDialog$*
+-keep class com.tencent.open.TDialog$* {*;}
+-keep class com.tencent.open.PKDialog
+-keep class com.tencent.open.PKDialog {*;}
+-keep class com.tencent.open.PKDialog$*
+-keep class com.tencent.open.PKDialog$* {*;}
 
  # for DexGuard only
 # -keepresourcexmlelements manifest/application/meta-data@value=GlideModule

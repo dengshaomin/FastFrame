@@ -15,14 +15,14 @@ import org.greenrobot.eventbus.ThreadMode;
 
 public abstract class BaseEventActivity extends BasePermissionActivity implements IBaseEvent {
 
-    private List<String> eventList = new ArrayList<>();
+    private List<Integer> eventList = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (needGlobalEvent()) {
             EventBus.getDefault().register(this);
-            List<String> events = regeistEvent();
+            List<Integer> events = regeistEvent();
             if (events != null) {
                 eventList.addAll(events);
             }
@@ -30,7 +30,7 @@ public abstract class BaseEventActivity extends BasePermissionActivity implement
     }
 
     @Override
-    public List<String> regeistEvent() {
+    public List<Integer> regeistEvent() {
         return null;
     }
 
@@ -47,8 +47,8 @@ public abstract class BaseEventActivity extends BasePermissionActivity implement
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(GlobalEvent event) {
         /* Do something */
-        for (String s : eventList) {
-            if (s.equals(event.getMsgId())) {
+        for (Integer s : eventList) {
+            if (s == event.getMsgId()) {
                 eventComming(event);
                 break;
             }

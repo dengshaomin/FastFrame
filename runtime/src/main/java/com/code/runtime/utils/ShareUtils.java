@@ -2,38 +2,22 @@ package com.code.runtime.utils;
 
 import java.io.Serializable;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.text.TextUtils;
 import android.view.Gravity;
 
 import com.billy.cc.core.component.CC;
 import com.code.runtime.contants.ComponentsContants;
 import com.code.runtime.contants.ComponentsContants.Action;
 import com.code.runtime.contants.ComponentsContants.Name;
+import com.code.runtime.contants.ShareCotants.Plat;
 import com.code.runtime.dialog.FullDialog;
 import com.code.runtime.dialog.ShareDialogView;
 import com.code.runtime.dialog.ShareDialogView.Bean;
 import com.code.runtime.dialog.ShareDialogView.IShareDialogView;
 
 public class ShareUtils {
-
-    public static class Plat {
-
-        public static final int WECHART = 0;
-
-        public static final int WECHARTZONE = 1;
-
-        public static final int QQ = 2;
-
-        public static final int QZONE = 3;
-    }
-
-    public static class Type {
-
-        public static int IMAGE = 0;
-    }
 
     public static void share(Context context, ShareBean shareBean) {
         if (shareBean == null || !(context instanceof FragmentActivity)) {
@@ -48,7 +32,19 @@ public class ShareUtils {
                 if (bean == null) {
                     return;
                 }
-                CC.obtainBuilder(Name.Wechart).setContext(context).setActionName(Action.Share).addParam(ComponentsContants.VIEW_DATA, shareBean)
+                String componentname = null;
+                switch (bean.type) {
+                    case Plat.WECHART:
+                        componentname = Name.Wechart;
+                        break;
+                    case Plat.QQ:
+                        componentname = Name.QQ;
+                        break;
+                }
+                if (TextUtils.isEmpty(componentname)) {
+                    return;
+                }
+                CC.obtainBuilder(componentname).setContext(context).setActionName(Action.Share).addParam(ComponentsContants.VIEW_DATA, shareBean)
                         .build().call();
             }
         });

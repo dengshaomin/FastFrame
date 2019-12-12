@@ -53,10 +53,6 @@ public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest, O
         mTestPresent = new TestPresent(this, this);
     }
 
-    @Override
-    public List<String> regeistEvent() {
-        return null;
-    }
 
     @Override
     public void eventComming(GlobalEvent globalMsg) {

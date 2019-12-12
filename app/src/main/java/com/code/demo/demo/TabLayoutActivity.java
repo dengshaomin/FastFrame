@@ -138,10 +138,6 @@ public class TabLayoutActivity extends BaseTitleActivity implements OnTabSelectL
 
     }
 
-    @Override
-    public List<String> regeistEvent() {
-        return null;
-    }
 
     @Override
     public void eventComming(GlobalEvent globalMsg) {

@@ -11,7 +11,7 @@ import com.billy.cc.core.component.CC;
 import com.code.runtime.contants.ComponentsContants;
 import com.code.runtime.contants.ComponentsContants.Action;
 import com.code.runtime.contants.ComponentsContants.Name;
-import com.code.runtime.contants.ShareCotants.Plat;
+import com.code.runtime.contants.ShareContants.Plat;
 import com.code.runtime.dialog.FullDialog;
 import com.code.runtime.dialog.ShareDialogView;
 import com.code.runtime.dialog.ShareDialogView.Bean;
@@ -33,11 +33,12 @@ public class ShareUtils {
                     return;
                 }
                 String componentname = null;
-                switch (bean.type) {
+                switch (bean.plat) {
                     case Plat.WECHART:
                         componentname = Name.Wechart;
                         break;
                     case Plat.QQ:
+                    case Plat.QZONE:
                         componentname = Name.QQ;
                         break;
                 }
@@ -74,7 +75,7 @@ public class ShareUtils {
 
         private int plat;
 
-        private int type;
+        public int type;
 
         private String title;
 
@@ -84,13 +85,13 @@ public class ShareUtils {
 
         private String clickUrl;
 
-        public Builder setPlat(int plat) {
-            this.plat = plat;
+        public Builder setType(int type) {
+            this.type = type;
             return this;
         }
 
-        public Builder setType(int type) {
-            this.type = type;
+        public Builder setPlat(int plat) {
+            this.plat = plat;
             return this;
         }
 
@@ -117,11 +118,11 @@ public class ShareUtils {
         public ShareBean build() {
             ShareBean shareBean = new ShareBean();
             shareBean.plat = this.plat;
+            shareBean.type = this.type;
             shareBean.clickUrl = this.clickUrl;
             shareBean.content = this.content;
             shareBean.imageUrl = this.imageUrl;
             shareBean.title = this.title;
-            shareBean.type = this.type;
             return shareBean;
         }
     }

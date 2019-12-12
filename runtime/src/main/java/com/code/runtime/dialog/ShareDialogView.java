@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.code.fastframe.baseview.BaseViewLayout;
 import com.code.fastframe.utils.CompoundDrawableUtils;
 import com.code.runtime.R;
-import com.code.runtime.contants.ShareCotants.Plat;
+import com.code.runtime.contants.ShareContants.Plat;
 
 public class ShareDialogView extends BaseViewLayout {
 
@@ -103,14 +103,14 @@ public class ShareDialogView extends BaseViewLayout {
 
     public static class Bean {
 
-        public int type;
+        public int plat;
 
         public int resource;
 
         public String name;
 
-        public Bean(int type, String name, int resource) {
-            this.type = type;
+        public Bean(int plat, String name, int resource) {
+            this.plat = plat;
             this.name = name;
             this.resource = resource;
         }

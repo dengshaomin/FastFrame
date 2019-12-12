@@ -52,7 +52,7 @@ public class FileUtils {
             return false;
         }
         return FileUtils.saveStrToFile(value,
-                Environment.getExternalStorageDirectory() + File.separator + AppUtils.getPackageName() + File.separator + name,
+                Environment.getExternalStorageDirectory() + File.separator + AppUtils.getPackageName(FastFrame.mApplicationContext) + File.separator + name,
                 "UTF-8");
     }
     /**

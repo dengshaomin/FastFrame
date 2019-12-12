@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.billy.cc.core.component.CC;
 import com.code.runtime.contants.ComponentsContants.Action;
 import com.code.runtime.contants.ComponentsContants.Name;
-import com.code.runtime.contants.ShareCotants.Plat;
+import com.code.runtime.contants.ShareContants.Plat;
 
 public class LoginUtils {
 

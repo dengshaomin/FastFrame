@@ -56,6 +56,7 @@ import com.code.fastframe.FastFrame;
 public final class AppUtils {
 
     private static final boolean DEBUG = true;
+
     private static final String TAG = "AppUtils";
 
 
@@ -78,7 +79,7 @@ public final class AppUtils {
         try {
             String packageName = context.getPackageName();
             verCode = context.getPackageManager()
-                             .getPackageInfo(packageName, 0).versionCode;
+                    .getPackageInfo(packageName, 0).versionCode;
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -108,21 +109,38 @@ public final class AppUtils {
         try {
             String packageName = context.getPackageName();
             verName = context.getPackageManager()
-                             .getPackageInfo(packageName, 0).versionName;
+                    .getPackageInfo(packageName, 0).versionName;
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
         return verName;
     }
+
+    /**
+     * 获取应用程序名称
+     */
+    public static String getAppName(Context context) {
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(
+                    context.getPackageName(), 0);
+            int labelRes = packageInfo.applicationInfo.labelRes;
+            return context.getResources().getString(labelRes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     /**
      * 获取包名
      *
      * @param context 上下文
      * @return 当前版本信息
      */
-    public static String getPackageName() {
+    public static String getPackageName(Context context) {
         try {
-            return FastFrame.mApplicationContext.getPackageName();
+            return context.getPackageName();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -133,7 +151,7 @@ public final class AppUtils {
      * 安装apk
      *
      * @param context 上下文
-     * @param file    APK文件
+     * @param file APK文件
      */
     public static void installApk(Context context, File file) {
         Intent intent = new Intent();
@@ -144,12 +162,11 @@ public final class AppUtils {
         context.startActivity(intent);
     }
 
-
     /**
      * 安装apk
      *
      * @param context 上下文
-     * @param file    APK文件uri
+     * @param file APK文件uri
      */
     public static void installApk(Context context, Uri file) {
         Intent intent = new Intent();
@@ -159,11 +176,10 @@ public final class AppUtils {
         context.startActivity(intent);
     }
 
-
     /**
      * 卸载apk
      *
-     * @param context     上下文
+     * @param context 上下文
      * @param packageName 包名
      */
     public static void uninstallApk(Context context, String packageName) {
@@ -173,11 +189,10 @@ public final class AppUtils {
         context.startActivity(intent);
     }
 
-
     /**
      * 检测服务是否运行
      *
-     * @param context   上下文
+     * @param context 上下文
      * @param className 类名
      * @return 是否运行的状态
      */
@@ -196,11 +211,10 @@ public final class AppUtils {
         return isRunning;
     }
 
-
     /**
      * 停止运行服务
      *
-     * @param context   上下文
+     * @param context 上下文
      * @param className 类名
      * @return 是否执行成功
      */
@@ -218,7 +232,6 @@ public final class AppUtils {
         return ret;
     }
 
-
     /**
      * 得到CPU核心数
      *
@@ -228,7 +241,8 @@ public final class AppUtils {
         try {
             File dir = new File("/sys/devices/system/cpu/");
             File[] files = dir.listFiles(new FileFilter() {
-                @Override public boolean accept(File pathname) {
+                @Override
+                public boolean accept(File pathname) {
                     if (Pattern.matches("cpu[0-9]", pathname.getName())) {
                         return true;
                     }
@@ -241,11 +255,10 @@ public final class AppUtils {
         }
     }
 
-
     /**
      * whether this process is named with processName
      *
-     * @param context     上下文
+     * @param context 上下文
      * @param processName 进程名
      * @return 是否含有当前的进程
      */
@@ -272,7 +285,6 @@ public final class AppUtils {
         return false;
     }
 
-
     /**
      * whether application is in background
      * <ul>
@@ -290,13 +302,12 @@ public final class AppUtils {
         if (taskList != null && !taskList.isEmpty()) {
             ComponentName topActivity = taskList.get(0).topActivity;
             if (topActivity != null && !topActivity.getPackageName()
-                                                   .equals(context.getPackageName())) {
+                    .equals(context.getPackageName())) {
                 return true;
             }
         }
         return false;
     }
-
 
     /**
      * 获取应用签名
@@ -308,8 +319,8 @@ public final class AppUtils {
     public static String getSign(Context context, String pkgName) {
         try {
             PackageInfo pis = context.getPackageManager()
-                                     .getPackageInfo(pkgName,
-                                             PackageManager.GET_SIGNATURES);
+                    .getPackageInfo(pkgName,
+                            PackageManager.GET_SIGNATURES);
             return hexdigest(pis.signatures[0].toByteArray());
         } catch (NameNotFoundException e) {
             e.printStackTrace();
@@ -318,7 +329,6 @@ public final class AppUtils {
 
     }
 
-
     /**
      * 将签名字符串转换成需要的32位签名
      *
@@ -326,8 +336,8 @@ public final class AppUtils {
      * @return 32位签名字符串
      */
     private static String hexdigest(byte[] paramArrayOfByte) {
-        final char[] hexDigits = { 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97,
-                98, 99, 100, 101, 102 };
+        final char[] hexDigits = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97,
+                98, 99, 100, 101, 102};
         try {
             MessageDigest localMessageDigest = MessageDigest.getInstance("MD5");
             localMessageDigest.update(paramArrayOfByte);
@@ -347,7 +357,6 @@ public final class AppUtils {
         return "";
     }
 
-
     /**
      * 清理后台进程与服务
      *
@@ -363,7 +372,9 @@ public final class AppUtils {
         List<RunningServiceInfo> serviceList = am.getRunningServices(100);
         if (serviceList != null) {
             for (RunningServiceInfo service : serviceList) {
-                if (service.pid == android.os.Process.myPid()) continue;
+                if (service.pid == android.os.Process.myPid()) {
+                    continue;
+                }
                 try {
                     android.os.Process.killProcess(service.pid);
                     count++;
@@ -403,7 +414,6 @@ public final class AppUtils {
         return count;
     }
 
-
     /**
      * 获取设备的可用内存大小
      *
@@ -418,7 +428,6 @@ public final class AppUtils {
         // 返回当前系统的可用内存
         return (int) (mi.availMem / (1024 * 1024));
     }
-
 
     /**
      * 获取系统中所有的应用
@@ -442,7 +451,6 @@ public final class AppUtils {
         return apps;
     }
 
-
     /**
      * 获取手机系统SDK版本
      *
@@ -452,7 +460,6 @@ public final class AppUtils {
         return android.os.Build.VERSION.SDK_INT;
     }
 
-
     /**
      * 是否Dalvik模式
      *
@@ -461,7 +468,6 @@ public final class AppUtils {
     public static boolean isDalvik() {
         return "Dalvik".equals(getCurrentRuntimeValue());
     }
-
 
     /**
      * 是否ART模式
@@ -473,7 +479,6 @@ public final class AppUtils {
         return "ART".equals(currentRuntime) ||
                 "ART debug build".equals(currentRuntime);
     }
-
 
     /**
      * 获取手机当前的Runtime
@@ -493,14 +498,12 @@ public final class AppUtils {
                 try {
                     final String value = (String) get.invoke(systemProperties,
                             "persist.sys.dalvik.vm.lib",
-                        /* Assuming default is */"Dalvik");
+                            /* Assuming default is */"Dalvik");
                     if ("libdvm.so".equals(value)) {
                         return "Dalvik";
-                    }
-                    else if ("libart.so".equals(value)) {
+                    } else if ("libart.so".equals(value)) {
                         return "ART";
-                    }
-                    else if ("libartd.so".equals(value)) {
+                    } else if ("libartd.so".equals(value)) {
                         return "ART debug build";
                     }
 
@@ -520,10 +523,8 @@ public final class AppUtils {
         }
     }
 
-
     private final static X500Principal DEBUG_DN = new X500Principal(
             "CN=Android Debug,O=Android,C=US");
-
 
     /**
      * 检测当前应用是否是Debug版本
@@ -535,8 +536,8 @@ public final class AppUtils {
         boolean debuggable = false;
         try {
             PackageInfo pinfo = ctx.getPackageManager()
-                                   .getPackageInfo(ctx.getPackageName(),
-                                           PackageManager.GET_SIGNATURES);
+                    .getPackageInfo(ctx.getPackageName(),
+                            PackageManager.GET_SIGNATURES);
             Signature signatures[] = pinfo.signatures;
             for (int i = 0; i < signatures.length; i++) {
                 CertificateFactory cf = CertificateFactory.getInstance("X.509");
@@ -545,7 +546,9 @@ public final class AppUtils {
                 X509Certificate cert = (X509Certificate) cf.generateCertificate(
                         stream);
                 debuggable = cert.getSubjectX500Principal().equals(DEBUG_DN);
-                if (debuggable) break;
+                if (debuggable) {
+                    break;
+                }
             }
         } catch (NameNotFoundException e) {
         } catch (CertificateException e) {

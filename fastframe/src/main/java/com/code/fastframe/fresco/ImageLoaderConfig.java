@@ -9,7 +9,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.graphics.Bitmap;
 
-import com.code.fastframe.utils.CLog;
+import com.andview.refreshview.utils.LogUtils;
 import com.facebook.cache.disk.DiskCacheConfig;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.MemoryTrimType;
@@ -80,7 +80,7 @@ public class ImageLoaderConfig {
                 @Override
                 public void trim(MemoryTrimType trimType) {
                     final double suggestedTrimRatio = trimType.getSuggestedTrimRatio();
-                    CLog.i(String.format("Fresco onCreate suggestedTrimRatio : %d", suggestedTrimRatio));
+                    LogUtils.i(String.format("Fresco onCreate suggestedTrimRatio : %d", suggestedTrimRatio));
 
                     if (MemoryTrimType.OnCloseToDalvikHeapLimit.getSuggestedTrimRatio() == suggestedTrimRatio
                             || MemoryTrimType.OnSystemLowMemoryWhileAppInBackground.getSuggestedTrimRatio() == suggestedTrimRatio

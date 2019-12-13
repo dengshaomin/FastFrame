@@ -9,7 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         >
-        <activity android:name="com.code.qqcomponent.QQTransitionActivity"></activity>
+        <activity
+            android:name="com.code.qqcomponent.QQTransitionActivity"
+            android:theme="@style/TransparentTheme"
+            ></activity>
 
         <activity
             android:name="com.tencent.tauth.AuthActivity"

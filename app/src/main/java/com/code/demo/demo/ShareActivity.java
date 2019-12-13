@@ -3,16 +3,21 @@ package com.code.demo.demo;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.preference.PreferenceManager.OnActivityResultListener;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.code.demo.R;
 import com.code.fastframe.baseactivity.BaseTitleActivity;
 import com.code.fastframe.eventbus.GlobalEvent;
+import com.code.fastframe.utils.RealPathFromUriUtils;
 import com.code.fastframe.utils.ToastUtils;
 import com.code.runtime.contants.ComponentsContants.Action;
 import com.code.runtime.contants.GlobalEventContants;
@@ -33,6 +38,8 @@ public class ShareActivity extends BaseTitleActivity implements OnClickListener 
 
     RadioGroup share_type;
 
+    String shareLocalPath;
+
     @Override
     public int setContentLayout() {
         return R.layout.activity_share;
@@ -48,6 +55,30 @@ public class ShareActivity extends BaseTitleActivity implements OnClickListener 
         share = findViewById(R.id.share);
         share.setOnClickListener(this);
         share_type = findViewById(R.id.share_type);
+        share_type.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.share_type_image) {
+                    Intent intent = new Intent();
+                    intent.setType("image/*");
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    startActivityForResult(intent, 1);
+                }
+
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            //获取选中文件的定位符
+            Uri uri = data.getData();
+            if (uri != null) {
+                shareLocalPath = RealPathFromUriUtils.getRealPathFromUri(this,uri);
+            }
+        }
     }
 
     @Override
@@ -67,8 +98,13 @@ public class ShareActivity extends BaseTitleActivity implements OnClickListener 
                         + ".bdstatic"
                         + ".com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=487628588,2307382441&fm=26&gp=0.jpg").setClickUrl("https://www.baidu.com").build());
             } else if (share_type.getCheckedRadioButtonId() == R.id.share_type_image) {
+                if (TextUtils.isEmpty(shareLocalPath)) {
+                    ToastUtils.showToast("选择本地图片");
+                    return;
+                }
+                shareLocalPath = shareLocalPath.replace("content://", "");
                 ShareUtils.share(this, new ShareUtils.Builder().setType(Type.IMAGE)
-                        .setImageUrl("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=487628588,2307382441&fm=26&gp=0.jpg").build());
+                        .setImageUrl(shareLocalPath).build());
             }
         }
     }
@@ -100,7 +136,7 @@ public class ShareActivity extends BaseTitleActivity implements OnClickListener 
                         ToastUtils.showToast("登录成功");
                         qq_info.setText(JSON.toJSONString(UserInfoFactory.getInstance().mQQUserInfoBean));
                     }
-                }else if (TextUtils.equals(thirdPlatEventBean.type, Action.Share)) {
+                } else if (TextUtils.equals(thirdPlatEventBean.type, Action.Share)) {
                     if (thirdPlatEventBean.result == Result.CALCEL) {
                         ToastUtils.showToast("用户取消分享");
                     } else if (thirdPlatEventBean.result == Result.FAIL) {

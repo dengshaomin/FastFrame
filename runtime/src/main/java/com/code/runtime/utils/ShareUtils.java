@@ -45,7 +45,9 @@ public class ShareUtils {
                 if (TextUtils.isEmpty(componentname)) {
                     return;
                 }
-                CC.obtainBuilder(componentname).setContext(context).setActionName(Action.Share).addParam(ComponentsContants.VIEW_DATA, shareBean)
+                shareBean.plat = bean.plat;
+                CC.obtainBuilder(componentname).setContext(context).setActionName(Action.Share).addParam(ComponentsContants.VIEW_DATA,
+                        shareBean)
                         .build().call();
             }
         });

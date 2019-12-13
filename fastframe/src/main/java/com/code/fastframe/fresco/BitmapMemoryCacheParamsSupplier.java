@@ -3,7 +3,7 @@ package com.code.fastframe.fresco;
 import android.app.ActivityManager;
 import android.os.Build;
 
-import com.code.fastframe.utils.CLog;
+import com.andview.refreshview.utils.LogUtils;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.util.ByteConstants;
 import com.facebook.imagepipeline.cache.MemoryCacheParams;
@@ -42,7 +42,7 @@ public class BitmapMemoryCacheParamsSupplier implements Supplier<MemoryCachePara
 
     private int getMaxCacheSize() {
         final int maxMemory = Math.min(mActivityManager.getMemoryClass() * ByteConstants.MB, Integer.MAX_VALUE);
-        CLog.i(String.format("Fresco Max memory [%d] MB", (maxMemory / ByteConstants.MB)));
+        LogUtils.i(String.format("Fresco Max memory [%d] MB", (maxMemory / ByteConstants.MB)));
         if (maxMemory < 32 * ByteConstants.MB) {
             return 4 * ByteConstants.MB;
         } else if (maxMemory < 64 * ByteConstants.MB) {

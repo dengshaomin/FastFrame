@@ -52,7 +52,8 @@ ext {
             JPTabBar          : 'com.jpeng:JPTabBar:1.3.3',
             FlycoTabLayout_Lib: 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar',
             statusbarutil     : 'com.jaeger.statusbarutil:library:1.5.1',
-            multidex          : 'com.android.support:multidex:1.0.3'
+            multidex          : 'com.android.support:multidex:1.0.3',
+            luban             : 'top.zibin:Luban:1.1.8'
     ]
 
 }

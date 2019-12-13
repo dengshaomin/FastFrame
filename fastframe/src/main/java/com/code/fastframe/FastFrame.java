@@ -10,7 +10,6 @@ import android.net.ConnectivityManager;
 import android.os.Build;
 
 import com.code.fastframe.net.NetworkStatusReceiver;
-import com.code.fastframe.utils.CLog;
 import com.code.fastframe.utils.SharedPreferencesUtils;
 import com.code.rxretrofitlibrary.http.HttpUtils;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -49,7 +48,6 @@ public class FastFrame {
 
     public void init(Context context) {
         mApplicationContext = context.getApplicationContext();
-        CLog.init();
         HttpUtils.init(context);
         initFresco();
     }

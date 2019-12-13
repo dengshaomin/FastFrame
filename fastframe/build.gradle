@@ -45,4 +45,5 @@ dependencies {
     api rootProject.other.multidex
     api rootProject.support.constraint_layout
     api rootProject.ext.support.appcompat_v7
+    api rootProject.other.luban
 }

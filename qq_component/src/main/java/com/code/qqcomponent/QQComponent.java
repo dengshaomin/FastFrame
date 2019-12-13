@@ -17,6 +17,9 @@ import com.code.runtime.contants.ComponentsContants.Name;
 import com.code.runtime.utils.ShareUtils.ShareBean;
 import com.tencent.tauth.Tencent;
 
+/**
+ * QQ文档：https://wiki.connect.qq.com/android_sdk%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8
+ * */
 public class QQComponent implements IComponent {
 
     public static Tencent mTencent;

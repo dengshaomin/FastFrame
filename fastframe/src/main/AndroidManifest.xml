@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.code.fastframe">
+    package="com.code.fastframe"
+    >
+
     <uses-feature android:name="android.hardware.Camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -19,9 +21,16 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <application>
         <activity android:name="com.code.fastframe.fastactivity.FastTitleActivity" />
         <activity android:name="com.code.fastframe.fastactivity.FastRecyclerViewActivity" />
+
+        <provider
+            android:authorities="${applicationId}.contextprovider"
+            android:exported="false"
+            android:name=".FastFrameContentProvider"
+            />
     </application>
 
 </manifest>

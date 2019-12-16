@@ -21,6 +21,7 @@ import com.facebook.imagepipeline.image.QualityInfo;
 import com.facebook.imagepipeline.listener.RequestListener;
 import com.facebook.imagepipeline.listener.RequestLoggingListener;
 
+import leakcanary.LeakCanary;
 import okhttp3.OkHttpClient;
 
 /**
@@ -46,7 +47,10 @@ public class FastFrame {
         return fastFrame;
     }
 
-    public void init(Context context) {
+    public synchronized void init(Context context) {
+        if (mApplicationContext != null) {
+            return;
+        }
         mApplicationContext = context.getApplicationContext();
         HttpUtils.init(context);
         initFresco();
@@ -97,5 +101,4 @@ public class FastFrame {
         SharedPreferencesUtils.getInstance().commit();
         unRegisterNetStatusReceiver();
     }
-
 }

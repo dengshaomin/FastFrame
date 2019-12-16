@@ -83,7 +83,6 @@ public class MineApplication extends Application {
     public void onCreate() {
         super.onCreate();
         if(ProcessUtil.isMainAppProcess(getApplicationContext())) {
-            FastFrame.getInstance().init(this);
             initXinGe();
             initJPush();
             initBugly();

@@ -46,4 +46,5 @@ dependencies {
     api rootProject.support.constraint_layout
     api rootProject.ext.support.appcompat_v7
     api rootProject.other.luban
+    debugImplementation rootProject.other.leakcanary
 }

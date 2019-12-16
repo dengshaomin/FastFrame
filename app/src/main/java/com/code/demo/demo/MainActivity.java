@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import android.Manifest;
 import android.Manifest.permission;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;

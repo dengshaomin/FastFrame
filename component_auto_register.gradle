@@ -1,0 +1,5 @@
+dependencies {
+    implementation project(path: ':testcomponent')
+    implementation project(path: ':weixin_component')
+    implementation project(path: ':qq_component')
+}

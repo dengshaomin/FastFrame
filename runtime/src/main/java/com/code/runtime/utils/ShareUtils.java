@@ -35,6 +35,7 @@ public class ShareUtils {
                 String componentname = null;
                 switch (bean.plat) {
                     case Plat.WECHART:
+                    case Plat.WECHARTZONE:
                         componentname = Name.Wechart;
                         break;
                     case Plat.QQ:

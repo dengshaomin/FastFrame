@@ -32,7 +32,7 @@ import com.code.runtime.utils.ShareUtils;
 
 public class ShareActivity extends BaseTitleActivity implements OnClickListener {
 
-    View wechart, qqlogin, share;
+    View wechartlogin, qqlogin, share;
 
     TextView qq_info;
 
@@ -47,8 +47,8 @@ public class ShareActivity extends BaseTitleActivity implements OnClickListener 
 
     @Override
     public void initView() {
-        wechart = findViewById(R.id.wechart);
-        wechart.setOnClickListener(this);
+        wechartlogin = findViewById(R.id.wechartlogin);
+        wechartlogin.setOnClickListener(this);
         qqlogin = findViewById(R.id.qqlogin);
         qqlogin.setOnClickListener(this);
         qq_info = findViewById(R.id.qq_info);
@@ -88,7 +88,8 @@ public class ShareActivity extends BaseTitleActivity implements OnClickListener 
 
     @Override
     public void onClick(View v) {
-        if (v == wechart) {
+        if (v == wechartlogin) {
+            LoginUtils.login(this, Plat.WECHART);
         } else if (v == qqlogin) {
             LoginUtils.login(this, Plat.QQ);
         } else if (v == share) {

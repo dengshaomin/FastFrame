@@ -1,5 +1,5 @@
-apply from: rootProject.file('cc-settings-2.gradle')
-//apply plugin: 'com.android.library'
+//apply from: rootProject.file('cc-settings-2.gradle')
+apply plugin: 'com.android.library'
 android {
     compileSdkVersion rootProject.build.compileSdkVersion
 
@@ -26,4 +26,5 @@ android {
 }
 
 dependencies {
+    api project(path: ':runtime')
 }

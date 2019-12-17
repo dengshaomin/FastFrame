@@ -5,7 +5,7 @@ package com.code.fastframe.utils; /**
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -54,9 +54,10 @@ import android.view.View;
  *
  * @author jingle1267@163.com
  */
-final class BitmapUtil {
+public class BitmapUtil {
 
     private static final boolean DEBUG = false;
+
     private static final String TAG = BitmapUtil.class.getSimpleName();
 
     /**
@@ -102,7 +103,7 @@ final class BitmapUtil {
                 // 选择宽和高中最小的比率作为inSampleSize的值，这样可以保证最终图片的宽和高
                 // 一定都会大于等于目标的宽和高。
                 inSampleSize = heightRatio < widthRatio ? heightRatio
-                                                        : widthRatio;
+                        : widthRatio;
             }
         }
         // 设置压缩比例
@@ -120,7 +121,7 @@ final class BitmapUtil {
      * @param reqHeight 目标高度
      */
     public static Bitmap getBitmapFromResource(Resources res, int resId,
-                                               int reqWidth, int reqHeight) {
+            int reqWidth, int reqHeight) {
         // BitmapFactory.Options options = new BitmapFactory.Options();
         // options.inJustDecodeBounds = true;
         // BitmapFactory.decodeResource(res, resId, options);
@@ -144,7 +145,7 @@ final class BitmapUtil {
      * @param reqHeight 目标高度
      */
     public static Bitmap getBitmapFromFile(String pathName, int reqWidth,
-                                           int reqHeight) {
+            int reqHeight) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(pathName, options);
@@ -162,7 +163,7 @@ final class BitmapUtil {
      * @param reqHeight 目标高度
      */
     public static Bitmap getBitmapFromByteArray(byte[] data, int offset,
-                                                int length, int reqWidth, int reqHeight) {
+            int length, int reqWidth, int reqHeight) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeByteArray(data, offset, length, options);
@@ -228,7 +229,7 @@ final class BitmapUtil {
      * @param reqHeight  目标高度
      */
     public static Bitmap getBitmapFromStream(InputStream is, Rect outPadding,
-                                             int reqWidth, int reqHeight) {
+            int reqWidth, int reqHeight) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeStream(is, outPadding, options);
@@ -300,8 +301,8 @@ final class BitmapUtil {
         int width = drawable.getIntrinsicWidth();
         int height = drawable.getIntrinsicHeight();
         Bitmap bitmap = Bitmap.createBitmap(width, height, drawable
-                                                                   .getOpacity() != PixelFormat.OPAQUE ? Config.ARGB_8888
-                                                                                                       : Config.RGB_565);
+                .getOpacity() != PixelFormat.OPAQUE ? Config.ARGB_8888
+                : Config.RGB_565);
         Canvas canvas = new Canvas(bitmap);
         drawable.setBounds(0, 0, width, height);
         drawable.draw(canvas);
@@ -682,7 +683,7 @@ final class BitmapUtil {
      * @return 返回重新生成后的bitmap
      */
     public static Bitmap codec(Bitmap src, Bitmap.CompressFormat format,
-                               int quality) {
+            int quality) {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         src.compress(format, quality, os);
 
@@ -1300,7 +1301,7 @@ final class BitmapUtil {
      * @return 亮度、色相、饱和度处理后的图片
      */
     public static Bitmap lumAndHueAndSaturation(Bitmap bitmap, int lumValue,
-                                                int hueValue, int saturationValue) {
+            int hueValue, int saturationValue) {
         // 计算出符合要求的饱和度值
         float newSaturationValue = saturationValue * 1.0F / 127;
         // 计算出符合要求的亮度值
@@ -1678,12 +1679,13 @@ final class BitmapUtil {
      * @return
      */
     public static final byte[] yuvLandscapeToPortrait(byte[] sourceData,
-                                                      int width, int height) {
+            int width, int height) {
         byte[] rotatedData = new byte[sourceData.length];
         for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < width; x++) {
                 rotatedData[x * height + height - y - 1] = sourceData[x + y
                         * width];
+            }
         }
         return rotatedData;
     }

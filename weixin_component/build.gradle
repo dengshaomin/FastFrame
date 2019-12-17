@@ -1,4 +1,5 @@
-apply from: rootProject.file('cc-settings-2.gradle')
+apply plugin: 'com.android.library'
+//apply from: rootProject.file('cc-settings-2.gradle')
 android {
     compileSdkVersion rootProject.build.compileSdkVersion
 
@@ -25,5 +26,6 @@ android {
 }
 
 dependencies {
-    api  'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    api 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    api project(path: ':runtime')
 }

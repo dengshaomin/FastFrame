@@ -21,7 +21,6 @@ import com.facebook.imagepipeline.image.QualityInfo;
 import com.facebook.imagepipeline.listener.RequestListener;
 import com.facebook.imagepipeline.listener.RequestLoggingListener;
 
-import leakcanary.LeakCanary;
 import okhttp3.OkHttpClient;
 
 /**

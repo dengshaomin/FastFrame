@@ -12,12 +12,12 @@
         android:orientation="vertical">
 
         <com.code.fastframe.widgets.SuperButton
-            android:id="@+id/wechart"
+            android:id="@+id/wechartlogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="10dp"
-            android:text="微信"
+            android:text="微信登录+获取用户信息"
             stv:sCornersRadius="10dp"
             stv:sSolidColor="@color/colorAccent" />
 

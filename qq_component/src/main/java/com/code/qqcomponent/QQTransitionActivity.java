@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import com.alibaba.fastjson.JSON;
 import com.code.fastframe.eventbus.GlobalEvent;
 import com.code.fastframe.utils.AppUtils;
+import com.code.fastframe.utils.FileUtils;
 import com.code.fastframe.utils.IntentUtils;
 import com.code.fastframe.utils.StroageUtils;
 import com.code.qq_component.R;
@@ -98,7 +99,7 @@ public class QQTransitionActivity extends AppCompatActivity {
                                     mShareBean.imageUrl = file.getAbsolutePath();
                                     if (mShareBean.plat == Plat.QQ) {
                                         qqShareImage();
-                                    }else{
+                                    } else {
                                         qzoneShareImage();
                                     }
                                 }
@@ -112,7 +113,7 @@ public class QQTransitionActivity extends AppCompatActivity {
                 } else {
                     if (mShareBean.plat == Plat.QQ) {
                         qqShareImage();
-                    }else{
+                    } else {
                         qzoneShareImage();
                     }
                 }
@@ -178,10 +179,7 @@ public class QQTransitionActivity extends AppCompatActivity {
     }
 
     private boolean isLocalImage(String path) {
-        if (TextUtils.isEmpty(path)) {
-            return false;
-        }
-        return !path.startsWith("http");
+        return FileUtils.isFileExist(path);
     }
 
     private QQUiListener mShareQQUiListener = new QQUiListener() {

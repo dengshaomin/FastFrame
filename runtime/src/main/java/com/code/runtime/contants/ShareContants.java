@@ -16,6 +16,7 @@ public class ShareContants {
     public static class Type {
 
         public static int IMAGE = 0;
+
         public static int IMAGE_TEXT = 1;
     }
 }

@@ -1,4 +1,4 @@
-# CodeFram
+# FastFrame
 打包注意事项：
 1.更换启动背景图
 2.将ndk配置只支持：armeabi

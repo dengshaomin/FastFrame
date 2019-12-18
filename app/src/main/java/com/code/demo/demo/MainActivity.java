@@ -26,6 +26,7 @@ import com.tencent.android.tpush.XGIOperateCallback;
 import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushManager;
 import com.tencent.android.tpush.common.Constants;
+import com.tencent.bugly.Bugly;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -66,7 +67,6 @@ public class MainActivity extends BasePermissionActivity {
                 startActivity(new Intent(MainActivity.this, str_name.get(position)));
             }
         });
-//        CC.obtainBuilder("TestComponent").setActionName("showActivity").build().call();
     }
 
     @Override

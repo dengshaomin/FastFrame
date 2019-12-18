@@ -5,6 +5,7 @@ import java.io.File;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Debug;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 
@@ -82,7 +83,7 @@ public class MineApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        if(ProcessUtil.isMainAppProcess(getApplicationContext())) {
+        if (ProcessUtil.isMainAppProcess(getApplicationContext())) {
             initXinGe();
             initJPush();
             initBugly();
@@ -103,14 +104,17 @@ public class MineApplication extends Application {
                 Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
             }
         });
-        XGPushManager.setTag(this,"XINGE");
+        XGPushManager.setTag(this, "XINGE");
     }
 
-    private void initJPush(){
+    private void initJPush() {
         JPushInterface.setDebugMode(BuildConfig.DEBUG);
         JPushInterface.init(this);
     }
-    private void initBugly(){
-        CrashReport.initCrashReport(getApplicationContext(),BuildConfig.BUGLY_APP_ID , false);
+
+    private void initBugly() {
+        if (!BuildConfig.DEBUG) {
+            CrashReport.initCrashReport(getApplicationContext(), BuildConfig.BUGLY_APP_ID, BuildConfig.DEBUG);
+        }
     }
 }

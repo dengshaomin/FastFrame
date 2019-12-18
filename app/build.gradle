@@ -1,10 +1,15 @@
 //apply plugin: 'com.android.application'
 ext.mainApp = true //标记为主app module
 project.apply plugin: 'cc-register'
+project.apply plugin: 'bugly'
 apply from: rootProject.file('component_auto_register.gradle')
 apply from: rootProject.file('xinge.gradle')
 apply from: rootProject.file('jpush.gradle')
 apply from: rootProject.file('bugly.gradle')
+bugly {
+    appId = rootProject.bugly.APPID
+    appKey = rootProject.bugly.APPKEY
+}
 android {
 
     compileSdkVersion rootProject.build.compileSdkVersion
@@ -33,8 +38,8 @@ android {
             storePassword "nothing"
             keyAlias "cframe"
             keyPassword "nothing"
-//            v1SigningEnabled true
-//            v2SigningEnabled false
+            v1SigningEnabled true
+            v2SigningEnabled true
         }
     }
     buildTypes {

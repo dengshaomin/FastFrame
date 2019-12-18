@@ -6,8 +6,8 @@ ext {
             compileSdkVersion: 28,
             minSdkVersion    : 15,
             targetSdkVersion : 28,
-            versionCode      : 2,
-            versionName      : '1.0.1',
+            versionCode      : 5,
+            versionName      : '1.0.4',
     ]
 
     support = [
@@ -42,6 +42,7 @@ ext {
     ]
     bugly = [
             APPID: 'acd4fe4373',
+            APPKEY:'312a6068-02f9-4198-944e-aebe5c02eefe'
     ]
     other = [
             rxretrofit        : 'com.github.dengshaomin:RxRetrofit-master:1.0.5',

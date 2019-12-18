@@ -1,4 +1,13 @@
 dependencies {
-    implementation 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    if (!rootProject.bugly.UPDATE) {
+        implementation 'com.tencent.bugly:crashreport:latest.release'//不需要升级功能时使用该库
+    } else {
+        implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'//包含升级功能
+    }
     implementation 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+//    if(rootProject.bugly.HOTFIX){
+//        implementation 'com.tencent.tinker:tinker-android-lib:1.9.6'
+//        implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+//    }
+
 }

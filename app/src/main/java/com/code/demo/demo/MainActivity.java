@@ -16,10 +16,12 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.billy.cc.core.component.CC;
 import com.code.fastframe.baseactivity.BasePermissionActivity;
 import com.code.demo.R;
+import com.code.fastframe.utils.AppUtils;
 import com.code.fastframe.utils.DPUtils;
 import com.code.fastframe.utils.DensityUtil;
 import com.tencent.android.tpush.XGIOperateCallback;
@@ -43,8 +45,9 @@ public class MainActivity extends BasePermissionActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
+        TextView version = findViewById(R.id.version);
+        version.setText("version:" + AppUtils.getVerName(this));
         str_name.add(BaseRecyclerSimpleActivity.class);
         str_name.add(FrescoActivity.class);
         str_name.add(SPUtilsActivity.class);

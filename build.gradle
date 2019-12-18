@@ -11,6 +11,8 @@ buildscript {
         // in the individual module build.gradle files
         classpath 'com.billy.android:cc-register:1.1.1' //使用最新版
         classpath 'com.tencent.bugly:symtabfileuploader:latest.release'
+        // tinkersupport插件, 其中lastest.release指拉取最新版本，也可以指定明确版本号，例如1.0.4
+//        classpath "com.tencent.bugly:tinker-support:1.1.2"
     }
 }
 

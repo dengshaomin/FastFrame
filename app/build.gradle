@@ -31,6 +31,7 @@ android {
         ]
 
         buildConfigField "String", "BUGLY_APP_ID", "\"" + rootProject.bugly.APPID + "\""
+        buildConfigField "boolean", "BUGLY_APP_UPDATE", "${rootProject.bugly.UPDATE}"
     }
     signingConfigs {
         config {

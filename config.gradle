@@ -41,8 +41,11 @@ ext {
             JPUSH_APPKEY: 'ea087a8371a0a5e0a97fabf1',
     ]
     bugly = [
-            APPID: 'acd4fe4373',
-            APPKEY:'312a6068-02f9-4198-944e-aebe5c02eefe'
+            APPID : 'acd4fe4373',
+            APPKEY: '312a6068-02f9-4198-944e-aebe5c02eefe',
+            //升级功能
+            UPDATE: true,
+            HOTFIX: true
     ]
     other = [
             rxretrofit        : 'com.github.dengshaomin:RxRetrofit-master:1.0.5',

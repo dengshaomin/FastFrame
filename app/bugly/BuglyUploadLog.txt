@@ -30,3 +30,7 @@ file=C:\Users\dengshaomin\Desktop\FastFrame\app\build\outputs\mapping\release\ma
 sha1=337bdf3715ea6aca8380454984e1e11f8ba5540e
 appId=acd4fe4373
 
+file=C:\Users\Administrator\Desktop\git project\FastFrame\app\build\outputs\mapping\release\mapping.txt
+sha1=3980f3dfb9d93bb68061fd9428a164bc1bde0f3a
+appId=acd4fe4373
+

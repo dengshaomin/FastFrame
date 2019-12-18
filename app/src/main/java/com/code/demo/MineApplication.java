@@ -16,6 +16,7 @@ import com.code.fastframe.utils.ProcessUtil;
 import com.tencent.android.tpush.XGIOperateCallback;
 import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushManager;
+import com.tencent.bugly.Bugly;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import cn.jpush.android.api.JPushInterface;
@@ -115,6 +116,9 @@ public class MineApplication extends Application {
     private void initBugly() {
         if (!BuildConfig.DEBUG) {
             CrashReport.initCrashReport(getApplicationContext(), BuildConfig.BUGLY_APP_ID, BuildConfig.DEBUG);
+        }
+        if (BuildConfig.BUGLY_APP_UPDATE) {
+            Bugly.init(getApplicationContext(), BuildConfig.BUGLY_APP_ID, BuildConfig.DEBUG);
         }
     }
 }

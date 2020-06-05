@@ -11,7 +11,7 @@ import android.os.Build;
 
 import com.code.fastframe.net.NetworkStatusReceiver;
 import com.code.fastframe.utils.SharedPreferencesUtils;
-import com.code.rxretrofitlibrary.http.HttpUtils;
+import com.code.retrofit.http.HttpUtils;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.backends.okhttp3.OkHttpImagePipelineConfigFactory;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;

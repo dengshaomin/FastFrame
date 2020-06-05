@@ -9,11 +9,11 @@ import android.content.Context;
 import com.code.demo.demo.model.LogisticsModel;
 import com.code.fastframe.ciface.IBasePresent;
 import com.code.fastframe.presents.BasePresent;
-import com.code.rxretrofitlibrary.http.HttpUtils;
-import com.code.rxretrofitlibrary.http.RetrofitHttpUtil;
-import com.code.rxretrofitlibrary.http.cb.HttpCallBack;
-import com.code.rxretrofitlibrary.http.exception.HttpException;
-import com.code.rxretrofitlibrary.http.models.ServerModel;
+import com.code.retrofit.http.ApiFactory;
+import com.code.retrofit.http.HttpUtils;
+import com.code.retrofit.http.cb.HttpCallBack;
+import com.code.retrofit.http.exception.HttpException;
+import com.code.retrofit.http.models.ServerModel;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -28,14 +28,14 @@ public class TestPresent extends BasePresent implements IBasePresent {
     public TestPresent(Context context, ITest test) {
         super(context);
         this.mITest = test;
-        mApiTest = RetrofitHttpUtil.createServerApi(ApiTest.class, "http://www.kuaidi100.com");
+        mApiTest = ApiFactory.createServerApi(ApiTest.class, "http://www.kuaidi100.com");
     }
 
     public void getLogistics() {
         Map<String, String> params = new HashMap<>();
         params.put("type", "yuantong");
         params.put("postid", "11111111111");
-        HttpUtils.executeObject(mContext, mApiTest.getWeather(params), new HttpCallBack<List<LogisticsModel>>() {
+        HttpUtils.execute(mContext, mApiTest.getWeather(params), new HttpCallBack<List<LogisticsModel>>() {
             @Override
             public void onSuccess(List<LogisticsModel> data) {
                 if (mITest != null) {
@@ -60,6 +60,7 @@ public class TestPresent extends BasePresent implements IBasePresent {
     }
 
     interface ApiTest {
+
         @GET("/query")
         Observable<ServerModel<List<LogisticsModel>>> getWeather(@QueryMap Map<String, String> params);
     }

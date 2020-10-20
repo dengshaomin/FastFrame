@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.code.fastframe.eventbus.GlobalEvent;
 import com.code.fastframe.ciface.IBaseEvent;

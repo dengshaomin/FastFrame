@@ -1,6 +1,6 @@
 package com.code.fastframe.rx;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.reactivestreams.Publisher;
 

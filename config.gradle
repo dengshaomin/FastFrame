@@ -3,16 +3,17 @@ ext {
     JavaV = JavaVersion.VERSION_1_8
     build = [
             applicationId    : 'com.code.demo',
-            compileSdkVersion: 28,
-            minSdkVersion    : 15,
+            compileSdkVersion: 30,
+            minSdkVersion    : 16,
             targetSdkVersion : 28,
             versionCode      : 5,
-            versionName      : '1.0.4',
+            versionName      : '1.0.5',
+            buildToolsVersion: "30.0.2"
     ]
 
     support = [
-            appcompat_v7     : 'com.android.support:appcompat-v7:27.1.1',
-            constraint_layout: "com.android.support.constraint:constraint-layout:1.1.3"
+            appcompat_v7     : 'androidx.appcompat:appcompat:1.0.0',
+            constraint_layout: 'androidx.constraintlayout:constraintlayout:1.1.3'
     ]
     fresco = [
             fresco               : 'com.facebook.fresco:fresco:0.14.1',
@@ -49,16 +50,16 @@ ext {
     ]
     other = [
             rxretrofit        : 'com.github.dengshaomin:RxRetrofit-master:1.0.8',
-            eventbus          : 'org.greenrobot:eventbus:3.1.0-RC',
-            fastjson          : 'com.alibaba:fastjson:1.2.40',
-            advrecyclerview   : 'com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.11.0@aar',
+            eventbus          : 'org.greenrobot:eventbus:3.2.0',
+            fastjson          : 'com.alibaba:fastjson:1.2.74',
+            advrecyclerview   : 'com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:1.0.0',
             banner            : 'com.youth.banner:banner:1.4.10',
             JPTabBar          : 'com.jpeng:JPTabBar:1.3.3',
             FlycoTabLayout_Lib: 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar',
             statusbarutil     : 'com.jaeger.statusbarutil:library:1.5.1',
-            multidex          : 'com.android.support:multidex:1.0.3',
+            multidex          : 'androidx.multidex:multidex:2.0.0',
             luban             : 'top.zibin:Luban:1.1.8',
-            leakcanary        : 'com.squareup.leakcanary:leakcanary-android:2.0'
+            leakcanary        : 'com.squareup.leakcanary:leakcanary-android:2.5'
     ]
 
 }

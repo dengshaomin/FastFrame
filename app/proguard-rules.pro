@@ -99,7 +99,7 @@ public static final android.os.Parcelable$Creator *;
 #//不混淆继承的support类
 -keep public class * extends android.support.v4.**
 -keep public class * extends android.support.v7.**
--keep public class * extends android.support.annotation.**
+-keep public class * extends androidx.annotation.**
 
 
 #//不混淆log

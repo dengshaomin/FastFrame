@@ -8,7 +8,8 @@ import android.os.Build;
 import android.os.Build.VERSION_CODES;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.annotation.RequiresApi;
+
+import androidx.annotation.RequiresApi;
 
 public class RealPathFromUriUtils {
 

@@ -3,7 +3,7 @@ package com.code.runtime.utils;
 import java.io.Serializable;
 
 import android.content.Context;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 import android.text.TextUtils;
 import android.view.Gravity;
 

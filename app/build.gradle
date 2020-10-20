@@ -13,12 +13,14 @@ bugly {
 android {
 
     compileSdkVersion rootProject.build.compileSdkVersion
+    buildToolsVersion rootProject.build.buildToolsVersion
     defaultConfig {
         applicationId rootProject.build.applicationId
         minSdkVersion rootProject.build.minSdkVersion
         targetSdkVersion rootProject.build.targetSdkVersion
         versionCode rootProject.build.versionCode
         versionName rootProject.build.versionName
+        resConfigs "zh", "xxhdpi"
         multiDexEnabled true
         manifestPlaceholders = [
                 //信鸽
@@ -29,9 +31,11 @@ android {
                 JPUSH_APPKEY : rootProject.jpush.JPUSH_APPKEY, //JPush 上注册的包名对应的 Appkey.
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
-
         buildConfigField "String", "BUGLY_APP_ID", "\"" + rootProject.bugly.APPID + "\""
         buildConfigField "boolean", "BUGLY_APP_UPDATE", "${rootProject.bugly.UPDATE}"
+        ndk {
+            abiFilters 'armeabi'
+        }
     }
     signingConfigs {
         config {
@@ -54,9 +58,7 @@ android {
             multiDexEnabled true
             multiDexKeepFile file('maindexlist.keep')
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            ndk {
-                abiFilters 'armeabi'
-            }
+
             signingConfig signingConfigs.config
         }
         debug {
@@ -68,12 +70,16 @@ android {
         targetCompatibility rootProject.JavaV
     }
     dexOptions {
+        //如果开启multi-dex, 此句无效
+        incremental true
+        //配置是否预dex Libraries库工程，默认值为true，开启后会提高增量构建的速度
+        preDexLibraries true
         // 最大堆内存
         javaMaxHeapSize "4g"
         // 是否支持大工程模式
         jumboMode = true
         // 线程数
-        threadCount = 8
+        threadCount = 12
     }
     repositories {
         flatDir {

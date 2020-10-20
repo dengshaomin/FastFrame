@@ -6,8 +6,9 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Debug;
-import android.support.multidex.MultiDex;
 import android.util.Log;
+
+import androidx.multidex.MultiDex;
 
 import com.code.demo.activity.LoadMultidexActivity;
 import com.code.fastframe.FastFrame;

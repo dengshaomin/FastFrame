@@ -1,7 +1,7 @@
 package com.code.demo.demo;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.code.fastframe.widgets.SuperButton;
 import com.code.demo.R;

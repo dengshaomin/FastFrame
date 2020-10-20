@@ -13,11 +13,12 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Process;
-import android.support.annotation.RequiresPermission;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.text.format.Formatter;
 
+
+import androidx.annotation.RequiresPermission;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -237,6 +238,7 @@ public class NetWorkTypeUtils {
         return getNetWorkType(context, netWorkInfo);
     }
 
+    @SuppressLint("MissingPermission")
     private static String getNetWorkType(Context context, NetworkInfo netWorkInfo) {
         if (context == null) {
             return NETTYPE_INVALID_CONTEXT;

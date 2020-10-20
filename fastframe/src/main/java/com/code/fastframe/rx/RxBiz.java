@@ -1,6 +1,6 @@
 package com.code.fastframe.rx;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import io.reactivex.disposables.Disposable;
 public class RxBiz {

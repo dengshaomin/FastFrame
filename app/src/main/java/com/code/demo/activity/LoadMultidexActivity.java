@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.IOException;
 
 import android.os.Bundle;
-import android.support.multidex.MultiDex;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.multidex.MultiDex;
 
 import com.code.demo.R;
 

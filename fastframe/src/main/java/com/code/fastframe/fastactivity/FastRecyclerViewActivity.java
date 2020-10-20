@@ -2,7 +2,7 @@ package com.code.fastframe.fastactivity;
 
 import java.util.List;
 
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.code.fastframe.R;

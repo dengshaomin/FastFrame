@@ -1,7 +1,7 @@
 package com.code.fastframe.ciface;
 
-import android.support.v7.widget.RecyclerView.ItemDecoration;
-import android.support.v7.widget.RecyclerView.LayoutManager;
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration;
+import androidx.recyclerview.widget.RecyclerView.LayoutManager;
 import android.view.View;
 
 import com.code.fastframe.baseview.BaseItemLayout;

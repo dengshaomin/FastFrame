@@ -3,7 +3,7 @@ package com.code.fastframe.net;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 
 /**
  * Created by lijinwei on 1/2/18.

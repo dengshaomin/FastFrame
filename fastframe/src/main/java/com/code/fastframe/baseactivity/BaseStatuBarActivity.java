@@ -1,7 +1,7 @@
 package com.code.fastframe.baseactivity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.code.fastframe.R;
 import com.code.fastframe.ciface.IBaseStatuBarActivity;

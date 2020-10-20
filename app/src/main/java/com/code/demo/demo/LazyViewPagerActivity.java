@@ -2,8 +2,8 @@ package com.code.demo.demo;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;

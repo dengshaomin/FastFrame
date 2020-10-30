@@ -1,9 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from: 'config.gradle'
 buildscript {
+    ext.kotlin_version = '1.4.10'
     repositories {
         google()
         jcenter()
+        maven { url 'https://developer.huawei.com/repo/' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
@@ -11,6 +13,8 @@ buildscript {
         // in the individual module build.gradle files
         classpath 'com.billy.android:cc-register:1.1.1' //使用最新版
         classpath 'com.tencent.bugly:symtabfileuploader:latest.release'
+        classpath 'com.huawei.agconnect:agcp:1.4.1.300'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // tinkersupport插件, 其中lastest.release指拉取最新版本，也可以指定明确版本号，例如1.0.4
 //        classpath "com.tencent.bugly:tinker-support:1.1.2"
     }
@@ -21,6 +25,7 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://www.jitpack.io' }
+        maven { url 'https://developer.huawei.com/repo/' }
     }
 }
 

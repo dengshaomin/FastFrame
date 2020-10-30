@@ -35,18 +35,18 @@ public class TestPresent extends BasePresent implements IBasePresent {
         Map<String, String> params = new HashMap<>();
         params.put("type", "yuantong");
         params.put("postid", "11111111111");
-        HttpUtils.execute(mContext, mApiTest.getWeather(params), new HttpCallBack<List<LogisticsModel>>() {
+        HttpUtils.execute(mContext, mApiTest.getWeather(params), new HttpCallBack<String>() {
             @Override
-            public void onSuccess(List<LogisticsModel> data) {
+            public void onSuccess(String data) {
                 if (mITest != null) {
-                    mITest.showData(data);
+//                    mITest.showData(data);
                 }
             }
 
             @Override
             public void onError(HttpException httpException) {
                 if (mITest != null) {
-                    mITest.showError(httpException == null ? "" : httpException.getMessage());
+                    mITest.showError(httpException == null ? "" : httpException.getMsg());
                 }
             }
         });
@@ -62,7 +62,7 @@ public class TestPresent extends BasePresent implements IBasePresent {
     interface ApiTest {
 
         @GET("/query")
-        Observable<ServerModel<List<LogisticsModel>>> getWeather(@QueryMap Map<String, String> params);
+        Observable<String> getWeather(@QueryMap Map<String, String> params);
     }
 
 

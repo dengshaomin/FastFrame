@@ -1,11 +1,12 @@
-//apply plugin: 'com.android.application'
+apply plugin: 'com.android.application'
 ext.mainApp = true //标记为主app module
-project.apply plugin: 'cc-register'
+//project.apply plugin: 'cc-register'
 project.apply plugin: 'bugly'
 apply from: rootProject.file('component_auto_register.gradle')
 apply from: rootProject.file('xinge.gradle')
 apply from: rootProject.file('jpush.gradle')
 apply from: rootProject.file('bugly.gradle')
+apply from: rootProject.file('hwpush.gradle')
 bugly {
     appId = rootProject.bugly.APPID
     appKey = rootProject.bugly.APPKEY
@@ -100,5 +101,10 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+}
+repositories {
+    mavenCentral()
 }

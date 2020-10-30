@@ -24,6 +24,9 @@ import com.code.demo.R;
 import com.code.fastframe.utils.AppUtils;
 import com.code.fastframe.utils.DPUtils;
 import com.code.fastframe.utils.DensityUtil;
+import com.huawei.agconnect.config.AGConnectServicesConfig;
+import com.huawei.hms.aaid.HmsInstanceId;
+import com.huawei.hms.common.ApiException;
 import com.tencent.android.tpush.XGIOperateCallback;
 import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushManager;
@@ -67,9 +70,23 @@ public class MainActivity extends BasePermissionActivity {
         lv.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String appId = AGConnectServicesConfig.fromContext(MainActivity.this).getString("client/app_id");
+                        try {
+                            String token = HmsInstanceId.getInstance(MainActivity.this).getToken(appId, "HCM");
+                            int a = 1;
+                        } catch (ApiException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+
                 startActivity(new Intent(MainActivity.this, str_name.get(position)));
             }
         });
+
     }
 
     @Override

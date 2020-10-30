@@ -3,6 +3,7 @@ package com.code.fastframe.fastactivity;
 import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
+
 import android.view.View;
 
 import com.code.fastframe.R;
@@ -13,9 +14,10 @@ import com.code.fastframe.baseview.PageStateView.State;
 import com.code.fastframe.ciface.IFastRecyclerViewCb;
 import com.code.fastframe.recyclerview.FastRecyclerView;
 import com.code.fastframe.utils.CollectionUtils;
+
 /**
  * 快速创建列表页面
- * */
+ */
 public abstract class FastRecyclerViewActivity<T> extends BaseTitleActivity implements IFastRecyclerViewCb {
 
     protected FastRecyclerView fast_rcv_view;

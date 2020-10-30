@@ -67,7 +67,7 @@ public class RetrofitUtilsActivity extends BaseTitleActivity implements ITest, O
 
     @Override
     public void showError(String s) {
-        ToastUtils.showToast( s);
+        ToastUtils.showToast(s);
     }
 
     @Override

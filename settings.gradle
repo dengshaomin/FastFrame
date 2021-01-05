@@ -1,1 +1,2 @@
+
 include ':app', ':fastframe', ':runtime', ':publishresource', ':weixin_component', ':qq_component','testcomponent'

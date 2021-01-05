@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 android {
-    compileSdkVersion rootProject.build.compileSdkVersion
+    compileSdkVersion AndroidConfig.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion rootProject.build.minSdkVersion
-        targetSdkVersion rootProject.build.targetSdkVersion
-        versionCode rootProject.build.versionCode
-        versionName rootProject.build.versionName
+        minSdkVersion AndroidConfig.minSdkVersion
+        targetSdkVersion AndroidConfig.targetSdkVersion
+        versionCode AndroidConfig.versionCode
+        versionName AndroidConfig.versionName
     }
 
     buildTypes {
@@ -19,13 +19,13 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility rootProject.JavaV
-        targetCompatibility rootProject.JavaV
+        sourceCompatibility AndroidConfig.javaVersion
+        targetCompatibility AndroidConfig.javaVersion
     }
 }
 
 dependencies {
-    api rootProject.cc.component
+    api Cc.component
     api project(path: ':publishresource')
     api project(path: ':fastframe')
 }

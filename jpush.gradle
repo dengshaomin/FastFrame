@@ -1,5 +1,5 @@
 dependencies {
-    if(rootProject.jpush.open) {
+    if(Jpush.open) {
 
         implementation 'cn.jiguang.sdk:jpush:3.4.1'  // 此处以JPush 3.4.1 版本为例。
         implementation 'cn.jiguang.sdk:jcore:2.2.4'  // 此处以JCore 2.2.4 版本为例。

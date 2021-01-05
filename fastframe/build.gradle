@@ -1,50 +1,51 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion rootProject.build.compileSdkVersion
+  compileSdkVersion AndroidConfig.compileSdkVersion
 
-    defaultConfig {
-        minSdkVersion rootProject.build.minSdkVersion
-        targetSdkVersion rootProject.build.targetSdkVersion
-        versionCode rootProject.build.versionCode
-        versionName rootProject.build.versionName
-    }
+  defaultConfig {
+    minSdkVersion AndroidConfig.minSdkVersion
+    targetSdkVersion AndroidConfig.targetSdkVersion
+    versionCode AndroidConfig.versionCode
+    versionName AndroidConfig.versionName
+  }
 
-    buildTypes {
-        release {
-            // 混淆
-            minifyEnabled true
-            // Zipalign优化
-            zipAlignEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+  buildTypes {
+    release {
+      // 混淆
+      minifyEnabled true
+      // Zipalign优化
+      zipAlignEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
-    compileOptions {
-        sourceCompatibility rootProject.JavaV
-        targetCompatibility rootProject.JavaV
-    }
+  }
+  compileOptions {
+    sourceCompatibility AndroidConfig.javaVersion
+    targetCompatibility AndroidConfig.javaVersion
+  }
 }
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api rootProject.other.eventbus
-    api rootProject.other.fastjson
-    api(rootProject.other.advrecyclerview) {
-        transitive = true
-    }
-    api rootProject.other.banner
-    //最新版本
-    api rootProject.other.JPTabBar
-    api rootProject.other.FlycoTabLayout_Lib
-    api rootProject.fresco.fresco
-    api rootProject.fresco.animated_base_support
-    api rootProject.fresco.animated_gif
-    api rootProject.fresco.webpsupport
-    api rootProject.fresco.animated_webp
-    api rootProject.fresco.imagepipeline_okhttp3
-    api rootProject.other.rxretrofit
-    api rootProject.other.multidex
-    api rootProject.support.constraint_layout
-    api rootProject.ext.support.appcompat_v7
-    api rootProject.other.luban
-    debugImplementation rootProject.other.leakcanary
+  implementation fileTree(include: ['*.jar'], dir: 'libs')
+  api Others.eventbus
+  api Others.fastjson
+  api(Others.advrecyclerview) {
+    transitive = true
+  }
+  api Others.banner
+  //最新版本
+  api Others.JPTabBar
+  api Others.FlycoTabLayout_Lib
+  api Fresco.fresco
+  api Fresco.animated_base_support
+  api Fresco.animated_gif
+  api Fresco.webpsupport
+  api Fresco.animated_webp
+  api Fresco.imagepipeline_okhttp3
+  api Others.rxretrofit
+  api Others.multidex
+  api SupportConfig.constraint_layout
+  api SupportConfig.appcompat_v7
+  api Others.luban
+  api Kotlin.coroutines
+  debugImplementation Others.leakcanary
 }

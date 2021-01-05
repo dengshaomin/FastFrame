@@ -2,14 +2,10 @@ package com.code.demo.activity;
 
 import android.os.Bundle;
 import android.view.KeyEvent;
-
 import com.code.demo.R;
 import com.code.fastframe.FastFrame;
 import com.code.fastframe.baseactivity.BaseTitleActivity;
 import com.code.fastframe.utils.ToastUtils;
-import com.huawei.agconnect.config.AGConnectServicesConfig;
-import com.huawei.hms.aaid.HmsInstanceId;
-import com.huawei.hms.common.ApiException;
 
 public class HomeActivity extends BaseTitleActivity {
 

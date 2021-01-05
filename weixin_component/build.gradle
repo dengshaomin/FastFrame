@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 //apply from: rootProject.file('cc-settings-2.gradle')
 android {
-    compileSdkVersion rootProject.build.compileSdkVersion
+    compileSdkVersion AndroidConfig.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion rootProject.build.minSdkVersion
-        targetSdkVersion rootProject.build.targetSdkVersion
-        versionCode rootProject.build.versionCode
-        versionName rootProject.build.versionName
+        minSdkVersion AndroidConfig.minSdkVersion
+        targetSdkVersion AndroidConfig.targetSdkVersion
+        versionCode AndroidConfig.versionCode
+        versionName AndroidConfig.versionName
     }
 
     buildTypes {
@@ -20,8 +20,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility rootProject.JavaV
-        targetCompatibility rootProject.JavaV
+        sourceCompatibility AndroidConfig.javaVersion
+        targetCompatibility AndroidConfig.javaVersion
     }
 }
 

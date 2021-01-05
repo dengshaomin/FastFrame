@@ -1,4 +1,4 @@
-package com.code.demo.huawei;
+package com.code.demo.hwpush;
 
 import android.content.Intent;
 import android.text.TextUtils;

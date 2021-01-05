@@ -271,4 +271,18 @@ public static final android.os.Parcelable$Creator *;
 -keep class com.hianalytics.android.**{*;}
 -keep class com.huawei.updatesdk.**{*;}
 -keep class com.huawei.hms.**{*;}
+#如果您使用了AndResGuard，需要在混淆配置文件中加入AndResGuard允许清单。
+#"R.string.hms*",
+#"R.string.connect_server_fail_prompt_toast",
+#"R.string.getting_message_fail_prompt_toast",
+#"R.string.no_available_network_prompt_toast",
+#"R.string.third_app_*",
+#"R.string.upsdk_*",
+#"R.layout.hms*",
+#"R.layout.upsdk_*",
+#"R.drawable.upsdk*",
+#"R.color.upsdk*",
+#"R.dimen.upsdk*",
+#"R.style.upsdk*",
+#"R.string.agc*"
 

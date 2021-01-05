@@ -1,5 +1,5 @@
 dependencies {
-    if (!rootProject.bugly.UPDATE) {
+    if (!Bugly.UPDATE) {
         implementation 'com.tencent.bugly:crashreport:latest.release'//不需要升级功能时使用该库
     } else {
         implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'//包含升级功能

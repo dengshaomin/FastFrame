@@ -47,5 +47,8 @@ dependencies {
   api SupportConfig.appcompat_v7
   api Others.luban
   api Kotlin.coroutines
+  api Immersionbar.immersionbar
+  api Immersionbar.components
+  api Immersionbar.ktx
   debugImplementation Others.leakcanary
 }

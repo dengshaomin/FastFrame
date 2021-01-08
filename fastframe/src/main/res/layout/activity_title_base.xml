@@ -1,72 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    >
 
-    <LinearLayout
-        android:id="@+id/title_lay"
+    >
+  <LinearLayout
+      android:id="@+id/title_lay"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:background="@color/titleBarColor"
+      >
+    <View
+        android:id="@+id/nav_status_space"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/commonBackGround"
+        android:background="@color/translate"
+        android:layout_height="0dp"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titleBarHeight"
         >
 
-        <RelativeLayout
+      <RelativeLayout
+          android:id="@+id/left_image"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="8dp"
+          android:gravity="center"
+          android:paddingRight="20dp"
+          >
 
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/titleBarHeight"
-            android:background="@color/titleBarColor"
-            >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_back"
+            ></ImageView>
 
-            <RelativeLayout
-                android:id="@+id/left_image"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="8dp"
-                android:gravity="center"
-                android:paddingRight="20dp"
-                >
+      </RelativeLayout>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/icon_back"
-                    ></ImageView>
+      <TextView
+          android:id="@+id/title_text"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:gravity="center"
+          android:text="标题"
+          android:textColor="@color/white"
+          android:textSize="@dimen/sp16"
+          android:textStyle="bold"
+          />
 
-            </RelativeLayout>
+      <RelativeLayout
+          android:id="@+id/right_image"
+          android:layout_width="wrap_content"
+          android:layout_height="70dp"
+          android:layout_alignParentRight="true"
+          >
 
-            <TextView
-                android:id="@+id/title_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:text="标题"
-                android:textColor="@color/white"
-                android:textSize="@dimen/sp16"
-                android:textStyle="bold"
-                />
+      </RelativeLayout>
+    </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/right_image"
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:layout_alignParentRight="true"
-                >
+  </LinearLayout>
 
-            </RelativeLayout>
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/title_lay"
-        android:orientation="vertical"
-        ></FrameLayout>
-</RelativeLayout>
+  <FrameLayout
+      android:id="@+id/container"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_below="@+id/title_lay"
+      android:orientation="vertical"
+      ></FrameLayout>
+</LinearLayout>

@@ -14,9 +14,11 @@ object AndroidConfig {
   const val versionName = "${versionMajor}.${versionMinor}.${versionFix}"
   val javaVersion = JavaVersion.VERSION_1_8
 }
-object GradleConfig{
+
+object GradleConfig {
   const val agp = "com.android.tools.build:gradle:4.1.0"
 }
+
 object Kotlin {
   const val version = "1.4.10"
   const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9"
@@ -80,6 +82,17 @@ object Bugly {
   const val HOTFIX = true
 }
 
+object Immersionbar {
+  // 基础依赖包，必须要依赖
+  const val immersionbar = "com.gyf.immersionbar:immersionbar:3.0.0"
+
+  // fragment快速实现（可选）
+  const val components = "com.gyf.immersionbar:immersionbar-components:3.0.0"
+
+  // kotlin扩展（可选）
+  const val ktx = "com.gyf.immersionbar:immersionbar-ktx:3.0.0"
+}
+
 object Others {
   const val rxretrofit = "com.github.dengshaomin:RxRetrofit-master:1.0.8"
   const val eventbus = "org.greenrobot:eventbus:3.2.0"
@@ -92,4 +105,5 @@ object Others {
   const val multidex = "androidx.multidex:multidex:2.0.0"
   const val luban = "top.zibin:Luban:1.1.8"
   const val leakcanary = "com.squareup.leakcanary:leakcanary-android:2.5"
+
 }

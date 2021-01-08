@@ -106,9 +106,4 @@ public class TabBarActivity extends BaseTitleActivity implements BadgeDismissLis
     public JPTabBar getTabbar() {
         return tabbar;
     }
-
-    @Override
-    public boolean needStatuBarTransparent() {
-        return true;
-    }
 }

@@ -1,5 +1,6 @@
 package com.code.fastframe.baseactivity;
 
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import com.code.fastframe.ciface.IPermissionActivity;
 import com.code.fastframe.utils.ToastUtils;
 
 
-public abstract class BasePermissionActivity extends BaseStatuBarActivity implements IPermissionActivity {
+public abstract class BasePermissionActivity extends RxAppCompatActivity implements IPermissionActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_CODE = 1;
 

@@ -15,4 +15,6 @@ public interface ITitle {
     void titleLeftClick();
 
     void titleRightClick();
+
+    boolean needImmerse();
 }

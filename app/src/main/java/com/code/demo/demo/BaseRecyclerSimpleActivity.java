@@ -150,4 +150,8 @@ public class BaseRecyclerSimpleActivity extends BaseTitleActivity implements IBa
             return datas == null ? 0 : datas.size();
         }
     }
+
+    @Override public boolean needImmerse() {
+        return true;
+    }
 }

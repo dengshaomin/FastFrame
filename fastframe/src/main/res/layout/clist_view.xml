@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/clist_root"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/clist_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     >
 
-    <com.andview.refreshview.XRefreshView
-        android:id="@+id/xrefreshview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+  <com.andview.refreshview.XRefreshView
+      android:id="@+id/xrefreshview"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      >
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:nestedScrollingEnabled="false"
-            android:scrollbars="none"
-            />
-    </com.andview.refreshview.XRefreshView>
-</RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:nestedScrollingEnabled="false"
+        android:scrollbars="none"
+        />
+  </com.andview.refreshview.XRefreshView>
+  <com.code.fastframe.baseview.PageStateView
+      android:id="@+id/page_state_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      />
+</FrameLayout>

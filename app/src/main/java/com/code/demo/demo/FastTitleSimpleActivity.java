@@ -8,6 +8,7 @@ import com.code.demo.demo.presents.TestPresent.ITest;
 import com.code.fastframe.baseview.PageStateView.State;
 import com.code.fastframe.fastactivity.FastTitleActivity;
 import com.code.demo.R;
+import org.jetbrains.annotations.Nullable;
 
 public class FastTitleSimpleActivity extends FastTitleActivity implements ITest {
 
@@ -27,17 +28,21 @@ public class FastTitleSimpleActivity extends FastTitleActivity implements ITest 
     @Override
     public void getNetData() {
         super.getNetData();
-        mTestPresent.getLogistics();
+        mTestPresent.logistics();
     }
 
-
-    @Override
-    public void showData(List<LogisticsModel> data) {
-        mPageStateView.setViewData(State.SUCCESS);
-    }
 
     @Override
     public void showError(String s) {
         mPageStateView.setViewData(State.ERROR);
+    }
+
+    @Override public void pageStateViewClick(int pageState) {
+        super.pageStateViewClick(pageState);
+        getNetData();
+    }
+
+    @Override public void showData(@Nullable List<? extends LogisticsModel> data) {
+        mPageStateView.setViewData(State.SUCCESS);
     }
 }

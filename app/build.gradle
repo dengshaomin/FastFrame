@@ -14,7 +14,9 @@ bugly {
   appId = Bugly.APPID
   appKey = Bugly.APPKEY
 }
-
+androidExtensions {
+  experimental = true
+}
 android {
 
   compileSdkVersion AndroidConfig.compileSdkVersion
@@ -101,11 +103,14 @@ android {
     main.jniLibs.srcDirs = ['libs']
   }
   //    useLibrary 'org.apache.http.legacy'
+  androidExtensions {
+    experimental = true
+  }
 }
 
 dependencies {
   implementation fileTree(include: ['*.jar'], dir: 'libs')
   implementation Kotlin.core
-  implementation Kotlin.stdlib
+  implementation Kotlin.stdlib_jdk
 }
 

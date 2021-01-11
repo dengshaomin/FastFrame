@@ -2,12 +2,12 @@ package com.code.fastframe.baseactivity;
 
 import android.os.Bundle;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import com.code.fastframe.R;
 import com.code.fastframe.ciface.IBaseStatuBarActivity;
 import com.code.fastframe.utils.StatusBarUtil;
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
-public abstract class BaseStatuBarActivity extends RxAppCompatActivity
+public abstract class BaseStatuBarActivity extends AppCompatActivity
     implements IBaseStatuBarActivity {
 
   @Override

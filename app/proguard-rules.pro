@@ -120,7 +120,8 @@ public static final android.os.Parcelable$Creator *;
 
 #-----------处理实体类---------------
 # 在开发的时候我们可以将所有的实体类放在一个包内，这样我们写一次混淆就行了。
--keep class com.coder.catclaws.models.**{ *; }
+-keep class com.code.runtime.models.**{ *; }
+-keep class com.code.fastframe.retrofit.models.**{ *; }
 
 #eventbus
 -keepattributes *Annotation*

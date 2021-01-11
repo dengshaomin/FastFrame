@@ -22,14 +22,14 @@ object GradleConfig {
 object Kotlin {
   const val version = "1.4.10"
   const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9"
-  const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version"
+  const val stdlib_jdk = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version"
   const val gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
   const val core = "androidx.core:core-ktx:1.3.2"
 }
 
 object SupportConfig {
-  const val appcompat_v7 = "androidx.appcompat:appcompat:1.0.0"
-  const val constraint_layout = "androidx.constraintlayout:constraintlayout:1.1.3"
+  const val appcompat_v7 = "androidx.appcompat:appcompat:1.2.0"
+  const val constraint_layout = "androidx.constraintlayout:constraintlayout:2.0.4"
 
 }
 
@@ -94,7 +94,7 @@ object Immersionbar {
 }
 
 object Others {
-  const val rxretrofit = "com.github.dengshaomin:RxRetrofit-master:1.0.8"
+//  const val rxretrofit = "com.github.dengshaomin:RxRetrofit-master:1.0.8"
   const val eventbus = "org.greenrobot:eventbus:3.2.0"
   const val fastjson = "com.alibaba:fastjson:1.2.74"
   const val advrecyclerview = "com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:1.0.0"
@@ -105,5 +105,6 @@ object Others {
   const val multidex = "androidx.multidex:multidex:2.0.0"
   const val luban = "top.zibin:Luban:1.1.8"
   const val leakcanary = "com.squareup.leakcanary:leakcanary-android:2.5"
+  const val retrofit  = "com.squareup.retrofit2:retrofit:2.6.2"
 
 }

@@ -28,6 +28,6 @@ public class NetWorkUtils {
      */
     public static boolean connected(Context context) {
         NetworkStatus status = NetWorkTypeUtils.getNetworkStatus(context);
-        return status == NetworkStatus.OFF;
+        return status != NetworkStatus.OFF;
     }
 }

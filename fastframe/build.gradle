@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
   compileSdkVersion AndroidConfig.compileSdkVersion
@@ -41,7 +43,6 @@ dependencies {
   api Fresco.webpsupport
   api Fresco.animated_webp
   api Fresco.imagepipeline_okhttp3
-  api Others.rxretrofit
   api Others.multidex
   api SupportConfig.constraint_layout
   api SupportConfig.appcompat_v7
@@ -50,5 +51,7 @@ dependencies {
   api Immersionbar.immersionbar
   api Immersionbar.components
   api Immersionbar.ktx
+  api Kotlin.stdlib_jdk
+  api Others.retrofit
   debugImplementation Others.leakcanary
 }

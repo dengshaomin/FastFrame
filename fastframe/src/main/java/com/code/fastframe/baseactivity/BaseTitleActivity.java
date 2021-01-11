@@ -101,4 +101,8 @@ public abstract class BaseTitleActivity extends BaseBundleActivity implements IB
   @Override public boolean needImmerse() {
     return false;
   }
+
+  @Override protected void onDestroy() {
+    super.onDestroy();
+  }
 }

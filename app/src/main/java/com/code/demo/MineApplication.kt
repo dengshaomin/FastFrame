@@ -15,11 +15,13 @@ import com.tencent.android.tpush.XGPushConfig
 import com.tencent.android.tpush.XGPushManager
 import com.tencent.bugly.Bugly
 import com.tencent.bugly.crashreport.CrashReport
+import dagger.hilt.android.HiltAndroidApp
 import java.io.File
 
 /**
  * Created by dengshaomin on 2017/12/6.
  */
+@HiltAndroidApp
 class MineApplication : Application() {
   private var multidexFlagFile: File? = null
   private var multidexInstalledFlagFile: File? = null

@@ -1,5 +1,11 @@
 <resources>
 
 
-
+  <!-- 界面切换动画 -->
+  <style name="activity_animation" parent="@android:style/Animation.Activity">
+    <item name="android:activityOpenEnterAnimation">@anim/activity_open_enter</item>
+    <item name="android:activityOpenExitAnimation">@anim/activity_open_exit</item>
+    <item name="android:activityCloseExitAnimation">@anim/activity_close_exit</item>
+    <item name="android:activityCloseEnterAnimation">@anim/activity_close_enter</item>
+  </style>
 </resources>

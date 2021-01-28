@@ -1,26 +1,24 @@
 package com.code.fastframe.utils;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
-import androidx.annotation.ColorInt;
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
-
+import androidx.annotation.ColorInt;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 import com.code.fastframe.R;
+import com.gyf.immersionbar.ImmersionBar;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 /**
  * Created by Jaeger on 16/2/14.

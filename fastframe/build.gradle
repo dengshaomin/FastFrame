@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
 
 android {
   compileSdkVersion AndroidConfig.compileSdkVersion
@@ -24,6 +25,9 @@ android {
   compileOptions {
     sourceCompatibility AndroidConfig.javaVersion
     targetCompatibility AndroidConfig.javaVersion
+  }
+  kotlinOptions {
+    jvmTarget = AndroidConfig.javaVersion.toString()
   }
 }
 dependencies {
@@ -53,5 +57,14 @@ dependencies {
   api Immersionbar.ktx
   api Kotlin.stdlib_jdk
   api Others.retrofit
+  api Others.xpopup
+  api SupportConfig.coordinatorlayout
+  api Hilt.viewmodel
+  api KotlinKtx.viewmodel_ktx
+  api KotlinKtx.activity_ktx
+  // When using Kotlin.
+  kapt Hilt.kapt
+  // When using Java.
+//  annotationProcessor Hilt.annotationProcessor
   debugImplementation Others.leakcanary
 }

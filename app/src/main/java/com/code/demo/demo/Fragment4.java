@@ -22,7 +22,7 @@ public class Fragment4 extends BaseFragment {
     }
 
     @Override
-    public void getNetData() {
+    public void requestNetData() {
 
     }
 

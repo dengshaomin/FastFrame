@@ -65,11 +65,12 @@ android {
       multiDexEnabled true
       multiDexKeepFile file('maindexlist.keep')
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
       signingConfig signingConfigs.config
+      buildConfigField "String", "SERVER_URL", "\"" + ServerHost.release + "\""
     }
     debug {
       signingConfig signingConfigs.config
+      buildConfigField "String", "SERVER_URL", "\"" + ServerHost.debug + "\""
     }
   }
   compileOptions {
@@ -105,6 +106,9 @@ android {
   //    useLibrary 'org.apache.http.legacy'
   androidExtensions {
     experimental = true
+  }
+  kotlinOptions {
+    jvmTarget = AndroidConfig.javaVersion.toString()
   }
 }
 

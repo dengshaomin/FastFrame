@@ -6,6 +6,7 @@ import android.graphics.Bitmap.Config.ARGB_8888
 import android.net.ConnectivityManager
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
+import com.code.fastframe.extension.getResourceColor
 import com.code.fastframe.net.NetworkStatusReceiver
 import com.code.fastframe.retrofit.HttpUtils
 import com.code.fastframe.utils.SharedPreferencesUtils
@@ -16,6 +17,7 @@ import com.facebook.imagepipeline.image.ImmutableQualityInfo
 import com.facebook.imagepipeline.image.QualityInfo
 import com.facebook.imagepipeline.listener.RequestListener
 import com.facebook.imagepipeline.listener.RequestLoggingListener
+import com.lxj.xpopup.XPopup
 import okhttp3.OkHttpClient
 import java.util.HashSet
 
@@ -31,6 +33,7 @@ class FastFrame {
     mApplicationContext = context.applicationContext
     HttpUtils.init(mApplicationContext)
     initFresco()
+    XPopup.setShadowBgColor(getResourceColor(R.color.pop_shadow_bg_color))
   }
 
   private fun initFresco() {

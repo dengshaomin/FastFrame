@@ -17,10 +17,9 @@ class FastRecycleSimpleActivity : FastRecyclerViewActivity() {
     return this.javaClass.simpleName
   }
 
-  override fun getNetData() {
+  override fun requestNetData() {
     onRefresh(Mode.START)
   }
-
   override fun onRefresh(currentState: Int) {
     Log.e(this.javaClass.simpleName, currentState.toString() + "")
     Handler().postDelayed({ //                datas.clear();

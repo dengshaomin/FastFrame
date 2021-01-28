@@ -83,7 +83,7 @@ public class SPUtilsActivity extends BaseTitleActivity implements OnClickListene
 
 
     @Override
-    public void getNetData() {
+    public void requestNetData() {
 
     }
 

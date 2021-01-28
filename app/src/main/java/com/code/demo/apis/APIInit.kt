@@ -1,5 +1,6 @@
 package com.code.demo.apis
 
+import com.code.demo.BuildConfig
 import com.code.fastframe.retrofit.ApiFactory
 
 class APIInit {
@@ -8,7 +9,7 @@ class APIInit {
 
     @Synchronized
     fun initAPI() {
-      serverAPI = ApiFactory.createServerApi(ServerAPI::class.java,"http://www.kuaidi100.com")
+      serverAPI = ApiFactory.createServerApi(ServerAPI::class.java, BuildConfig.SERVER_URL)
     }
   }
 }

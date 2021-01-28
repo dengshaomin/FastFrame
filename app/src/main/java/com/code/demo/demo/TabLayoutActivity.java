@@ -134,7 +134,7 @@ public class TabLayoutActivity extends BaseTitleActivity implements OnTabSelectL
 
 
     @Override
-    public void getNetData() {
+    public void requestNetData() {
 
     }
 

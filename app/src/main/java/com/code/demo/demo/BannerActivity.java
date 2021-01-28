@@ -68,7 +68,7 @@ public class BannerActivity extends BaseTitleActivity implements OnBannerListene
     }
 
     @Override
-    public void getNetData() {
+    public void requestNetData() {
 
     }
 

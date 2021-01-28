@@ -71,7 +71,7 @@ public class FileUtilsActivity extends BaseTitleActivity implements OnClickListe
     }
 
     @Override
-    public void getNetData() {
+    public void requestNetData() {
 
     }
 

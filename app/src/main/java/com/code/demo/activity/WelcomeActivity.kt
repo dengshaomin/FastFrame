@@ -2,9 +2,11 @@ package com.code.demo.activity
 
 import android.content.Intent
 import android.os.Bundle
+import com.code.demo.R
 import com.code.demo.R.layout
 import com.code.demo.demo.MainActivity
 import com.code.fastframe.baseactivity.BasePermissionActivity
+import com.iqiyi.extension.navigateActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -28,7 +30,8 @@ class WelcomeActivity : BasePermissionActivity() {
       } catch (e: InterruptedException) {
         e.printStackTrace()
       }
-      startActivity(Intent(this@WelcomeActivity, MainActivity::class.java))
+      navigateActivity<MainActivity>()
+      overridePendingTransition(R.anim.activity_open_enter,R.anim.activity_open_exit)
       finish()
     }
   }

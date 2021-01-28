@@ -28,11 +28,11 @@ class ApiFactory {
   }
 
   private fun <T> createServerApiInternal(
-    clazz: Class<T>?,
+    clazz: Class<T>,
     url: String?
   ): T {
-    requireNotNull(clazz) { "class must not be null" }
-    if(TextUtils.isEmpty(url) && TextUtils.isEmpty(mainHostUrl)){
+//    requireNotNull(clazz) { "class must not be null" }
+    if (TextUtils.isEmpty(url) && TextUtils.isEmpty(mainHostUrl)) {
       throw java.lang.RuntimeException("you must set host")
     }
     if (apiCachePool == null) {
@@ -154,7 +154,10 @@ class ApiFactory {
     //    private <T> T createServerApi(Class<T> clazz) {
     //        return createServerApi(clazz, null);
     //    }
-    fun <T> createServerApi( clazz: Class<T>?, url:String? = null): T {
+    fun <T> createServerApi(
+      clazz: Class<T>,
+      url: String? = null
+    ): T {
       return instance!!.createServerApiInternal(clazz, url)
     }
   }

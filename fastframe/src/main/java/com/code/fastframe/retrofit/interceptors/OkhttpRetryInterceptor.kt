@@ -1,10 +1,17 @@
 package com.code.fastframe.retrofit.interceptors
 
+import com.alibaba.fastjson.JSON
 import com.code.fastframe.retrofit.Config.OkhttpRetry
+import com.code.fastframe.retrofit.ServerResponse
+import com.code.fastframe.retrofit.caches.CacheType
+import com.code.fastframe.retrofit.models.ServerModel
 import okhttp3.Interceptor
 import okhttp3.Interceptor.Chain
+import okhttp3.Protocol.HTTP_1_1
 import okhttp3.Request
 import okhttp3.Response
+import okhttp3.Response.Builder
+import okhttp3.ResponseBody
 import java.io.IOException
 import java.io.InterruptedIOException
 
@@ -15,9 +22,9 @@ class OkhttpRetryInterceptor(builder: Builder) : Interceptor {
   //重试的间隔
   var retryInterval : Long = 3000
 
-  @Throws(IOException::class) override fun intercept(chain: Chain): Response {
+  @Throws(IOException::class) override fun intercept(chain: Chain): Response? {
     val request = chain.request()
-    var response = doRequest(chain, request)!!
+    var response = doRequest(chain, request)
     var retryNum = 0
     while ((response == null || !response.isSuccessful) && retryNum <= executionCount) {
       val nextInterval = retryInterval
@@ -29,7 +36,16 @@ class OkhttpRetryInterceptor(builder: Builder) : Interceptor {
       }
       retryNum++
       // retry the request
-      response = doRequest(chain, request)!!
+      response = doRequest(chain, request)
+    }
+    if(response == null){
+      return Response.Builder()
+          .code(500)
+          .body(ResponseBody.create(null,""))
+          .request(request)
+          .message("socket error")
+          .protocol(HTTP_1_1)
+          .build()
     }
     return response
   }

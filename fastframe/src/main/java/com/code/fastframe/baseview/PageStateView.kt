@@ -34,7 +34,10 @@ class PageStateView : BaseViewLayout, OnClickListener, IPageStateView {
     const val LOADING = 3
   }
 
-  private var currentState = State.LOADING
+  var currentState = State.LOADING
+    set(value) {
+      setViewData(currentState)
+    }
   private var emptyResource = 0
   private var errorResource = 0
   private var netResource = 0
@@ -106,7 +109,7 @@ class PageStateView : BaseViewLayout, OnClickListener, IPageStateView {
 
   override fun initData() {}
   override fun setViewData(data: Any?) {
-    currentState = data as Int
+//    currentState = data as Int
     visibility =
       if (currentState == State.SUCCESS) GONE else VISIBLE
     if (State.EMPTY == currentState) {

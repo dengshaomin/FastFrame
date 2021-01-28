@@ -18,13 +18,13 @@ object HttpUtils {
   suspend fun <T> requestServer(
     block: suspend () -> ServerModel<T>
   ): ServerResponse<T> {
-    try {
+    return try {
       val response = block()
       LogUtils.e(JSON.toJSONString(response.data))
-      return ServerResponse.success(response)
+      ServerResponse.success(response)
     } catch (e: Throwable) {
       e.printStackTrace()
-      return ServerResponse.error(e, null)
+      ServerResponse.error(e, null)
     }
   }
 }

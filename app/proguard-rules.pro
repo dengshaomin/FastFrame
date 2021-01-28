@@ -287,3 +287,8 @@ public static final android.os.Parcelable$Creator *;
 #"R.style.upsdk*",
 #"R.string.agc*"
 
+
+#xpopup
+-dontwarn com.lxj.xpopup.widget.**
+-keep class com.lxj.xpopup.widget.**{*;}
+

@@ -27,10 +27,16 @@ object Kotlin {
   const val core = "androidx.core:core-ktx:1.3.2"
 }
 
+object KotlinKtx {
+  const val viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+  const val activity_ktx = "androidx.activity:activity-ktx:1.1.0"
+
+}
+
 object SupportConfig {
   const val appcompat_v7 = "androidx.appcompat:appcompat:1.2.0"
   const val constraint_layout = "androidx.constraintlayout:constraintlayout:2.0.4"
-
+  const val coordinatorlayout = "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
 }
 
 object Fresco {
@@ -93,8 +99,18 @@ object Immersionbar {
   const val ktx = "com.gyf.immersionbar:immersionbar-ktx:3.0.0"
 }
 
+object Hilt {
+  const val viewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01"
+
+  // When using Kotlin.
+  const val kapt = "androidx.hilt:hilt-compiler:1.0.0-alpha01"
+
+  // When using Java.
+  const val annotationProcessor = "androidx.hilt:hilt-compiler:1.0.0-alpha01"
+}
+
 object Others {
-//  const val rxretrofit = "com.github.dengshaomin:RxRetrofit-master:1.0.8"
+  //  const val rxretrofit = "com.github.dengshaomin:RxRetrofit-master:1.0.8"
   const val eventbus = "org.greenrobot:eventbus:3.2.0"
   const val fastjson = "com.alibaba:fastjson:1.2.74"
   const val advrecyclerview = "com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:1.0.0"
@@ -105,6 +121,15 @@ object Others {
   const val multidex = "androidx.multidex:multidex:2.0.0"
   const val luban = "top.zibin:Luban:1.1.8"
   const val leakcanary = "com.squareup.leakcanary:leakcanary-android:2.5"
-  const val retrofit  = "com.squareup.retrofit2:retrofit:2.6.2"
+  const val retrofit = "com.squareup.retrofit2:retrofit:2.6.2"
+  const val xpopup = "com.lxj:xpopup:2.1.16"
+}
 
+object BuildConfigFileds {
+
+}
+
+object ServerHost {
+  const val debug = "http://www.kuaidi100.com"
+  const val release = "http://www.kuaidi100.com"
 }

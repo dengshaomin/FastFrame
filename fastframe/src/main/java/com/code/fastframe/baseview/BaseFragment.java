@@ -44,7 +44,7 @@ public abstract class BaseFragment extends Fragment implements IBaseViewLayout, 
     if (rootView != null) {
       this.initView();
       this.getBundleData();
-      this.getNetData();
+      this.requestNetData();
     }
     return rootView;
   }
@@ -58,7 +58,7 @@ public abstract class BaseFragment extends Fragment implements IBaseViewLayout, 
 
   }
 
-  public void getNetData() {
+  public void requestNetData() {
   }
 
   @Override
